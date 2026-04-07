@@ -31,8 +31,8 @@ export function SiteNav() {
             className={cn(
               "text-sm transition-colors",
               active
-                ? "border-b border-primary/60 pb-0.5 text-foreground shadow-[0_6px_16px_-8px_oklch(0.65_0.12_195_/_0.45)]"
-                : "border-b border-transparent pb-0.5 text-muted-foreground hover:text-foreground"
+                ? "border-b border-primary/50 pb-0.5 text-primary"
+                : "border-b border-transparent pb-0.5 text-muted-foreground hover:text-primary/85"
             )}
           >
             {label}

@@ -16,13 +16,13 @@ export function accentBorderClass(accent: AccentColor): string {
 export function accentCardGlowClass(accent: AccentColor): string {
   const map: Record<AccentColor, string> = {
     amber:
-      "group-hover:shadow-[0_0_28px_-6px_rgba(251,191,36,0.18)] group-hover:border-amber-400/20",
-    blue: "group-hover:shadow-[0_0_28px_-6px_rgba(56,189,248,0.18)] group-hover:border-sky-400/20",
+      "group-hover:shadow-[0_0_26px_-6px_rgba(251,191,36,0.14)] group-hover:border-amber-400/18",
+    blue: "group-hover:shadow-[0_0_26px_-6px_rgba(56,189,248,0.14)] group-hover:border-sky-400/18",
     green:
-      "group-hover:shadow-[0_0_28px_-6px_rgba(52,211,153,0.18)] group-hover:border-emerald-400/20",
-    teal: "group-hover:shadow-[0_0_28px_-6px_rgba(45,212,191,0.18)] group-hover:border-teal-400/20",
+      "group-hover:shadow-[0_0_26px_-6px_rgba(52,211,153,0.14)] group-hover:border-emerald-400/18",
+    teal: "group-hover:shadow-[0_0_26px_-6px_rgba(45,212,191,0.14)] group-hover:border-teal-400/18",
     violet:
-      "group-hover:shadow-[0_0_28px_-6px_rgba(167,139,250,0.2)] group-hover:border-violet-400/20",
+      "group-hover:shadow-[0_0_26px_-6px_rgba(167,139,250,0.16)] group-hover:border-violet-400/18",
   };
   return map[accent];
 }

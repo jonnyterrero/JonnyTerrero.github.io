@@ -19,7 +19,7 @@ export default function HomePage() {
           <span className="text-cyber-accent">HeartWire</span>{" "}
           builds clinical and consumer health tools where physiology, data,
           behavior, and{" "}
-          <span className="text-cyber-accent">systems engineering</span> meet.
+          <span className="text-primary">systems engineering</span> meet.
         </h1>
         <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
           This site is the front door: identity, portfolio, and a routing layer

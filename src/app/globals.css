@@ -79,12 +79,12 @@
   pointer-events: none;
   background: radial-gradient(
     ellipse 85% 70% at 15% 0%,
-    oklch(0.45 0.12 195 / 0.14) 0%,
+    oklch(0.45 0.12 195 / 0.1) 0%,
     transparent 55%
   ),
     radial-gradient(
       ellipse 60% 50% at 95% 80%,
-      oklch(0.42 0.1 300 / 0.1) 0%,
+      oklch(0.42 0.1 300 / 0.075) 0%,
       transparent 50%
     );
 }
@@ -100,7 +100,6 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 0 14px oklch(0.55 0.12 195 / 0.22));
 }
 
 /* Faint gradient rule (homepage sections); use with Separator: className="separator-cyber" */
