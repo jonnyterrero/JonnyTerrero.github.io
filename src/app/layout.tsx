@@ -48,11 +48,7 @@ export default function RootLayout({
           {children}
         </main>
         <footer className="border-t border-border/80 py-8 text-center text-xs text-muted-foreground">
-          <p className="max-w-md mx-auto leading-relaxed">
-            HeartWire — portfolio and deployment router. Apps run on their own
-            infra.
-          </p>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             <a
               href={MAILTO_URL}
               className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-primary"
