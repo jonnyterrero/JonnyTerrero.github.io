@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail } from "lucide-react";
 
 import { SiteHeader } from "@/components/site-header";
-import { GITHUB_URL, LINKEDIN_URL, SUBSTACK_URL } from "@/lib/site";
+import {
+  CONTACT_EMAIL,
+  GITHUB_URL,
+  INSTAGRAM_URL,
+  LINKEDIN_URL,
+  MAILTO_URL,
+  SUBSTACK_URL,
+} from "@/lib/site";
 
 import "./globals.css";
 
@@ -71,6 +78,22 @@ export default function RootLayout({
               className="text-muted-foreground transition-colors hover:text-primary"
             >
               Substack
+            </a>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-primary"
+            >
+              <Instagram className="size-3.5 shrink-0" aria-hidden />
+              Instagram
+            </a>
+            <a
+              href={MAILTO_URL}
+              className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-primary"
+            >
+              <Mail className="size-3.5 shrink-0" aria-hidden />
+              {CONTACT_EMAIL}
             </a>
           </div>
         </footer>

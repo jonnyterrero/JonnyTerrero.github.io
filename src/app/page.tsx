@@ -4,7 +4,12 @@ import { ProjectCard } from "@/components/project-card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { getFeaturedProjects } from "@/lib/projects";
-import { SUBSTACK_URL } from "@/lib/site";
+import {
+  CONTACT_EMAIL,
+  INSTAGRAM_URL,
+  MAILTO_URL,
+  SUBSTACK_URL,
+} from "@/lib/site";
 
 export default function HomePage() {
   const featured = getFeaturedProjects();
@@ -36,14 +41,30 @@ export default function HomePage() {
               <Link href="/about">About the operator</Link>
             </Button>
           </div>
-          <a
-            href={SUBSTACK_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-muted-foreground transition-colors hover:text-primary"
-          >
-            Substack →
-          </a>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+            <a
+              href={SUBSTACK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground transition-colors hover:text-primary"
+            >
+              Substack →
+            </a>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground transition-colors hover:text-primary"
+            >
+              Instagram →
+            </a>
+            <a
+              href={MAILTO_URL}
+              className="text-muted-foreground transition-colors hover:text-primary"
+            >
+              {CONTACT_EMAIL}
+            </a>
+          </div>
         </div>
       </section>
 
