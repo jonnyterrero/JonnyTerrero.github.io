@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { ExternalLink } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -29,23 +31,47 @@ export function ProjectCard({ project }: { project: Project }) {
         accentCardGlowClass(project.accentColor)
       )}
     >
-      <CardHeader className="space-y-2">
-        <div className="flex flex-wrap items-center gap-2">
-          <CardTitle className="text-base font-semibold">
-            <Link
-              href={`/projects/${project.slug}`}
-              className="rounded-sm transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      <CardHeader className="space-y-3">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div className="min-w-0 flex-1 space-y-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <CardTitle className="text-base font-semibold">
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="rounded-sm transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  {project.name}
+                </Link>
+              </CardTitle>
+              <Badge
+                variant="outline"
+                className={statusBadgeClass(project.status)}
+              >
+                {project.status}
+              </Badge>
+            </div>
+            <CardDescription className="text-sm leading-relaxed">
+              {project.tagline}
+            </CardDescription>
+          </div>
+          {showLive ? (
+            <Button
+              variant="outline"
+              size="sm"
+              asChild
+              className="shrink-0 border-primary/40 text-foreground hover:border-primary/70 hover:bg-primary/10 hover:text-foreground"
             >
-              {project.name}
-            </Link>
-          </CardTitle>
-          <Badge variant="outline" className={statusBadgeClass(project.status)}>
-            {project.status}
-          </Badge>
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ExternalLink className="size-3.5" aria-hidden />
+                Live deployment
+              </a>
+            </Button>
+          ) : null}
         </div>
-        <CardDescription className="text-sm leading-relaxed">
-          {project.tagline}
-        </CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
         <p className="text-sm leading-relaxed text-muted-foreground">
@@ -62,18 +88,6 @@ export function ProjectCard({ project }: { project: Project }) {
             </Badge>
           ))}
         </div>
-        {showLive ? (
-          <p className="pt-1">
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-muted-foreground transition-colors hover:text-primary"
-            >
-              Live app →
-            </a>
-          </p>
-        ) : null}
       </CardContent>
     </Card>
   );
