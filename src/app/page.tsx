@@ -4,12 +4,7 @@ import { ProjectCard } from "@/components/project-card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { getFeaturedProjects } from "@/lib/projects";
-import {
-  CONTACT_EMAIL,
-  INSTAGRAM_URL,
-  MAILTO_URL,
-  SUBSTACK_URL,
-} from "@/lib/site";
+import { GITHUB_URL, LINKEDIN_URL } from "@/lib/site";
 
 export default function HomePage() {
   const featured = getFeaturedProjects();
@@ -43,26 +38,20 @@ export default function HomePage() {
           </div>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
             <a
-              href={SUBSTACK_URL}
+              href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground transition-colors hover:text-primary"
             >
-              Substack →
+              GitHub →
             </a>
             <a
-              href={INSTAGRAM_URL}
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground transition-colors hover:text-primary"
             >
-              Instagram →
-            </a>
-            <a
-              href={MAILTO_URL}
-              className="text-muted-foreground transition-colors hover:text-primary"
-            >
-              {CONTACT_EMAIL}
+              LinkedIn →
             </a>
           </div>
         </div>

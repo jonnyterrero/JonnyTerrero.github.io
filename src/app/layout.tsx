@@ -54,6 +54,13 @@ export default function RootLayout({
           </p>
           <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             <a
+              href={MAILTO_URL}
+              className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-primary"
+            >
+              <Mail className="size-3.5 shrink-0" aria-hidden />
+              {CONTACT_EMAIL}
+            </a>
+            <a
               href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -87,13 +94,6 @@ export default function RootLayout({
             >
               <Instagram className="size-3.5 shrink-0" aria-hidden />
               Instagram
-            </a>
-            <a
-              href={MAILTO_URL}
-              className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-primary"
-            >
-              <Mail className="size-3.5 shrink-0" aria-hidden />
-              {CONTACT_EMAIL}
             </a>
           </div>
         </footer>
