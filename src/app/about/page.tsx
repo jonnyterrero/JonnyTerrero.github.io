@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { SkillsCapabilitiesSection } from "@/components/skills-capabilities-section";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
@@ -37,7 +38,11 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <Separator />
+      <Separator className="separator-cyber" />
+
+      <SkillsCapabilitiesSection />
+
+      <Separator className="separator-cyber" />
 
       <Button variant="outline" asChild>
         <Link href="/ecosystem">Ecosystem map</Link>
