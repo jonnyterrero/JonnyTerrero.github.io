@@ -6,7 +6,7 @@ export type ProjectCategory =
   | "biomedical-device"
   | "ai-tooling";
 
-export type AccentColor = "amber" | "blue" | "green" | "teal";
+export type AccentColor = "amber" | "blue" | "green" | "teal" | "violet";
 
 export interface ProjectDetail {
   problem: string;

@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { accentDotClass } from "@/lib/accent";
+import { accentDotClass, statusBadgeClass } from "@/lib/accent";
 import {
   getAllSlugs,
   getProjectBySlug,
@@ -57,7 +57,9 @@ export default async function ProjectPage({ params }: Props) {
             {project.name}
           </h1>
           <p className="text-base text-muted-foreground">{project.tagline}</p>
-          <Badge variant="secondary">{project.status}</Badge>
+          <Badge variant="outline" className={statusBadgeClass(project.status)}>
+            {project.status}
+          </Badge>
         </header>
       </div>
 
