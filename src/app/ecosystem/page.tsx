@@ -22,11 +22,13 @@ export default function EcosystemPage() {
     <div className="space-y-12">
       <header className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight">Ecosystem</h1>
-        <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          Everything below is sourced from a single dataset. Categories reflect
-          how work is organized—apps, shared platform layers, devices, and
-          internal tooling—not marketing tiers.
-        </p>
+        <div className="max-w-2xl space-y-4 text-sm leading-relaxed text-muted-foreground">
+          <p>Everything below started as an attempt to solve a real problem.</p>
+          <p>
+            Each project is part of a larger system, and the structure reflects
+            how that work is organized.
+          </p>
+        </div>
       </header>
 
       {CATEGORY_ORDER.map((category, index) => {

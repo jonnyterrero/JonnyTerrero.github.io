@@ -21,12 +21,16 @@ export default function HomePage() {
           behavior, and{" "}
           <span className="text-primary">systems engineering</span> meet.
         </h1>
-        <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
-          This site is the front door: identity, portfolio, and a routing layer
-          to each application&apos;s live deployment. Product logic and backends
-          stay with the apps—here you get orientation, evidence of work, and
-          direct links when a build is public.
-        </p>
+        <div className="max-w-2xl space-y-4 text-base leading-relaxed text-muted-foreground">
+          <p>
+            This is my personal site. It is a running log of what I am building
+            and how I am building it.
+          </p>
+          <p>
+            It is part portfolio and part system map. When a project is live,
+            it is linked here, not just described.
+          </p>
+        </div>
         <div className="flex flex-wrap items-center gap-4">
           <div className="flex flex-wrap gap-3">
             <Button asChild>
@@ -65,20 +69,26 @@ export default function HomePage() {
         </h2>
         <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
           <p>
-            Health is treated as a{" "}
-            <span className="font-medium text-primary">systems problem</span>,
-            not a series of disconnected symptoms. Observable inputs span
-            behavior, physiology, and environment; outputs are measurable
-            patterns, constraints, and candidate interventions.
+            Human health is a system, just like engineering. Engineering is an
+            applied discipline, and nothing is truly disconnected, especially
+            when it comes to the body.
           </p>
           <p>
-            The objective is straightforward:{" "}
+            Observable inputs include behavior, mental and emotional state,
+            physiology, and environment. Every input and output forms measurable
+            patterns, constraints, and potential interventions.
+          </p>
+          <p>
+            Learning about yourself means learning your own health. The
+            solutions are often simpler than expected.{" "}
             <span className="font-medium text-primary">
-              reduce noise, increase signal
+              Reduce noise and confusion. Increase and consolidate the signal.
             </span>
-            . Structured logging, time alignment, and explicit hypotheses beat
-            anecdote when you are trying to learn from a body that changes every
-            week.
+          </p>
+          <p>
+            Structured inputs, alignment, and explicit hypotheses outperform
+            anecdotes when you are trying to understand a system that changes
+            constantly.
           </p>
         </div>
       </section>

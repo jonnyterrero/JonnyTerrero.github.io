@@ -24,17 +24,17 @@ export default function AboutPage() {
       <section className="space-y-4 text-sm leading-relaxed text-muted-foreground">
         <p>
           My work is driven by structure and discipline. I treat the body and
-          mind as systems — inputs, outputs, and patterns that can be understood
-          and improved over time.
+          mind as systems. Inputs, outputs, and patterns can be managed,
+          understood, and improved over time.
         </p>
         <p>
-          HeartWire is where I apply that thinking: turning real-world health
-          problems into engineered solutions.
+          HeartWire is where I apply that thinking, turning real-world health
+          problems into structured, engineered solutions.
         </p>
         <p>
-          Outside of that, I train in powerlifting and Brazilian Jiu-Jitsu —
-          both shape how I approach growth: consistent, deliberate, and grounded
-          in reality.
+          Outside of HeartWire, I am an Orthodox Christian, powerlifter, and
+          Brazilian Jiu-Jitsu practitioner. These shape how I approach problems
+          and growth: consistent, deliberate, and grounded in reality.
         </p>
       </section>
 
