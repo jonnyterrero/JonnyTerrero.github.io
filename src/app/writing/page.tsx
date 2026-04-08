@@ -40,12 +40,12 @@ export default function WritingPage() {
         <h1 className="accent-text font-mono text-sm font-semibold uppercase tracking-[0.22em]">
           {`// WRITING & REFLECTION`}
         </h1>
-        <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">
+        <p className="max-w-2xl text-sm font-medium leading-relaxed text-muted-foreground">
           Essays and longer threads live on Substack. This page is an index only.
         </p>
       </header>
 
-      <section className="space-y-4 rounded-lg border border-primary/12 bg-card/50 p-6">
+      <section className="space-y-4 rounded-lg border border-primary/18 bg-card/50 p-6 transition-[border-color,box-shadow] duration-200 ease-out hover:border-primary/28">
         <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
           Featured
         </p>

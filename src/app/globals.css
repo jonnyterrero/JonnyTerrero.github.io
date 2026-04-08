@@ -24,14 +24,17 @@
 }
 
 :root {
-  --radius: 0.75rem;
+  /* ~rounded-2xl scale for cards, dialogs, hero, tiles */
+  --radius: 1rem;
   /* Dark slate base with slight blue hue */
   --background: oklch(0.11 0.022 265);
   --foreground: oklch(0.93 0.012 265);
   /* Layered surface: lifted, faint chroma */
   --card: oklch(0.155 0.028 265);
   --card-foreground: oklch(0.93 0.012 265);
-  /* Pastel cyan-teal primary */
+  /* Pastel cyan-teal primary (hue 195): documented border tints for surfaces */
+  --cyber-border: oklch(0.55 0.1 195 / 0.18);
+  --cyber-border-hover: oklch(0.55 0.1 195 / 0.3);
   --primary: oklch(0.72 0.11 195);
   --primary-foreground: oklch(0.14 0.04 265);
   --secondary: oklch(0.22 0.035 275);
@@ -63,9 +66,22 @@
   .eyebrow-mono {
     @apply font-mono text-xs font-medium uppercase tracking-[0.22em] text-cyber-eyebrow;
   }
-  /* Section body: slightly denser than text-sm + relaxed */
+  /* Section body: medium weight + readable contrast on dark surfaces */
   .body-prose-muted {
-    @apply text-[0.9375rem] leading-[1.65] text-foreground/82;
+    @apply text-[0.9375rem] font-medium leading-[1.65] text-foreground/88;
+  }
+  /* Key phrase: same gradient as .accent-text + semibold */
+  .accent-phrase {
+    font-weight: 600;
+    background: linear-gradient(
+      105deg,
+      oklch(0.78 0.1 195) 0%,
+      oklch(0.75 0.12 280) 55%,
+      oklch(0.78 0.09 330) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }
 
@@ -74,7 +90,7 @@
   position: relative;
   isolation: isolate;
   border-radius: var(--radius-lg);
-  border: 1px solid oklch(0.38 0.05 265 / 0.45);
+  border: 1px solid color-mix(in oklch, oklch(0.38 0.05 265 / 0.45) 78%, oklch(0.55 0.1 195 / 0.28) 22%);
   background: oklch(0.14 0.025 265 / 0.85);
   box-shadow:
     0 0 0 1px oklch(0.55 0.1 195 / 0.08),

@@ -56,7 +56,7 @@ export default async function ProjectPage({ params }: Props) {
           <h1 className="text-3xl font-semibold tracking-tight">
             {project.name}
           </h1>
-          <p className="text-base font-medium text-foreground/90">
+          <p className="text-base font-semibold text-foreground/90">
             {project.tagline}
           </p>
           <Badge variant="outline" className={statusBadgeClass(project.status)}>

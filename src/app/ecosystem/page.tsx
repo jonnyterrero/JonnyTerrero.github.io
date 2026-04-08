@@ -22,13 +22,17 @@ export default function EcosystemPage() {
     <div className="space-y-12">
       <header className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tighter text-foreground">
-          <span className="accent-text">Ecosystem</span>
+          <span className="accent-phrase">Ecosystem</span>
         </h1>
         <div className="max-w-2xl space-y-4 body-prose-muted">
-          <p>Everything below started as an attempt to solve a real problem.</p>
+          <p className="font-semibold text-foreground/92">
+            Everything below started as an attempt to solve a real problem.
+          </p>
           <p>
-            Each project is part of a larger system, and the structure reflects
-            how that work is organized.
+            <span className="accent-phrase">
+              Each project is part of a larger system
+            </span>
+            , and the structure reflects how that work is organized.
           </p>
         </div>
       </header>

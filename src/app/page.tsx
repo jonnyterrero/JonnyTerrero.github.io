@@ -21,7 +21,7 @@ export default function HomePage() {
           behavior, and{" "}
           <span className="text-primary">systems engineering</span> meet.
         </h1>
-        <div className="max-w-2xl space-y-4 text-base leading-relaxed text-muted-foreground">
+        <div className="max-w-2xl space-y-4 text-base font-medium leading-relaxed text-muted-foreground">
           <p>
             This is my personal site. It is a running log of what I am building
             and how I am building it.
@@ -69,9 +69,10 @@ export default function HomePage() {
         </h2>
         <div className="space-y-4 body-prose-muted">
           <p>
-            Human health is a system, just like engineering. Engineering is an
-            applied discipline, and nothing is truly disconnected, especially
-            when it comes to the body.
+            Human health is a system, just like engineering.{" "}
+            <span className="accent-phrase">Engineering is an applied discipline</span>
+            , and nothing is truly disconnected, especially when it comes to the
+            body.
           </p>
           <p>
             Observable inputs include behavior, mental and emotional state,
@@ -82,14 +83,14 @@ export default function HomePage() {
             Learning about yourself means learning your own health. The
             solutions are often simpler than expected. Reduce noise and
             confusion.{" "}
-            <span className="accent-text">
-              Increase and consolidate the signal.
-            </span>
+            <span className="accent-phrase">Increase and consolidate the signal.</span>
           </p>
           <p>
-            Structured inputs, alignment, and explicit hypotheses outperform
-            anecdotes when you are trying to understand a system that changes
-            constantly.
+            <span className="accent-phrase">
+              Structured inputs, alignment, and explicit hypotheses
+            </span>{" "}
+            outperform anecdotes when you are trying to understand a system that
+            changes constantly.
           </p>
         </div>
       </section>

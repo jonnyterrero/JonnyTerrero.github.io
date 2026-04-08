@@ -33,7 +33,7 @@ export function SkillsCapabilitiesSection() {
               key={cap.id}
               type="button"
               onClick={() => setOpen(cap)}
-              className="group flex items-start gap-3 rounded-lg border border-primary/12 bg-card/75 p-4 text-left backdrop-blur-sm transition-[transform,colors,box-shadow,border-color] duration-200 ease-out hover:-translate-y-px hover:border-primary/22"
+              className="group flex items-start gap-3 rounded-lg border border-primary/18 bg-card/75 p-4 text-left backdrop-blur-sm transition-[transform,colors,box-shadow,border-color] duration-200 ease-out hover:-translate-y-px hover:border-primary/30"
             >
               <Icon
                 className="mt-0.5 size-5 shrink-0 text-primary/90"

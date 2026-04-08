@@ -25,8 +25,8 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Card
       className={cn(
-        "group relative overflow-hidden border border-primary/12 bg-card/75 backdrop-blur-sm transition-[transform,colors,box-shadow,border-color] duration-200 ease-out",
-        "hover:-translate-y-px hover:border-primary/22",
+        "group relative overflow-hidden border border-primary/18 bg-card/75 backdrop-blur-sm transition-[transform,colors,box-shadow,border-color] duration-200 ease-out",
+        "hover:-translate-y-px hover:border-primary/30",
         accentBorderClass(project.accentColor),
         accentCardGlowClass(project.accentColor)
       )}
@@ -50,7 +50,7 @@ export function ProjectCard({ project }: { project: Project }) {
                 {project.status}
               </Badge>
             </div>
-            <CardDescription className="text-foreground/88 leading-relaxed">
+            <CardDescription className="font-semibold text-foreground/88 leading-relaxed">
               {project.tagline}
             </CardDescription>
           </div>
