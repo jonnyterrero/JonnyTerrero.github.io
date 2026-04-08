@@ -21,8 +21,10 @@ export default function EcosystemPage() {
   return (
     <div className="space-y-12">
       <header className="space-y-3">
-        <h1 className="text-3xl font-semibold tracking-tight">Ecosystem</h1>
-        <div className="max-w-2xl space-y-4 text-sm leading-relaxed text-muted-foreground">
+        <h1 className="text-3xl font-semibold tracking-tighter text-foreground">
+          <span className="accent-text">Ecosystem</span>
+        </h1>
+        <div className="max-w-2xl space-y-4 body-prose-muted">
           <p>Everything below started as an attempt to solve a real problem.</p>
           <p>
             Each project is part of a larger system, and the structure reflects

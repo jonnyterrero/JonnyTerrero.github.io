@@ -47,16 +47,17 @@ export default function RootLayout({
         <main className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
           {children}
         </main>
-        <footer className="border-t border-border/80 py-8 text-center text-xs text-muted-foreground">
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            <a
+        <footer className="border-t border-border/80 py-8 text-xs text-muted-foreground">
+          <div className="mx-auto max-w-3xl px-4 text-left sm:px-6">
+            <div className="flex flex-wrap items-center justify-start gap-x-6 gap-y-2">
+              <a
               href={MAILTO_URL}
               className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-primary"
             >
               <Mail className="size-3.5 shrink-0" aria-hidden />
               {CONTACT_EMAIL}
-            </a>
-            <a
+              </a>
+              <a
               href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -64,8 +65,8 @@ export default function RootLayout({
             >
               <Github className="size-3.5 shrink-0" aria-hidden />
               GitHub
-            </a>
-            <a
+              </a>
+              <a
               href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -73,16 +74,16 @@ export default function RootLayout({
             >
               <Linkedin className="size-3.5 shrink-0" aria-hidden />
               LinkedIn
-            </a>
-            <a
+              </a>
+              <a
               href={SUBSTACK_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground transition-colors hover:text-primary"
             >
               Substack
-            </a>
-            <a
+              </a>
+              <a
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -90,7 +91,8 @@ export default function RootLayout({
             >
               <Instagram className="size-3.5 shrink-0" aria-hidden />
               Instagram
-            </a>
+              </a>
+            </div>
           </div>
         </footer>
       </body>

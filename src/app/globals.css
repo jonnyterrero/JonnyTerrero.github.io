@@ -58,6 +58,17 @@
   }
 }
 
+@layer components {
+  /* // labels: mono + eyebrow color */
+  .eyebrow-mono {
+    @apply font-mono text-xs font-medium uppercase tracking-[0.22em] text-cyber-eyebrow;
+  }
+  /* Section body: slightly denser than text-sm + relaxed */
+  .body-prose-muted {
+    @apply text-[0.9375rem] leading-[1.65] text-muted-foreground;
+  }
+}
+
 /* Hero: single soft radial, no animation */
 .hero-panel {
   position: relative;
@@ -89,8 +100,9 @@
     );
 }
 
-/* Restrained gradient text for short emphasis */
-.text-cyber-accent {
+/* Hero-aligned gradient emphasis; use sparingly (alias: accent-text) */
+.text-cyber-accent,
+.accent-text {
   background: linear-gradient(
     105deg,
     oklch(0.78 0.1 195) 0%,

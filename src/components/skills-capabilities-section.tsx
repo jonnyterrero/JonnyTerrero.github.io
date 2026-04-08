@@ -19,15 +19,13 @@ export function SkillsCapabilitiesSection() {
   return (
     <section className="space-y-6">
       <div className="space-y-1.5">
-        <p className="text-xs font-medium uppercase tracking-[0.22em] text-cyber-eyebrow">
-          {"// Skills & Capabilities"}
-        </p>
+        <p className="eyebrow-mono">{"// Skills & Capabilities"}</p>
         <p className="text-sm text-muted-foreground">
           A breakdown of the systems I build and operate across.
         </p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {capabilities.map((cap) => {
           const Icon = cap.icon;
           return (
@@ -35,7 +33,7 @@ export function SkillsCapabilitiesSection() {
               key={cap.id}
               type="button"
               onClick={() => setOpen(cap)}
-              className="group flex items-start gap-3 rounded-lg border border-primary/12 bg-card/75 p-4 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-px hover:border-primary/22"
+              className="group flex items-start gap-3 rounded-lg border border-primary/12 bg-card/75 p-4 text-left backdrop-blur-sm transition-[transform,colors,box-shadow,border-color] duration-200 ease-out hover:-translate-y-px hover:border-primary/22"
             >
               <Icon
                 className="mt-0.5 size-5 shrink-0 text-primary/90"

@@ -25,7 +25,7 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Card
       className={cn(
-        "group relative overflow-hidden border border-primary/12 bg-card/75 backdrop-blur-sm transition-all duration-300",
+        "group relative overflow-hidden border border-primary/12 bg-card/75 backdrop-blur-sm transition-[transform,colors,box-shadow,border-color] duration-200 ease-out",
         "hover:-translate-y-px hover:border-primary/22",
         accentBorderClass(project.accentColor),
         accentCardGlowClass(project.accentColor)

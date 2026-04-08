@@ -35,9 +35,9 @@ const more = [
 
 export default function WritingPage() {
   return (
-    <article className="space-y-10">
+    <article className="space-y-12">
       <header className="space-y-3">
-        <h1 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+        <h1 className="accent-text font-mono text-sm font-semibold uppercase tracking-[0.22em]">
           {`// WRITING & REFLECTION`}
         </h1>
         <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">

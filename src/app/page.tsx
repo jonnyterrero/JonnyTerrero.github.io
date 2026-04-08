@@ -10,9 +10,9 @@ export default function HomePage() {
   const featured = getFeaturedProjects();
 
   return (
-    <div className="space-y-14">
+    <div className="space-y-12">
       <section className="hero-panel space-y-6 p-6 sm:p-8">
-        <p className="text-xs font-medium uppercase tracking-[0.22em] text-cyber-eyebrow">
+        <p className="eyebrow-mono">
           Health-tech lab · early-stage studio
         </p>
         <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
@@ -67,7 +67,7 @@ export default function HomePage() {
         <h2 className="text-lg font-semibold tracking-tight">
           System philosophy
         </h2>
-        <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
+        <div className="space-y-4 body-prose-muted">
           <p>
             Human health is a system, just like engineering. Engineering is an
             applied discipline, and nothing is truly disconnected, especially
@@ -80,9 +80,10 @@ export default function HomePage() {
           </p>
           <p>
             Learning about yourself means learning your own health. The
-            solutions are often simpler than expected.{" "}
-            <span className="font-medium text-primary">
-              Reduce noise and confusion. Increase and consolidate the signal.
+            solutions are often simpler than expected. Reduce noise and
+            confusion.{" "}
+            <span className="accent-text">
+              Increase and consolidate the signal.
             </span>
           </p>
           <p>
