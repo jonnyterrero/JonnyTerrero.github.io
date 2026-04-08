@@ -8,6 +8,14 @@ export type ProjectCategory =
 
 export type AccentColor = "amber" | "blue" | "green" | "teal" | "violet";
 
+export type CapabilityId =
+  | "core-engineering"
+  | "fullstack"
+  | "data-analysis"
+  | "biomedical-embedded"
+  | "ai-automation"
+  | "tools-workflow";
+
 export interface ProjectDetail {
   problem: string;
   design: string;
@@ -28,6 +36,7 @@ export interface Project {
   targetUsers: string[];
   accentColor: AccentColor;
   featured: boolean;
+  capabilityDetails?: Partial<Record<CapabilityId, string>>;
   detail?: ProjectDetail;
 }
 
@@ -47,6 +56,17 @@ export function getProjectBySlug(slug: string): Project | undefined {
 
 export function getProjectsByCategory(category: ProjectCategory): Project[] {
   return projects.filter((p) => p.category === category);
+}
+
+export function getProjectsForCapabilityDetail(
+  id: CapabilityId,
+): { project: Project; line: string }[] {
+  const items: { project: Project; line: string }[] = [];
+  for (const project of projects) {
+    const line = project.capabilityDetails?.[id]?.trim();
+    if (line) items.push({ project, line });
+  }
+  return items.sort((a, b) => a.project.name.localeCompare(b.project.name));
 }
 
 export function getAllSlugs(): string[] {

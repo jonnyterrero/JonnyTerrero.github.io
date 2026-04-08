@@ -1,8 +1,10 @@
 import type { LucideIcon } from "lucide-react";
 import { Activity, Bot, Code2, Cpu, Layers, Wrench } from "lucide-react";
 
+import type { CapabilityId } from "@/lib/projects";
+
 export interface Capability {
-  id: string;
+  id: CapabilityId;
   title: string;
   descriptor: string;
   description: string;
@@ -21,7 +23,7 @@ export const capabilities: Capability[] = [
     icon: Code2,
   },
   {
-    id: "full-stack-data",
+    id: "fullstack",
     title: "Full-Stack & Data Systems",
     descriptor: "Apps with structured data layers",
     description:
@@ -35,7 +37,7 @@ export const capabilities: Capability[] = [
     icon: Layers,
   },
   {
-    id: "data-signal",
+    id: "data-analysis",
     title: "Data & Signal Analysis",
     descriptor: "Patterns from behavioral and physiological data",
     description:

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 import { capabilities, type Capability } from "@/lib/capabilities";
@@ -10,6 +11,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { getProjectsForCapabilityDetail } from "@/lib/projects";
 
 export function SkillsCapabilitiesSection() {
   const [open, setOpen] = useState<Capability | null>(null);
@@ -71,6 +73,34 @@ export function SkillsCapabilitiesSection() {
                 </li>
               ))}
             </ul>
+            {(() => {
+              const usedIn = getProjectsForCapabilityDetail(open.id);
+              if (usedIn.length === 0) return null;
+              return (
+                <div className="mt-6 space-y-3">
+                  <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                    Used In
+                  </p>
+                  <ul className="space-y-3 text-sm">
+                    {usedIn.map(({ project, line }) => (
+                      <li key={project.slug} className="space-y-0.5">
+                        <div>
+                          <Link
+                            href={`/projects/${project.slug}`}
+                            className="font-medium text-foreground underline-offset-4 hover:text-primary hover:underline"
+                          >
+                            {project.name}
+                          </Link>
+                        </div>
+                        <p className="text-xs leading-snug text-muted-foreground">
+                          {line}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })()}
           </DialogContent>
         )}
       </Dialog>

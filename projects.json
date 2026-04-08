@@ -12,7 +12,11 @@
     "useCase": "For gastritis, reflux, and chronic GI patients trying to identify dietary and behavioral triggers.",
     "targetUsers": ["patients", "clinicians"],
     "accentColor": "amber",
-    "featured": true
+    "featured": true,
+    "capabilityDetails": {
+      "fullstack": "Next.js PWA with Supabase auth and structured GI logging.",
+      "data-analysis": "Trigger scoring and longitudinal patterns on symptom data."
+    }
   },
   {
     "slug": "mindmap-plus",
@@ -27,7 +31,11 @@
     "useCase": "For ADHD, anxiety, and performance tracking across time.",
     "targetUsers": ["patients", "coaches", "researchers"],
     "accentColor": "blue",
-    "featured": true
+    "featured": true,
+    "capabilityDetails": {
+      "fullstack": "Next.js app with Supabase and Recharts dashboards.",
+      "data-analysis": "Check-ins turned into structured time-series behavioral signals."
+    }
   },
   {
     "slug": "skintrack",
@@ -42,7 +50,11 @@
     "useCase": "For chronic skin condition patients and longitudinal tracking.",
     "targetUsers": ["patients", "clinicians"],
     "accentColor": "green",
-    "featured": true
+    "featured": true,
+    "capabilityDetails": {
+      "data-analysis": "Correlates lesions and breakouts with diet, sun, and stress.",
+      "biomedical-embedded": "Vision pipeline plus physiological context for skin lesions."
+    }
   },
   {
     "slug": "glucoloop",
@@ -57,7 +69,11 @@
     "useCase": "For metabolic optimization and diabetes management.",
     "targetUsers": ["CGM users", "biohackers"],
     "accentColor": "green",
-    "featured": false
+    "featured": false,
+    "capabilityDetails": {
+      "fullstack": "FastAPI services and Supabase backing CGM analytics APIs.",
+      "data-analysis": "Faster, more actionable glucose insights from CGM streams."
+    }
   },
   {
     "slug": "healthhelper",
@@ -72,7 +88,11 @@
     "useCase": "Acts as the backend intelligence layer for the entire ecosystem.",
     "targetUsers": ["internal", "researchers"],
     "accentColor": "teal",
-    "featured": false
+    "featured": false,
+    "capabilityDetails": {
+      "fullstack": "Unified Postgres and Supabase layer across HeartWire apps.",
+      "data-analysis": "Cross-domain analytics across sleep, GI, stress, and behavior."
+    }
   },
   {
     "slug": "5am-club",
@@ -87,7 +107,11 @@
     "useCase": "Supports sustained self-education: planning work, capturing notes, and organizing projects and reference material over time.",
     "targetUsers": ["personal", "students", "engineers"],
     "accentColor": "violet",
-    "featured": false
+    "featured": false,
+    "capabilityDetails": {
+      "tools-workflow": "Study OS for notes, plans, and long-horizon engineering depth.",
+      "fullstack": "Next.js workspace for structured self-education over time."
+    }
   },
   {
     "slug": "modular-knee-brace",
@@ -103,6 +127,10 @@
     "targetUsers": ["athletes", "patients", "rehab specialists"],
     "accentColor": "blue",
     "featured": true,
+    "capabilityDetails": {
+      "biomedical-embedded": "CAD, printing, and biomechanics for wearable joint support.",
+      "core-engineering": "Load sharing and alignment across modular brace components."
+    },
     "detail": {
       "problem": "Knee instability and pain often come from support that is either too generic or too rigid. Off-the-shelf braces rarely adapt to changing swelling, activity level, or limb geometry, so users trade comfort for stability—or the opposite.",
       "design": "The system is built from modular components and an adjustable structure so fit and support can be tuned without replacing the entire device. The goal is repeatable alignment and load sharing across sessions, not a single fixed geometry.",
@@ -126,6 +154,10 @@
     "useCase": "Personal second brain for engineering and research.",
     "targetUsers": ["personal", "engineers"],
     "accentColor": "teal",
-    "featured": false
+    "featured": false,
+    "capabilityDetails": {
+      "ai-automation": "OpenAI and GitHub Actions for research synthesis pipelines.",
+      "tools-workflow": "Structured automation outputs spanning engineering projects."
+    }
   }
 ]
