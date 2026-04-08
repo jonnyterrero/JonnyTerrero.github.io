@@ -20,7 +20,7 @@ export function SkillsCapabilitiesSection() {
     <section className="space-y-6">
       <div className="space-y-1.5">
         <p className="eyebrow-mono">{"// Skills & Capabilities"}</p>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm font-medium text-muted-foreground">
           A breakdown of the systems I build and operate across.
         </p>
       </div>
@@ -43,7 +43,7 @@ export function SkillsCapabilitiesSection() {
                 <span className="text-sm font-semibold leading-tight text-foreground">
                   {cap.title}
                 </span>
-                <span className="mt-0.5 block text-xs text-muted-foreground line-clamp-1">
+                <span className="mt-0.5 block text-xs font-medium text-muted-foreground line-clamp-1">
                   {cap.descriptor}
                 </span>
               </div>

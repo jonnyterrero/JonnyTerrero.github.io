@@ -56,7 +56,9 @@ export default async function ProjectPage({ params }: Props) {
           <h1 className="text-3xl font-semibold tracking-tight">
             {project.name}
           </h1>
-          <p className="text-base text-muted-foreground">{project.tagline}</p>
+          <p className="text-base font-medium text-foreground/90">
+            {project.tagline}
+          </p>
           <Badge variant="outline" className={statusBadgeClass(project.status)}>
             {project.status}
           </Badge>
@@ -92,14 +94,14 @@ export default async function ProjectPage({ params }: Props) {
 
       <section className="space-y-3">
         <h2 className="text-sm font-semibold text-foreground">Summary</h2>
-        <p className="text-sm leading-relaxed text-muted-foreground">
+        <p className="text-sm font-medium leading-relaxed text-muted-foreground">
           {project.summary}
         </p>
       </section>
 
       <section className="space-y-3">
         <h2 className="text-sm font-semibold text-foreground">Use case</h2>
-        <p className="text-sm leading-relaxed text-muted-foreground">
+        <p className="text-sm font-medium leading-relaxed text-muted-foreground">
           {project.useCase}
         </p>
       </section>

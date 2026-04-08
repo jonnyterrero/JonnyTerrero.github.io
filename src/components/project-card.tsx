@@ -50,7 +50,7 @@ export function ProjectCard({ project }: { project: Project }) {
                 {project.status}
               </Badge>
             </div>
-            <CardDescription className="text-sm leading-relaxed">
+            <CardDescription className="text-foreground/88 leading-relaxed">
               {project.tagline}
             </CardDescription>
           </div>
@@ -74,7 +74,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       </CardHeader>
       <CardContent className="space-y-3">
-        <p className="text-sm leading-relaxed text-muted-foreground">
+        <p className="text-sm font-medium leading-relaxed text-muted-foreground">
           {project.summary}
         </p>
         <div className="flex flex-wrap gap-1.5">

@@ -45,12 +45,12 @@ export default function WritingPage() {
         </p>
       </header>
 
-      <section className="space-y-4 rounded-lg border border-border bg-card/40 p-6">
+      <section className="space-y-4 rounded-lg border border-primary/12 bg-card/50 p-6">
         <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
           Featured
         </p>
         <h2 className="text-lg font-semibold tracking-tight">{featured.title}</h2>
-        <p className="text-sm leading-relaxed text-muted-foreground">
+        <p className="text-sm font-medium leading-relaxed text-muted-foreground">
           {featured.excerpt}
         </p>
         <Button variant="outline" size="sm" asChild>
@@ -68,7 +68,9 @@ export default function WritingPage() {
           {more.map((item) => (
             <li key={item.title} className="space-y-2">
               <p className="text-sm font-medium text-foreground">{item.title}</p>
-              <p className="text-sm text-muted-foreground">{item.description}</p>
+              <p className="text-sm font-medium text-muted-foreground">
+                {item.description}
+              </p>
               <a
                 href={item.href}
                 target="_blank"
