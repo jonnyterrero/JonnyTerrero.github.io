@@ -12,6 +12,7 @@ import {
   hasLiveUrl,
   hasValidRepoUrl,
 } from "@/lib/projects";
+import { ProjectDetailImage } from "@/components/project-detail-image";
 import { cn } from "@/lib/utils";
 import { ExternalLink } from "lucide-react";
 
@@ -137,25 +138,65 @@ export default async function ProjectPage({ params }: Props) {
             <h2 className="text-base font-semibold tracking-tight">
               Design deep dive
             </h2>
-            <div className="space-y-6 text-sm leading-relaxed text-muted-foreground">
-              <div className="space-y-2">
-                <h3 className="text-sm font-medium text-foreground">Problem</h3>
-                <p>{project.detail.problem}</p>
+            <div
+              className={cn(
+                "gap-8",
+                project.imageSrc
+                  ? "lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(240px,320px)] lg:items-start lg:gap-10"
+                  : null
+              )}
+            >
+              <div className="min-w-0 space-y-6 text-sm leading-relaxed text-muted-foreground">
+                <div className="space-y-2">
+                  <h3 className="text-sm font-medium text-foreground">Problem</h3>
+                  <p>{project.detail.problem}</p>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-sm font-medium text-foreground">Design</h3>
+                  <p>{project.detail.design}</p>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-sm font-medium text-foreground">
+                    Engineering considerations
+                  </h3>
+                  <ul className="list-disc space-y-2 pl-5">
+                    {project.detail.engineering.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <div className="space-y-2">
-                <h3 className="text-sm font-medium text-foreground">Design</h3>
-                <p>{project.detail.design}</p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-sm font-medium text-foreground">
-                  Engineering considerations
-                </h3>
-                <ul className="list-disc space-y-2 pl-5">
-                  {project.detail.engineering.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
+              {project.imageSrc ? (
+                <div className="mx-auto w-full max-w-md shrink-0 pt-2 lg:mx-0 lg:pt-0 lg:sticky lg:top-24">
+                  <p className="mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                    Model
+                  </p>
+                  <ProjectDetailImage
+                    src={project.imageSrc}
+                    alt={
+                      project.imageAlt ??
+                      `Illustration for ${project.name}`
+                    }
+                  />
+                </div>
+              ) : null}
+            </div>
+          </section>
+        </>
+      ) : null}
+
+      {project.imageSrc && !project.detail ? (
+        <>
+          <Separator />
+          <section className="space-y-3">
+            <h2 className="text-sm font-semibold text-foreground">Visual</h2>
+            <div className="mx-auto max-w-md">
+              <ProjectDetailImage
+                src={project.imageSrc}
+                alt={
+                  project.imageAlt ?? `Illustration for ${project.name}`
+                }
+              />
             </div>
           </section>
         </>

@@ -36,6 +36,9 @@ export interface Project {
   targetUsers: string[];
   accentColor: AccentColor;
   featured: boolean;
+  /** Path under `/public`, e.g. `/images/photo.png` */
+  imageSrc?: string;
+  imageAlt?: string;
   capabilityDetails?: Partial<Record<CapabilityId, string>>;
   detail?: ProjectDetail;
 }

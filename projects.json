@@ -95,8 +95,8 @@
     }
   },
   {
-    "slug": "5am-club",
-    "name": "5AM Club",
+    "slug": "heartwire-os",
+    "name": "HeartWire OS",
     "tagline": "Academic and engineering operating system for structured study and long-term learning",
     "status": "Active Development",
     "category": "platform",
@@ -127,6 +127,8 @@
     "targetUsers": ["athletes", "patients", "rehab specialists"],
     "accentColor": "blue",
     "featured": true,
+    "imageSrc": "/images/modular-knee-brace-cad.png",
+    "imageAlt": "CAD render of the modular knee brace, isometric view",
     "capabilityDetails": {
       "biomedical-embedded": "CAD, printing, and biomechanics for wearable joint support.",
       "core-engineering": "Load sharing and alignment across modular brace components."
