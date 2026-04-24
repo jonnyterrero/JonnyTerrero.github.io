@@ -4,6 +4,7 @@ export type ProjectCategory =
   | "health-tech"
   | "platform"
   | "biomedical-device"
+  | "research"
   | "ai-tooling";
 
 export type AccentColor = "amber" | "blue" | "green" | "teal" | "violet";
@@ -17,9 +18,10 @@ export type CapabilityId =
   | "tools-workflow";
 
 export interface ProjectDetail {
-  problem: string;
-  design: string;
-  engineering: string[];
+  problem?: string;
+  design?: string;
+  engineering?: string[];
+  sections?: { title: string; paragraphs: string[] }[];
 }
 
 export interface Project {
@@ -80,6 +82,7 @@ export const CATEGORY_ORDER: ProjectCategory[] = [
   "health-tech",
   "platform",
   "biomedical-device",
+  "research",
   "ai-tooling",
 ];
 
@@ -87,6 +90,7 @@ export const CATEGORY_LABELS: Record<ProjectCategory, string> = {
   "health-tech": "Health-Tech Apps",
   platform: "Platform / Data Layer",
   "biomedical-device": "Biomedical Devices",
+  research: "Research and case studies",
   "ai-tooling": "AI / Tooling",
 };
 

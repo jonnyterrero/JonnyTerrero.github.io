@@ -161,5 +161,119 @@
       "ai-automation": "OpenAI and GitHub Actions for research synthesis pipelines.",
       "tools-workflow": "Structured automation outputs spanning engineering projects."
     }
+  },
+  {
+    "slug": "stryker-reunion-rsa",
+    "name": "Stryker ReUnion RSA Teardown",
+    "tagline": "Reverse-engineering a Class II reverse shoulder arthroplasty system end-to-end.",
+    "status": "Case Study",
+    "category": "research",
+    "stack": [
+      "Biomechanics",
+      "Materials (Ti-6Al-4V, Tritanium, X3 UHMWPE)",
+      "FDA 510(k)",
+      "QFD",
+      "DFx / DfE"
+    ],
+    "liveUrl": "",
+    "repoUrl": "",
+    "summary": "A full-system teardown of a reverse shoulder implant: disease state → biomechanics → requirements → regulatory → manufacturing → outcomes.",
+    "useCase": "Built to be a repeatable benchmarking framework for future device design, not just documentation of one implant.",
+    "targetUsers": ["biomedical engineers", "device designers", "students"],
+    "accentColor": "violet",
+    "featured": true,
+    "capabilityDetails": {
+      "biomedical-embedded": "Device biomechanics + materials system mapped to clinical requirements and failure modes.",
+      "core-engineering": "Benchmarking method: constraints → tradeoffs → decisions across the device lifecycle."
+    },
+    "detail": {
+      "sections": [
+        {
+          "title": "What it is",
+          "paragraphs": [
+            "Stryker's ReUnion RSA is a Class II reverse shoulder arthroplasty system, indicated for patients with rotator cuff tear arthropathy in which the native joint no longer has the soft-tissue stabilizers required for a conventional total shoulder replacement.",
+            "This project reverse-engineers the device end to end: the underlying disease state, the geometric inversion that allows the deltoid to compensate for a non-functional rotator cuff, the materials system (Ti-6Al-4V, Tritanium 3D porous metal, and X3 highly crosslinked UHMWPE), the FDA 510(k) clearance pathway, the Quality Function Deployment targets, and the manufacturing and Design for Environment decisions that support them."
+          ]
+        },
+        {
+          "title": "Objective",
+          "paragraphs": [
+            "The objective was not to document the implant, but to develop a repeatable benchmarking framework — disease state → biomechanics → requirements → regulatory → manufacturing → outcomes — that can be applied in reverse to the design of future medical devices."
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "healthcare-supply-chain",
+    "name": "Engineering the Healthcare Supply Chain",
+    "tagline": "12 interviews with healthcare professionals on where engineering fails (and what clinicians actually need).",
+    "status": "Case Study",
+    "category": "research",
+    "stack": ["Qualitative research", "Stakeholder interviews", "Systems engineering", "Clinical workflow"],
+    "liveUrl": "",
+    "repoUrl": "",
+    "summary": "Primary qualitative research with 12 healthcare professionals (8 physicians) on clinical risk, supply fragility, and the clinical–engineering gap.",
+    "useCase": "Used to translate clinician demand signals into engineering targets: reliability, usability, data fluency, and cross-domain communication.",
+    "targetUsers": ["biomedical engineers", "health systems teams", "students"],
+    "accentColor": "teal",
+    "featured": true,
+    "capabilityDetails": {
+      "core-engineering": "Systems framing of failure modes and operational constraints in clinical environments.",
+      "tools-workflow": "Interview protocol → synthesis → recommendations as a repeatable research workflow."
+    },
+    "detail": {
+      "sections": [
+        {
+          "title": "Why it mattered",
+          "paragraphs": [
+            "Most engineers never spend structured time inside a clinical environment. This case study changed that.",
+            "Through 12 interviews with healthcare professionals — 8 of them practicing physicians — I examined how engineers shape daily patient care, where supply chain breakdowns create real clinical risk, and what biomedical engineers need to understand before they ever touch a device or system."
+          ]
+        },
+        {
+          "title": "Findings",
+          "paragraphs": [
+            "The findings revealed consistent demand signals: reliable supply infrastructure, usable device design, data fluency, and the rare ability to communicate across the clinical-engineering divide."
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "cocr-dental-degradation-review",
+    "name": "Co–Cr Dental Prosthesis Degradation Review",
+    "tagline": "A PROSPERO-registered systematic review on material degradation outcomes.",
+    "status": "Systematic Review",
+    "category": "research",
+    "stack": ["Systematic review", "PRISMA 2020", "PubMed / Scopus / Web of Science", "Biomaterials"],
+    "liveUrl": "",
+    "repoUrl": "",
+    "summary": "Pulled and synthesized 11 studies on corrosion, wear, and ion release in cobalt-chromium dental prostheses under PRISMA 2020.",
+    "useCase": "Used to isolate which controllable variables most strongly drive clinical degradation outcomes.",
+    "targetUsers": ["biomedical engineers", "materials engineers", "researchers"],
+    "accentColor": "amber",
+    "featured": false,
+    "capabilityDetails": {
+      "data-analysis": "Cross-study synthesis: corrosion resistance, wear behavior, and ion release outcomes.",
+      "core-engineering": "Key driver identification to inform upstream design and manufacturing decisions."
+    },
+    "detail": {
+      "sections": [
+        {
+          "title": "Overview",
+          "paragraphs": [
+            "A PROSPERO-registered systematic review on material degradation in cobalt-chromium dental prostheses.",
+            "Pulled and synthesized 11 studies across PubMed, Scopus, and Web of Science under PRISMA 2020 — covering corrosion resistance, wear behavior, and ion release."
+          ]
+        },
+        {
+          "title": "Key finding",
+          "paragraphs": [
+            "The finding that stood out: surface finishing drives clinical degradation outcomes more than alloy composition or how the prosthesis was fabricated."
+          ]
+        }
+      ]
+    }
   }
 ]

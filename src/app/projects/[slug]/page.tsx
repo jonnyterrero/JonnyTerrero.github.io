@@ -39,6 +39,12 @@ export default async function ProjectPage({ params }: Props) {
 
   const showLive = hasLiveUrl(project.liveUrl);
   const showRepo = hasValidRepoUrl(project.repoUrl);
+  const detail = project.detail;
+  const classicDetail =
+    Boolean(detail?.problem?.trim()) ||
+    Boolean(detail?.design?.trim()) ||
+    Boolean(detail?.engineering?.length);
+  const sectionDetail = Boolean(detail?.sections?.length);
 
   return (
     <article className="space-y-10">
@@ -66,32 +72,34 @@ export default async function ProjectPage({ params }: Props) {
         </header>
       </div>
 
-      <div className="flex flex-wrap gap-2">
-        {showLive ? (
-          <Button asChild size="sm">
-            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-              Open live app
-              <ExternalLink className="ml-1" aria-hidden />
-            </a>
-          </Button>
-        ) : (
-          <Button size="sm" disabled title="No public deployment yet">
-            Live app — pending
-          </Button>
-        )}
-        {showRepo ? (
-          <Button variant="outline" size="sm" asChild>
-            <a
-              href={project.repoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Repository
-              <ExternalLink className="ml-1" aria-hidden />
-            </a>
-          </Button>
-        ) : null}
-      </div>
+      {showLive || showRepo ? (
+        <div className="flex flex-wrap gap-2">
+          {showLive ? (
+            <Button asChild size="sm">
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open live app
+                <ExternalLink className="ml-1" aria-hidden />
+              </a>
+            </Button>
+          ) : null}
+          {showRepo ? (
+            <Button variant="outline" size="sm" asChild>
+              <a
+                href={project.repoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Repository
+                <ExternalLink className="ml-1" aria-hidden />
+              </a>
+            </Button>
+          ) : null}
+        </div>
+      ) : null}
 
       <section className="space-y-3">
         <h2 className="text-sm font-semibold text-foreground">Summary</h2>
@@ -131,13 +139,19 @@ export default async function ProjectPage({ params }: Props) {
         </ul>
       </section>
 
-      {project.detail ? (
+      {classicDetail || sectionDetail ? (
         <>
           <Separator />
-          <section className="space-y-4">
-            <h2 className="text-base font-semibold tracking-tight">
-              Design deep dive
-            </h2>
+          <section className="space-y-6">
+            {classicDetail ? (
+              <h2 className="text-base font-semibold tracking-tight">
+                Design deep dive
+              </h2>
+            ) : (
+              <h2 className="text-base font-semibold tracking-tight">
+                Case study
+              </h2>
+            )}
             <div
               className={cn(
                 "gap-8",
@@ -146,26 +160,58 @@ export default async function ProjectPage({ params }: Props) {
                   : null
               )}
             >
-              <div className="min-w-0 space-y-6 text-sm leading-relaxed text-muted-foreground">
-                <div className="space-y-2">
-                  <h3 className="text-sm font-medium text-foreground">Problem</h3>
-                  <p>{project.detail.problem}</p>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-sm font-medium text-foreground">Design</h3>
-                  <p>{project.detail.design}</p>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-sm font-medium text-foreground">
-                    Engineering considerations
-                  </h3>
-                  <ul className="list-disc space-y-2 pl-5">
-                    {project.detail.engineering.map((item) => (
-                      <li key={item}>{item}</li>
+              <div className="min-w-0 space-y-8 text-sm leading-relaxed text-muted-foreground">
+                {classicDetail ? (
+                  <>
+                    {detail?.problem?.trim() ? (
+                      <div className="space-y-2">
+                        <h3 className="text-sm font-medium text-foreground">
+                          Problem
+                        </h3>
+                        <p>{detail.problem}</p>
+                      </div>
+                    ) : null}
+                    {detail?.design?.trim() ? (
+                      <div className="space-y-2">
+                        <h3 className="text-sm font-medium text-foreground">
+                          Design
+                        </h3>
+                        <p>{detail.design}</p>
+                      </div>
+                    ) : null}
+                    {detail?.engineering?.length ? (
+                      <div className="space-y-2">
+                        <h3 className="text-sm font-medium text-foreground">
+                          Engineering considerations
+                        </h3>
+                        <ul className="list-disc space-y-2 pl-5">
+                          {detail.engineering.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
+                  </>
+                ) : null}
+
+                {sectionDetail ? (
+                  <div className="space-y-8">
+                    {detail?.sections?.map((section) => (
+                      <section key={section.title} className="space-y-3">
+                        <h3 className="text-sm font-medium text-foreground">
+                          {section.title}
+                        </h3>
+                        <div className="space-y-3">
+                          {section.paragraphs.map((paragraph) => (
+                            <p key={paragraph}>{paragraph}</p>
+                          ))}
+                        </div>
+                      </section>
                     ))}
-                  </ul>
-                </div>
+                  </div>
+                ) : null}
               </div>
+
               {project.imageSrc ? (
                 <div className="mx-auto w-full max-w-md shrink-0 pt-2 lg:mx-0 lg:pt-0 lg:sticky lg:top-24">
                   <p className="mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
