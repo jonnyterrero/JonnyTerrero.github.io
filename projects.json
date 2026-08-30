@@ -101,7 +101,7 @@
     "status": "Active Development",
     "category": "platform",
     "stack": ["Next.js", "TypeScript"],
-    "liveUrl": "https://5am-club-mzdi4fiwv-jonnyterreros-projects.vercel.app",
+    "liveUrl": "https://heart-wire-os.vercel.app/",
     "repoUrl": "",
     "summary": "A structured system for studying, planning, and building. Designed for long-term learning, not short-term productivity.",
     "useCase": "Used to organize work, track learning, and manage projects over time.",
