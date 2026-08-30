@@ -41,7 +41,7 @@
     "slug": "skintrack",
     "name": "SkinTrack+",
     "tagline": "Lesion and skin condition tracking with environmental correlation",
-    "status": "Prototype",
+    "status": "Active Development",
     "category": "health-tech",
     "stack": ["Python", "Computer Vision", "Supabase"],
     "liveUrl": "https://skintrack.vercel.app/",
@@ -215,6 +215,27 @@
             "Research Analyst — a seven-step pipeline: scope the question, build a query plan, intake sources, validate evidence, extract data into tables, synthesize findings, then propose next actions — built to keep every claim traceable to a source.",
             "BME Tutor Agent and Math Tutor Agent — FGCU coursework support across biomechanics, signals, circuits, Calc III/DiffEq, and control systems, with every quantitative result reconstructable by hand on a blank exam page.",
             "YouTube Agent — scripts, SEO titles, thumbnail briefs, and content calendars for long- and short-form video."
+          ]
+        },
+        {
+          "title": "Example prompts",
+          "paragraphs": [
+            "Senior SWE Agent — \"Review this PR for correctness, security, and architecture before I merge it into HeartWire OS.\"",
+            "Backend Dev Agent — \"Design the Supabase RLS policies for a new table storing GI symptom logs.\"",
+            "Architect Agent — \"Sketch the service boundaries between GastroGuard and the shared data layer before I build them.\"",
+            "Code Auditor Agent — \"What's wrong with this auth flow?\" — returns severity-rated findings, not a vibe check.",
+            "Mechanical + CS Engineer — \"Check my FEA setup for the knee brace hinge before I trust the stress numbers.\"",
+            "Electrical + Hardware Engineer — \"Review this PCB charging circuit for thermal margin and grounding.\"",
+            "CPA/CFO Agent — \"Give me this month's cash snapshot and burn rate.\" — returns the fixed reporting cadence, not a one-off answer.",
+            "Investment Portfolio Agent / Portfolio Manager — \"Check my allocation drift against target and flag rebalance moves.\"",
+            "Trading Agent — \"Evaluate this setup — entry, invalidation, and risk/reward.\" — refuses to answer without an invalidation level.",
+            "Tax Auditor Agent — \"Categorize this quarter's expenses and flag deductions to confirm with a CPA.\"",
+            "Legal Agent — \"Red-flag this freelance contract before I sign it.\"",
+            "Business Consultant Agent — \"Is there a real PMF signal in this user feedback, or am I seeing what I want to see?\"",
+            "Research Analyst — \"Run a literature sweep on Co-Cr dental prosthesis degradation and cite everything.\"",
+            "BME Tutor Agent — \"Walk me through this biomechanics problem set the way I'd have to reconstruct it on an exam.\"",
+            "Math Tutor Agent — \"Solve this Laplace transform step-by-step, no skipped algebra.\"",
+            "YouTube Agent — \"Draft a script and three title options for this week's upload.\""
           ]
         }
       ]
