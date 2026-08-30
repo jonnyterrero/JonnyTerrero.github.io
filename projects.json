@@ -153,6 +153,66 @@
     }
   },
   {
+    "slug": "heartwire-agent-suite",
+    "name": "HeartWire Agent Suite",
+    "tagline": "18 domain-specialized Claude agents for engineering, finance, trading, and content ops",
+    "status": "Active",
+    "category": "ai-tooling",
+    "stack": ["Claude Agent SDK", "Claude Code Skills", "MCP", "Markdown-defined personas"],
+    "liveUrl": "",
+    "repoUrl": "",
+    "summary": "A personal bench of 18 specialist AI agents — each a Claude Code skill with an explicit role, activation trigger, persona, and capability list — spanning software engineering, hardware, finance, trading, legal, tutoring, and content.",
+    "useCase": "Used daily across HeartWire engineering, coursework, trading research, and personal finance instead of one general-purpose assistant.",
+    "targetUsers": ["personal", "engineers"],
+    "accentColor": "violet",
+    "featured": true,
+    "capabilityDetails": {
+      "ai-automation": "18 versioned Claude Code skills, each scoped to one domain with its own trigger and persona.",
+      "tools-workflow": "Roles, triggers, and capabilities defined and maintained as Markdown-based agent specs."
+    },
+    "detail": {
+      "sections": [
+        {
+          "title": "What it is",
+          "paragraphs": [
+            "A personal suite of 18 domain-specialized AI agents, each built as a Claude Code skill with an explicit role, activation trigger, persona, and capability list — a bench of specialists to call into any project rather than one general-purpose assistant.",
+            "Used daily across HeartWire engineering, OmniFlex work, coursework, trading research, and personal finance, so the roster spans software, hardware, finance, legal, tutoring, and content."
+          ]
+        },
+        {
+          "title": "Engineering & code",
+          "paragraphs": [
+            "Senior SWE Agent — production code, PR review, and architecture across Python, TypeScript, React, Supabase, Vercel, and GCP/AWS.",
+            "Backend Dev Agent — API design, database schema, auth flows, and serverless work on Supabase, Firebase, FastAPI, and Node.",
+            "Architect Agent — system diagrams, ADRs, service boundaries, and React/React Native design guidance.",
+            "Code Auditor Agent — security and quality audits with severity-rated findings across full-stack and agentic codebases.",
+            "Mechanical + CS Engineer — mechanical design, CAD/FEA, controls, mechatronics, and simulation.",
+            "Electrical + Hardware Engineer — circuit analysis, PCB design, embedded hardware, and signal integrity."
+          ]
+        },
+        {
+          "title": "Finance & trading",
+          "paragraphs": [
+            "CPA/CFO and CPA/CFO Agent — bookkeeping hygiene, cash runway, budgets, and financial modeling for small business and software revenue.",
+            "Investment Portfolio Agent and Portfolio Manager — crypto and equities research, allocation tracking, and rebalancing checklists.",
+            "Trading Agent — entry/exit thesis, risk/reward framing, and trade journals for crypto and equities.",
+            "Tax Auditor Agent — expense categorization, deduction flags, and tax strategy review."
+          ]
+        },
+        {
+          "title": "Legal, strategy & tutoring",
+          "paragraphs": [
+            "Legal Agent — contract review, IP basics, and LLC/ToS questions for a software/SaaS context.",
+            "Business Consultant Agent — PMF diagnosis, revenue modeling, and GTM plans.",
+            "Research Analyst — literature sweeps, evidence grading, and synthesis briefs.",
+            "BME Tutor Agent and Math Tutor Agent — FGCU coursework support across biomechanics, signals, circuits, and advanced math.",
+            "YouTube Agent — scripts, SEO titles, and content calendars for long-form and short-form video."
+          ]
+        }
+      ]
+    }
+  },
+  {
     "slug": "jonnyjr",
     "name": "JonnyJr",
     "tagline": "AI-powered research and automation system",

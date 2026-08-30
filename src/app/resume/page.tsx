@@ -11,6 +11,7 @@ import {
   LOCATION,
   MAILTO_URL,
 } from "@/lib/site";
+import { TECH_STACK } from "@/lib/tech-stack";
 import { PrintButton } from "./print-button";
 
 export const metadata: Metadata = {
@@ -78,22 +79,10 @@ const projects = [
   },
 ];
 
-const skills = [
-  { label: "Languages", value: "Python, TypeScript, JavaScript, C, C++, SQL, MATLAB" },
-  {
-    label: "Frameworks & Libraries",
-    value: "React, Next.js, Angular, FastAPI, Django, Flutter, PyTorch, Pandas, NumPy, Matplotlib",
-  },
-  {
-    label: "Databases & Data",
-    value: "PostgreSQL, SQLite, Firebase/Firestore, data cleaning, CSV/JSON pipelines, statistical visualization",
-  },
-  {
-    label: "Hardware & Engineering",
-    value: "Sensor integration, PCB design, breadboarding, microcontroller programming, SolidWorks, 3D printing",
-  },
-  { label: "Tools & Platforms", value: "Git, GitHub, Linux, Vercel, VS Code, Excel" },
-];
+const skills = TECH_STACK.map((category) => ({
+  label: category.label,
+  value: category.items.join(", "),
+}));
 
 const leadership = [
   { org: "National Society of Black Engineers (NSBE)", role: "Treasurer" },

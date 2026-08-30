@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { ProjectCard } from "@/components/project-card";
+import { TechStackSection } from "@/components/tech-stack-section";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { getFeaturedProjects } from "@/lib/projects";
@@ -71,6 +72,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Separator className="separator-cyber" />
+
+      <TechStackSection />
 
       <Separator className="separator-cyber" />
 

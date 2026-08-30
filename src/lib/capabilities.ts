@@ -71,11 +71,13 @@ export const capabilities: Capability[] = [
     title: "AI + Automation Systems",
     descriptor: "Pipelines and AI-assisted workflows",
     description:
-      "Building automation pipelines and AI-assisted engineering workflows.",
+      "Building automation pipelines and a personal suite of domain-specialized AI agents.",
     skills: [
+      "Claude Agent SDK",
+      "Claude Code Skills",
       "OpenAI API",
+      "MCP (Model Context Protocol)",
       "PyTorch",
-      "AI-assisted workflows",
       "GitHub Actions",
       "Multi-agent systems",
     ],
