@@ -11,7 +11,7 @@ export function SiteHeader({ className }: { className?: string }) {
         className
       )}
     >
-      <div className="mx-auto flex h-14 max-w-3xl items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-y-2 px-4 py-3 sm:h-14 sm:flex-nowrap sm:py-0 sm:px-6">
         <Link
           href="/"
           className="group flex items-baseline gap-2 transition-colors"

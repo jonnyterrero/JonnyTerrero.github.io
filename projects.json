@@ -82,7 +82,7 @@
     "status": "Architecture Phase",
     "category": "platform",
     "stack": ["Supabase", "PostgreSQL", "Analytics"],
-    "liveUrl": "https://healthhelper-7savwwonz-jonnyterreros-projects.vercel.app",
+    "liveUrl": "",
     "repoUrl": "https://github.com/",
     "summary": "Acts as the central data layer across all projects. Connects separate health signals into one system.",
     "useCase": "Used to analyze relationships between sleep, stress, GI, and behavior.",
@@ -156,7 +156,7 @@
     "useCase": "Used to explore closed-loop motion control and sensor-driven task automation on real hardware.",
     "targetUsers": ["engineers", "students"],
     "accentColor": "blue",
-    "featured": true,
+    "featured": false,
     "capabilityDetails": {
       "biomedical-embedded": "Multi-axis servo control and ultrasonic sensing on Arduino hardware.",
       "core-engineering": "Finite state machine logic governing motion sequencing and error handling."
@@ -245,7 +245,7 @@
     "useCase": "Used to translate clinician demand signals into engineering targets: reliability, usability, data fluency, and cross-domain communication.",
     "targetUsers": ["biomedical engineers", "health systems teams", "students"],
     "accentColor": "teal",
-    "featured": true,
+    "featured": false,
     "capabilityDetails": {
       "core-engineering": "Systems framing of failure modes and operational constraints in clinical environments.",
       "tools-workflow": "Interview protocol → synthesis → recommendations as a repeatable research workflow."

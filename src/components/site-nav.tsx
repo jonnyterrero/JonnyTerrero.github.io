@@ -22,7 +22,7 @@ export function SiteNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex items-center gap-6" aria-label="Primary">
+    <nav className="flex items-center gap-3 sm:gap-6" aria-label="Primary">
       {links.map(({ href, label }) => {
         const active = linkActive(pathname, href);
         return (
