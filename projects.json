@@ -76,25 +76,6 @@
     }
   },
   {
-    "slug": "healthhelper",
-    "name": "HealthHelper",
-    "tagline": "Unified health data layer and cross-app analytics engine",
-    "status": "Architecture Phase",
-    "category": "platform",
-    "stack": ["Supabase", "PostgreSQL", "Analytics"],
-    "liveUrl": "",
-    "repoUrl": "https://github.com/",
-    "summary": "Acts as the central data layer across all projects. Connects separate health signals into one system.",
-    "useCase": "Used to analyze relationships between sleep, stress, GI, and behavior.",
-    "targetUsers": ["internal", "researchers"],
-    "accentColor": "teal",
-    "featured": false,
-    "capabilityDetails": {
-      "fullstack": "Unified Postgres and Supabase layer across HeartWire apps.",
-      "data-analysis": "Cross-domain analytics across sleep, GI, stress, and behavior."
-    }
-  },
-  {
     "slug": "heartwire-os",
     "name": "HeartWire OS",
     "tagline": "Academic and engineering operating system for structured study and long-term learning",
