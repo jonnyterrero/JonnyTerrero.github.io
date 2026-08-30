@@ -7,9 +7,10 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/ecosystem", label: "Ecosystem" },
-  { href: "/writing", label: "Writing" },
   { href: "/about", label: "About" },
+  { href: "/ecosystem", label: "Ecosystem" },
+  { href: "/resume", label: "Resume" },
+  { href: "/writing", label: "Writing" },
 ] as const;
 
 function linkActive(pathname: string, href: string): boolean {

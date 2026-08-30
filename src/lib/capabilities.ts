@@ -29,10 +29,11 @@ export const capabilities: Capability[] = [
     description:
       "Designing and building full-stack applications with structured data layers.",
     skills: [
-      "Next.js",
+      "Next.js / React / Angular",
       "Supabase (Auth, Postgres, RLS)",
+      "Firebase / Firestore",
       "PostgreSQL / SQL",
-      "API Design (REST, FastAPI)",
+      "API Design (REST, FastAPI, Django)",
     ],
     icon: Layers,
   },
@@ -57,11 +58,11 @@ export const capabilities: Capability[] = [
     description:
       "Bridging physical systems and software for real-world health applications.",
     skills: [
-      "Arduino",
-      "Sensor integration",
-      "Physiological data handling",
-      "3D printing + prototyping",
-      "Biomechanics (knee brace project)",
+      "Arduino / microcontroller programming",
+      "Sensor integration (FSR, ultrasonic)",
+      "PCB design + breadboarding",
+      "SolidWorks / CAD + 3D printing",
+      "Biomechanics (knee brace, robotic arm)",
     ],
     icon: Cpu,
   },
@@ -73,6 +74,7 @@ export const capabilities: Capability[] = [
       "Building automation pipelines and AI-assisted engineering workflows.",
     skills: [
       "OpenAI API",
+      "PyTorch",
       "AI-assisted workflows",
       "GitHub Actions",
       "Multi-agent systems",
@@ -87,6 +89,8 @@ export const capabilities: Capability[] = [
       "Systems and tools used to build, organize, and ship projects efficiently.",
     skills: [
       "Git / GitHub",
+      "Linux",
+      "Vercel",
       "Cursor",
       "Docker",
       "Obsidian",

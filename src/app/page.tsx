@@ -4,7 +4,12 @@ import { ProjectCard } from "@/components/project-card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { getFeaturedProjects } from "@/lib/projects";
-import { GITHUB_URL, LINKEDIN_URL } from "@/lib/site";
+import {
+  GITHUB_URL,
+  LINKEDIN_URL,
+  LOCATION,
+  RESUME_PATH,
+} from "@/lib/site";
 
 export default function HomePage() {
   const featured = getFeaturedProjects();
@@ -13,22 +18,25 @@ export default function HomePage() {
     <div className="space-y-12">
       <section className="hero-panel space-y-6 p-6 sm:p-8">
         <p className="eyebrow-mono">
-          Health-tech lab · early-stage studio
+          {LOCATION} · Software Engineer + Biomedical Engineering
         </p>
         <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          <span className="text-cyber-accent">HeartWire</span>{" "}
-          builds clinical and consumer health tools where physiology, data,
-          behavior, and{" "}
-          <span className="text-primary">systems engineering</span> meet.
+          I&apos;m Jonathan Terrero. I build health-tech systems where{" "}
+          <span className="text-cyber-accent">physiology</span> meets{" "}
+          <span className="text-primary">software engineering</span>.
         </h1>
         <div className="max-w-2xl space-y-4 text-base font-medium leading-relaxed text-muted-foreground">
           <p>
-            This is my personal site. It is a running log of what I am building
-            and how I am building it.
+            I&apos;m a Software Engineer I at OmniFlex Fitness and a Biomedical
+            Engineering student at Florida Gulf Coast University (minors in
+            Physics and Computer Science). Outside of that day-to-day work, I
+            run <span className="text-foreground/90">HeartWire</span>, my own
+            health-tech studio, where I design and ship clinical and consumer
+            tools end to end.
           </p>
           <p>
-            It is part portfolio and part system map. When a project is live,
-            it is linked here, not just described.
+            This site is part portfolio, part system map. When a project is
+            live, it is linked here, not just described.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-4">
@@ -37,7 +45,10 @@ export default function HomePage() {
               <Link href="/ecosystem">View ecosystem</Link>
             </Button>
             <Button variant="outline" asChild>
-              <Link href="/about">About the operator</Link>
+              <Link href={RESUME_PATH}>Resume</Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="/about">About</Link>
             </Button>
           </div>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
@@ -59,6 +70,29 @@ export default function HomePage() {
             </a>
           </div>
         </div>
+      </section>
+
+      <Separator className="separator-cyber" />
+
+      <section className="space-y-6" id="featured">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <h2 className="text-lg font-semibold tracking-tight">
+            Featured work
+          </h2>
+          <Link
+            href="/ecosystem"
+            className="text-sm text-primary transition-colors hover:text-primary/80 hover:underline"
+          >
+            Full ecosystem map
+          </Link>
+        </div>
+        <ul className="grid list-none gap-6 p-0">
+          {featured.map((project) => (
+            <li key={project.slug}>
+              <ProjectCard project={project} />
+            </li>
+          ))}
+        </ul>
       </section>
 
       <Separator className="separator-cyber" />
@@ -93,29 +127,6 @@ export default function HomePage() {
             changes constantly.
           </p>
         </div>
-      </section>
-
-      <Separator className="separator-cyber" />
-
-      <section className="space-y-6" id="featured">
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-          <h2 className="text-lg font-semibold tracking-tight">
-            Featured work
-          </h2>
-          <Link
-            href="/ecosystem"
-            className="text-sm text-primary transition-colors hover:text-primary/80 hover:underline"
-          >
-            Full ecosystem map
-          </Link>
-        </div>
-        <ul className="grid list-none gap-6 p-0">
-          {featured.map((project) => (
-            <li key={project.slug}>
-              <ProjectCard project={project} />
-            </li>
-          ))}
-        </ul>
       </section>
     </div>
   );

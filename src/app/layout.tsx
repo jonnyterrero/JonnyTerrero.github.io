@@ -26,11 +26,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "HeartWire",
-    template: "%s · HeartWire",
+    default: "Jonathan Terrero",
+    template: "%s · Jonathan Terrero",
   },
   description:
-    "HeartWire is a health-tech lab and studio: clinical and consumer tools at the intersection of physiology, data, behavior, and engineering systems.",
+    "Jonathan Terrero is a software engineer and biomedical engineering student building HeartWire, a health-tech studio at the intersection of physiology, data, and systems engineering.",
 };
 
 export default function RootLayout({

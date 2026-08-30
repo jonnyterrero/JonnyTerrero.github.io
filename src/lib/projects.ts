@@ -4,6 +4,7 @@ export type ProjectCategory =
   | "health-tech"
   | "platform"
   | "biomedical-device"
+  | "embedded-robotics"
   | "research"
   | "ai-tooling";
 
@@ -82,6 +83,7 @@ export const CATEGORY_ORDER: ProjectCategory[] = [
   "health-tech",
   "platform",
   "biomedical-device",
+  "embedded-robotics",
   "research",
   "ai-tooling",
 ];
@@ -90,6 +92,7 @@ export const CATEGORY_LABELS: Record<ProjectCategory, string> = {
   "health-tech": "Health-Tech Apps",
   platform: "Platform / Data Layer",
   "biomedical-device": "Biomedical Devices",
+  "embedded-robotics": "Embedded & Robotics",
   research: "Research and case studies",
   "ai-tooling": "AI / Tooling",
 };

@@ -6,7 +6,7 @@
     "status": "Active Development",
     "category": "health-tech",
     "stack": ["Next.js", "Supabase", "TypeScript", "PWA"],
-    "liveUrl": "https://gastro-guard-cugr4wd8n-jonnyterreros-projects.vercel.app",
+    "liveUrl": "https://gastro-guard-bice.vercel.app/",
     "repoUrl": "https://github.com/",
     "summary": "Tracks GI symptoms, meals, and triggers and builds insight over time. Designed to identify real cause-effect patterns.",
     "useCase": "Used to track how diet and behavior drive GI flare-ups.",
@@ -25,7 +25,7 @@
     "status": "Active Development",
     "category": "health-tech",
     "stack": ["Next.js", "Supabase", "Recharts", "TypeScript"],
-    "liveUrl": "https://mind-gmabk6e5r-jonnyterreros-projects.vercel.app",
+    "liveUrl": "https://mind-map-bice-nine.vercel.app/",
     "repoUrl": "https://github.com/",
     "summary": "Captures mental state as structured data. Turns mood, stress, and behavior into patterns you can analyze.",
     "useCase": "Used to understand how behavior and environment affect mood and focus.",
@@ -44,7 +44,7 @@
     "status": "Prototype",
     "category": "health-tech",
     "stack": ["Python", "Computer Vision", "Supabase"],
-    "liveUrl": "https://skintrack-nlodgecqi-jonnyterreros-projects.vercel.app/",
+    "liveUrl": "https://skintrack.vercel.app/",
     "repoUrl": "https://github.com/",
     "summary": "Tracks skin conditions over time and ties them to environmental and behavioral inputs. Built to identify patterns, not just log events.",
     "useCase": "Used to find what actually drives flare-ups.",
@@ -140,6 +140,34 @@
         "Force distribution: spread joint-adjacent loads across larger surface areas to reduce pressure hot spots and material fatigue.",
         "Joint alignment: maintain consistent hinge axis and varus/valgus control relative to the femoral-tibial line during flexion.",
         "Comfort vs rigidity: calibrate strapping tension and segment stiffness so the brace stays worn during real activity—under-support fails clinically; over-support fails adherence."
+      ]
+    }
+  },
+  {
+    "slug": "robotic-pick-place-arm",
+    "name": "Robotic Pick-and-Place Arm",
+    "tagline": "Autonomous multi-axis arm with FSM control and ultrasonic sensing",
+    "status": "Prototype",
+    "category": "embedded-robotics",
+    "stack": ["Arduino (C/C++)", "Servo Control", "Ultrasonic Sensing", "FSM Logic"],
+    "liveUrl": "",
+    "repoUrl": "",
+    "summary": "A multi-axis robotic arm built for autonomous pick-and-place operation, using Arduino, servo motors, and ultrasonic object detection.",
+    "useCase": "Used to explore closed-loop motion control and sensor-driven task automation on real hardware.",
+    "targetUsers": ["engineers", "students"],
+    "accentColor": "blue",
+    "featured": true,
+    "capabilityDetails": {
+      "biomedical-embedded": "Multi-axis servo control and ultrasonic sensing on Arduino hardware.",
+      "core-engineering": "Finite state machine logic governing motion sequencing and error handling."
+    },
+    "detail": {
+      "problem": "Reliable pick-and-place automation requires the arm to sense, decide, and act without a human in the loop, and to fail gracefully instead of jamming or dropping objects.",
+      "design": "A finite state machine governs motion sequencing, sensor polling, and error handling, so the same control loop scales from calibration to full autonomous cycles.",
+      "engineering": [
+        "Servo calibration: tuned joint angles and motion parameters to improve task repeatability and object-handling reliability.",
+        "Sensor feedback: ultrasonic ranging drives pick timing and collision avoidance in the FSM.",
+        "Error handling: explicit failure states instead of silent stalls when an object is missed or misaligned."
       ]
     }
   },
