@@ -68,6 +68,16 @@ const projects = [
     ],
   },
   {
+    name: "BME Visualizations",
+    stack: "HTML, JavaScript, Chart.js, Python, GitHub Pages",
+    period: "2025 – Present",
+    bullets: [
+      "Built a public catalog of interactive computational models for five FGCU biomedical engineering courses, deployed at jonnyterrero.github.io/BME-Visualizations.",
+      "Models cover GO fibroblast recovery (ISO 10993), blood rheology and capillary rise, IEC 60601 instrument architecture, signal loading/CMRR/noise, and sagittal-plane knee torque.",
+      "Each dashboard is parameter-driven so governing equations can be swept and reconstructed instead of presented as static lecture slides.",
+    ],
+  },
+  {
     name: "Health Technology Software Suite (3 Applications)",
     stack: "Python, FastAPI, REST APIs, PyTorch",
     period: "Summer 2025 – Present",

@@ -125,6 +125,61 @@
     }
   },
   {
+    "slug": "bme-visualizations",
+    "name": "BME Visualizations",
+    "tagline": "Interactive computational models for five FGCU biomedical engineering courses",
+    "status": "Active",
+    "category": "computational-models",
+    "stack": ["HTML", "JavaScript", "Chart.js", "Python", "GitHub Pages"],
+    "liveUrl": "https://jonnyterrero.github.io/BME-Visualizations/",
+    "repoUrl": "https://github.com/jonnyterrero/BME-Visualizations",
+    "summary": "A public catalog of parameter-driven dashboards for BME coursework: biomaterials, biofluids, instrument architecture, signal models, and knee biomechanics. Each model is something you can re-run, not a static slide.",
+    "useCase": "Used to inspect governing equations, sweep parameters, and keep course models inspectable after the lecture ends.",
+    "targetUsers": ["students", "biomedical engineers", "instructors"],
+    "accentColor": "teal",
+    "featured": true,
+    "capabilityDetails": {
+      "data-analysis": "Interactive plots for rheology, hydrostatics, CMRR, and Johnson noise floors.",
+      "core-engineering": "Governing-equation dashboards you can re-run instead of static lecture slides.",
+      "biomedical-embedded": "IEC 60601 signal-chain and sagittal-plane knee equilibrium models."
+    },
+    "detail": {
+      "sections": [
+        {
+          "title": "What it is",
+          "paragraphs": [
+            "A GitHub Pages catalog of interactive computational models used across FGCU biomedical engineering courses. Each class is a folder with its own dashboard, notes, and source — plus a homepage that launches every visualization from one place.",
+            "The live catalog is at jonnyterrero.github.io/BME-Visualizations. Source, derivations, and original files live in github.com/jonnyterrero/BME-Visualizations."
+          ]
+        },
+        {
+          "title": "Why it exists",
+          "paragraphs": [
+            "Course models disappear into a notebook or a one-off plot. This repo keeps the physics inspectable: sliders, live plots, and the governing equation on the same page so a parameter change is visible immediately.",
+            "The rule is the same as the rest of HeartWire — structured inputs, explicit hypotheses, and a result you can reconstruct."
+          ]
+        },
+        {
+          "title": "The five course models",
+          "paragraphs": [
+            "Bioperformance of Materials — experimental 2×2×2 flow, attachment/morphology/degradation models, and ISO 10993 framing for the GO fibroblast-recovery senior project.",
+            "Biofluid Mechanics — Newtonian plasma vs shear-thinning whole blood (including Fåhræus–Lindqvist), standing arterial hydrostatics, and Jurin's law capillary rise with live Chart.js plots.",
+            "Medical Instrument Architecture — IEC 60601 signal chain from measurand to display, isolation as a patient-safety requirement, and the cascaded LTI transfer function.",
+            "Biomedical Signal Models — skin-electrode loading, thermistor vs strain-gauge linearity, instrumentation-amplifier CMRR, and Johnson noise. Browser dashboard plus the original Python / Matplotlib figure.",
+            "Biomechanics — sagittal-plane knee simulator: external load torque versus the patellar-tendon force required for static equilibrium, with moment-arm sliders."
+          ]
+        },
+        {
+          "title": "How it's built",
+          "paragraphs": [
+            "Each visualization is a self-contained HTML dashboard so it can open locally or on GitHub Pages with no install. Signal-model physics also lives in Python so the same figure can be regenerated from NumPy / Matplotlib.",
+            "The catalog homepage is the launch surface. Class folders hold the model, README, and any original notes or slide decks (including the Graphene Oxide deck under bioperformance-of-materials)."
+          ]
+        }
+      ]
+    }
+  },
+  {
     "slug": "robotic-pick-place-arm",
     "name": "Robotic Pick-and-Place Arm",
     "tagline": "Autonomous multi-axis arm with FSM control and ultrasonic sensing",
