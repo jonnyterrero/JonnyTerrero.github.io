@@ -19,7 +19,6 @@ export const kneeBrace: Project = {
     { label: "Fusion rebuild — engineering notes", href: `${REPO}/blob/main/docs/fusion-rebuild.md` },
     { label: "Part drawings", href: `${REPO}/tree/main/docs/drawings` },
     { label: "FEA report — right lower connector", href: `${REPO}/blob/main/docs/simulation/right-lower-connector-simulationxpress-report.docx` },
-    { label: "Course design report (EGN 3433C)", href: `${REPO}/blob/main/docs/EGN-3433C-Design-Project-Final.docx` },
   ],
   summary:
     "One project in two phases. Phase 1 (Spring 2025) produced the SolidWorks design, static FEA, and an instrumented prototype that measured brace–limb interface pressure. The FEA showed the design didn’t yet meet its safety-factor target. Phase 2 rebuilds it as a parametric CAD model, with fit checked at every joint before anything is printed.",
@@ -126,7 +125,7 @@ PHASE 2 — CAD-first redesign (2026)
     scope: [
       {
         type: "p",
-        text: "Phase 1 was my individual course design project for EGN 3433C (Spring 2025): design, CAD, FEA, and report. Phase 2 is independent work.",
+        text: "Phase 1 was my individual course design project (Spring 2025): design, CAD, FEA, and report. Phase 2 is independent work.",
       },
     ],
     implementation: [
