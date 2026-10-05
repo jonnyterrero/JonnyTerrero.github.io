@@ -87,7 +87,7 @@ export const bmeVisualizations: Project = {
     ],
     scope: [
       { type: "p", text: "Built and maintained by me." },
-      { type: "pending", text: "Not yet documented: which models were graded course deliverables, and whether any instructor or classmate has used them." },
+      { type: "pending", text: "Not yet documented: which models were graded course deliverables, and my share of the group-built sleep apnea / CPAP simulation." },
     ],
     implementation: [
       {
@@ -95,9 +95,9 @@ export const bmeVisualizations: Project = {
         columns: ["Course", "Model content"],
         rows: [
           ["Bioperformance of Materials", "2×2×2 experimental flow; attachment, morphology, and degradation models; framing for a graphene-oxide fibroblast-recovery project"],
-          ["Biofluid Mechanics", "Newtonian plasma vs. shear-thinning whole blood, including Fåhræus–Lindqvist; standing arterial hydrostatics; Jurin’s law capillary rise"],
+          ["Biofluid Mechanics (BME 3261C)", "Newtonian plasma vs. shear-thinning whole blood, including Fåhræus–Lindqvist; standing arterial hydrostatics; Jurin’s law capillary rise; an arterial-stenosis flow model; and an obstructive sleep apnea / CPAP expiratory-relief simulation built for a group design challenge (Group 10, “Rethinking CPAP”)"],
           ["Medical Instrument Architecture", "Signal chain from measurand to display; isolation as a patient-safety requirement; cascaded LTI transfer function"],
-          ["Biomedical Signal Models", "Skin–electrode loading; thermistor vs. strain-gauge linearity; instrumentation-amplifier CMRR; Johnson noise"],
+          ["Biomedical Signal Models", "Skin–electrode loading; thermistor vs. strain-gauge linearity; instrumentation-amplifier CMRR; Johnson noise; a filter bank (high-pass, low-pass, band-pass, notch)"],
           ["Biomechanics", "Sagittal-plane knee model: external load torque vs. the patellar-tendon force needed for static equilibrium, with moment-arm sliders"],
         ],
       },

@@ -296,6 +296,11 @@ Append one entry per working session. Newest last. Keep entries short and factua
              (concept); JonnyJr = agent bench + Obsidian second brain. Added
              arm handover build (E6) and knee-brace FEA (E7: min FoS 1.68,
              target 2–4 not met). Q-05, Q-06 answered.
+2026-10-05 — Site live (PR #1). Added Quantitative Physiology Models (7
+             MATLAB/Simulink models ported to the browser; Pages deploy
+             verified) and a coursework section limited to courses with
+             public evidence. LinkedIn course list not retrievable from the
+             sandbox — owner to supply the rest.
 ```
 
 ---

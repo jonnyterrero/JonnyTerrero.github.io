@@ -12,6 +12,7 @@ import {
   MAILTO_URL,
 } from "@/lib/site";
 import { BRAND } from "@/lib/brand";
+import { COURSEWORK } from "@/lib/coursework";
 import { TECH_STACK } from "@/lib/tech-stack";
 import { PrintButton } from "./print-button";
 
@@ -80,6 +81,15 @@ const projects = [
       "Phase 1: instrumented brace prototype measuring brace–limb interface pressure distribution with an FSR array, used as a proxy for load transfer through the brace; built signal conditioning, a calibration routine, and Python gait-cycle visualisations.",
       "Ran linear static FEA in SolidWorks Simulation: the critical connector reached a minimum factor of safety of 1.68 at 3 lbf against a 2–4 target, so I documented the design as not yet safe and identified connector and hinge geometry changes.",
       "Phase 2: rebuilt the design as a parametric 10-part Fusion 360 assembly (frames, lofted connectors, snap-fit hinge) with fit checked at every joint.",
+    ],
+  },
+  {
+    name: "Quantitative Physiology Models",
+    stack: "MATLAB, Simulink, JavaScript, Plotly.js, GitHub Pages",
+    period: "2025 – 2026",
+    bullets: [
+      "Modelled cardiovascular (Windkessel, left-heart pressure–volume loops), metabolic (glucose–insulin OGTT, Type 1/2 diabetes, metformin pharmacokinetics), cellular, and Hodgkin–Huxley neural physiology as ODE systems in MATLAB/Simulink.",
+      "Ported all seven models to interactive browser simulations that reuse the source equations, parameters, and numerical schemes, deployed at jonnyterrero.github.io/Human-Physiology-for-Engineers.",
     ],
   },
   {
@@ -205,6 +215,17 @@ export default function ResumePage() {
             </span>
           </div>
         ))}
+      </section>
+
+      <Separator className="print:hidden" />
+
+      <section className="space-y-2">
+        <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          Relevant Coursework
+        </h3>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          {COURSEWORK.map((c) => (c.code ? `${c.name} (${c.code})` : c.name)).join(" · ")}
+        </p>
       </section>
 
       <Separator className="print:hidden" />

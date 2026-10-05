@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { CapabilitiesSection } from "@/components/capabilities-section";
+import { CourseworkSection } from "@/components/coursework-section";
 import { Button } from "@/components/ui/button";
 import { BRAND } from "@/lib/brand";
 import { RESUME_PATH } from "@/lib/site";
@@ -80,6 +81,8 @@ export default function AboutPage() {
           ))}
         </ul>
       </section>
+
+      <CourseworkSection />
 
       <CapabilitiesSection />
 
