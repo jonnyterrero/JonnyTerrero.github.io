@@ -17,7 +17,7 @@ Before the site was rewritten, every claim was checked against the project repos
 | E9 | SkinTrack+ | C13: no image analysis anywhere | **Public README claims "Automated Image Analysis", "Asymmetry Detection", "Border Irregularity", "Melanoma tracking".** `frontend/features/images/image-analysis.tsx` renders `Math.random()` redness/asymmetry values. The legacy Streamlit prototype computes area/redness/border metrics | Repo link **withheld**. This is the §1.4 safety gate — fix it in the SkinTrack- repo first |
 | E10 | HeartWire OS | Q-10 open | Repo README: the live URL serves the static export (the corrupted one). Prisma `trackId` is a FK | Architecture says the live URL serves (B) |
 | E11 | Agent suite | Q-07/Q-08 open | `workflows-and-automations/agents/agent-team`: SKILL.md specs, manifest, deploy scripts (Managed Agents), eval fixtures including adversarial cases; runner records but **does not grade** | "Claude Agent SDK" and "MCP" removed; evals reported as ungraded |
-| E12 | JonnyJr | not audited | README carries a static "coverage 85%" badge | Hidden (`priority: "archive"`) until verified |
+| E12 | JonnyJr | not audited | Owner: JonnyJr is now the agent bench + Obsidian second brain. The old `agents/JonnyJr` research README (static "coverage 85%" badge) is **not** linked | Shown as personal tooling; the links go to the agent bench only |
 
 ## Repo actions outside this site (owner)
 
