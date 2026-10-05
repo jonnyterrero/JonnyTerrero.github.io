@@ -11,13 +11,14 @@ import {
   LOCATION,
   MAILTO_URL,
 } from "@/lib/site";
+import { BRAND } from "@/lib/brand";
 import { TECH_STACK } from "@/lib/tech-stack";
 import { PrintButton } from "./print-button";
 
 export const metadata: Metadata = {
   title: "Resume",
   description:
-    "Resume for Jonathan Terrero — software engineer and biomedical engineering student.",
+    "Resume for Jonathan Terrero — software engineer and biomedical engineering student, founder of Terrero Labs.",
 };
 
 const experience = [
@@ -36,7 +37,7 @@ const experience = [
 const education = [
   {
     school: "Florida Gulf Coast University — Fort Myers, FL",
-    credential: "Bachelor of Science in Biomedical Engineering | Minors: Physics, Computer Science",
+    credential: `Bachelor of Science in Biomedical Engineering | Minors: ${BRAND.minors.replace(" and ", ", ")}`,
     period: "May 2027",
   },
   {
@@ -46,25 +47,39 @@ const education = [
   },
 ];
 
+/**
+ * Every bullet must trace to code, a deployed artifact, or a committed measurement
+ * (rebuild plan §1). See docs/evidence-log.md for the source of each claim.
+ */
 const projects = [
   {
-    name: "Robotic Pick-and-Place Arm",
-    stack: "Arduino (C/C++), Servo Control, Ultrasonic Sensing, FSM Logic",
-    period: "Spring 2026",
+    name: "HeartWire — Health-Tech Startup (MindMap, GastroGuard, HeartWire OS, SkinTrack+)",
+    stack: "Next.js, TypeScript, Supabase, Python",
+    period: "Summer 2025 – Present",
     bullets: [
-      "Designed and programmed a multi-axis robotic arm for autonomous pick-and-place operation using Arduino Uno, servo motors, and ultrasonic object detection.",
-      "Implemented finite state machine control logic to manage motion sequences, sensor feedback, and error handling.",
-      "Calibrated joint angles and motion parameters to improve task repeatability and object-handling reliability.",
+      "MindMap: behavioral health tracker with an atomic, idempotent daily check-in RPC, per-user row isolation enforced by database RLS policies (with a SQL cross-user isolation test suite), server-side AES-256-GCM envelope encryption for journal text, and an offline Python ML layer (calibrated logistic regression with abstention and an output-safety gate) evaluated on synthetic data.",
+      "GastroGuard: GI symptom and meal logging PWA with a hybrid rule-based and correlation trigger engine; tested with 10 users over ~1 month. Designed a vendor-neutral ingestion interface for external health-platform data (HRV, sleep); not yet connected to a live source.",
+      "HeartWire OS: study app built on Next.js, Prisma, and PostgreSQL, organising courses, typed resources, and levelled project ideas across engineering domains.",
     ],
   },
   {
-    name: "Biomechanical Knee Brace Prototype",
-    stack: "Arduino, FSR Sensors, Signal Conditioning, Python",
-    period: "Spring 2025",
+    name: "Robotic Pick-and-Place Arm (2-person team)",
+    stack: "Arduino (C/C++), Servo Control, Colour Sensing, Ultrasonic Ranging, FSM",
+    period: "Spring 2026",
     bullets: [
-      "Designed and prototyped a smart knee brace measuring real-time joint loading using force-sensitive resistors and an Arduino microcontroller.",
-      "Built signal-conditioning circuitry and calibration routines converting raw analog readings into quantified force measurements (Newtons), validated against known loads.",
-      "Developed Python analytics tools to visualize loading patterns across gait cycles and quantify brace performance, integrating hardware, firmware, and data pipeline end to end.",
+      "Wrote all firmware for a 4-servo arm on an Arduino Uno; the brief specified behaviour only. Built a non-blocking FSM controller for human-to-robot handover with a median + EMA filtered ultrasonic sensor, a grip check with retries, and a STOP_HAND proximity override that halts motion when anything comes within 8 cm.",
+      "Implemented runtime colour classification: photoresistor readings under R/G/B LED illumination matched to per-session calibrated references by nearest distance, accepted only after three stable reads.",
+      "Wrote a closed-form inverse-kinematics solver (law of cosines with wrist-point approach, rejecting unreachable targets before any servo command); the final sort used calibrated joint-space poses stored in EEPROM. Joint actuation is open-loop position command.",
+    ],
+  },
+  {
+    name: "Modular Knee Brace",
+    stack: "SolidWorks, Fusion 360, Arduino, FSR Sensors, Python",
+    period: "Spring 2025 – Present",
+    bullets: [
+      "Phase 1: instrumented brace prototype measuring brace–limb interface pressure distribution with an FSR array, used as a proxy for load transfer through the brace; built signal conditioning, a calibration routine, and Python gait-cycle visualisations.",
+      "Ran linear static FEA in SolidWorks Simulation: the critical connector reached a minimum factor of safety of 1.68 at 3 lbf against a 2–4 target, so I documented the design as not yet safe and identified connector and hinge geometry changes.",
+      "Phase 2: rebuilt the design as a parametric 10-part Fusion 360 assembly (frames, lofted connectors, snap-fit hinge) with fit checked at every joint.",
     ],
   },
   {
@@ -73,18 +88,8 @@ const projects = [
     period: "2025 – Present",
     bullets: [
       "Built a public catalog of interactive computational models for five FGCU biomedical engineering courses, deployed at jonnyterrero.github.io/BME-Visualizations.",
-      "Models cover GO fibroblast recovery (ISO 10993), blood rheology and capillary rise, IEC 60601 instrument architecture, signal loading/CMRR/noise, and sagittal-plane knee torque.",
-      "Each dashboard is parameter-driven so governing equations can be swept and reconstructed instead of presented as static lecture slides.",
-    ],
-  },
-  {
-    name: "Health Technology Software Suite (3 Applications)",
-    stack: "Python, FastAPI, REST APIs, PyTorch",
-    period: "Summer 2025 – Present",
-    bullets: [
-      "GastroGuard: full-stack GI monitoring platform with FastAPI APIs, persistent storage, wearable ingestion (HRV, sleep), and analytics linking diet, stress, and sleep to symptom flare-ups; in user testing.",
-      "MindMap+: privacy-focused FastAPI journaling platform with encrypted storage, authentication, trigger detection, habit scoring, and longitudinal mood analytics; in pre-release testing.",
-      "SkinTrack+: full-stack dermatology tracker with backend services for image management, medication and symptom logging, time-series records, and calendar heatmaps; in testing and UI/UX refinement.",
+      "Models cover blood rheology and capillary rise, instrument signal-chain architecture, signal loading/CMRR/noise, sagittal-plane knee torque, and biomaterial response.",
+      "Each dashboard is parameter-driven, so governing equations can be swept and reconstructed rather than presented as static lecture slides.",
     ],
   },
 ];
@@ -127,7 +132,7 @@ export default function ResumePage() {
 
       <section className="space-y-1">
         <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-          Jonathan Terrero
+          {BRAND.founder}
         </h2>
         <p className="text-sm text-muted-foreground">
           {LOCATION} ·{" "}

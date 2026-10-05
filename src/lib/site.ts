@@ -1,8 +1,8 @@
-/** Single source for outbound identity links (no secrets). */
-export const FULL_NAME = "Jonathan Terrero";
-export const SHORT_NAME = "Jonny Terrero";
-export const ROLE_TITLE = "Software Engineer · Biomedical Engineering Student";
-export const LOCATION = "Fort Myers, FL";
+import { BRAND } from "@/lib/brand";
+
+/** Outbound identity links (no secrets). Names and descriptors live in brand.ts. */
+export const FULL_NAME = BRAND.founder;
+export const LOCATION = BRAND.location;
 export const RESUME_PATH = "/resume";
 export const SUBSTACK_URL = "https://substack.com/@jonnyterrero16";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/jonathan-terrero/";
