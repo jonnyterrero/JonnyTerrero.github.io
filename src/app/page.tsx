@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, ExternalLink } from "lucide-react";
 
 import { CapabilitiesSection } from "@/components/capabilities-section";
+import { CourseworkSection } from "@/components/coursework-section";
 import { DivisionGrid } from "@/components/division-index";
 import { ProjectCard } from "@/components/project-card";
 import { StatusBadge } from "@/components/status-badge";
@@ -232,6 +233,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <CourseworkSection />
 
       <CapabilitiesSection />
 

@@ -4,6 +4,7 @@ import { bmeVisualizations } from "./bme-visualizations";
 import { gastroguard } from "./gastroguard";
 import { kneeBrace } from "./knee-brace";
 import { mindmap } from "./mindmap";
+import { physiologyModels } from "./physiology-models";
 import { cocrReview, healthcareSupplyChain, strykerRsa } from "./research";
 import { roboticArm } from "./robotic-arm";
 import { skintrack } from "./skintrack";
@@ -18,6 +19,7 @@ export const allProjects: Project[] = [
   glucoloop,
   roboticArm,
   kneeBrace,
+  physiologyModels,
   bmeVisualizations,
   strykerRsa,
   healthcareSupplyChain,
