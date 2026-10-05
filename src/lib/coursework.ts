@@ -6,7 +6,7 @@
 export interface Course {
   name: string;
   code?: string;
-  area: "Biomedical" | "Electrical" | "Embedded systems";
+  area: "Biomedical" | "Electrical" | "Embedded systems" | "Engineering design";
   /** What the course work produced, in one line. */
   work: string;
   evidence?: { label: string; href: string };
@@ -55,6 +55,13 @@ export const COURSEWORK: Course[] = [
     area: "Embedded systems",
     work: "Arduino firmware: FSM control, sensing, and inverse kinematics for a robotic arm",
     evidence: { label: "Robotic Pick-and-Place Arm", href: "/projects/robotic-pick-place-arm/" },
+  },
+  {
+    name: "Design for Manufacturing",
+    code: "EGN 3433C",
+    area: "Engineering design",
+    work: "Where the modular knee brace started: SolidWorks design, manufacturing choices, and static FEA",
+    evidence: { label: "Modular Knee Brace", href: "/projects/modular-knee-brace/" },
   },
   {
     name: "Circuits",
