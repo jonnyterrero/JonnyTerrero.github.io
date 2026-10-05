@@ -1,94 +1,64 @@
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  accentBorderClass,
-  accentCardGlowClass,
-  accentChipClass,
-  statusBadgeClass,
-} from "@/lib/accent";
-import { hasLiveUrl, type Project } from "@/lib/projects";
+import { StatusBadge } from "@/components/status-badge";
+import { accentDotClass, accentRailClass } from "@/lib/accent";
+import { hasLiveUrl, hasValidRepoUrl, type Project } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 
+/** Cards show at most three stack tags (restructuring plan §12). */
+const MAX_TAGS = 3;
+
 export function ProjectCard({ project }: { project: Project }) {
-  const showLive = hasLiveUrl(project.liveUrl);
+  const live = hasLiveUrl(project.liveUrl);
+  const repo = hasValidRepoUrl(project.repoUrl);
 
   return (
-    <Card
+    <article
       className={cn(
-        "group relative overflow-hidden border border-primary/18 bg-card/75 backdrop-blur-sm transition-[transform,colors,box-shadow,border-color] duration-200 ease-out",
-        "hover:-translate-y-px hover:border-primary/30",
-        accentBorderClass(project.accentColor),
-        accentCardGlowClass(project.accentColor)
+        "surface group relative flex h-full flex-col gap-4 overflow-hidden p-5 transition-colors hover:border-foreground/25",
+        "before:absolute before:inset-x-0 before:top-0 before:h-px",
+        accentRailClass(project.accentColor),
       )}
     >
-      <CardHeader className="space-y-3">
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <div className="min-w-0 flex-1 space-y-2">
-            <div className="flex flex-wrap items-center gap-2">
-              <CardTitle className="text-base font-semibold">
-                <Link
-                  href={`/projects/${project.slug}`}
-                  className="rounded-sm transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                >
-                  {project.name}
-                </Link>
-              </CardTitle>
-              <Badge
-                variant="outline"
-                className={statusBadgeClass(project.status)}
-              >
-                {project.status}
-              </Badge>
-            </div>
-            <CardDescription className="font-semibold text-foreground/88 leading-relaxed">
-              {project.tagline}
-            </CardDescription>
-          </div>
-          {showLive ? (
-            <Button
-              variant="outline"
-              size="sm"
-              asChild
-              className="shrink-0 border-primary/40 text-foreground hover:border-primary/70 hover:bg-primary/10 hover:text-foreground"
+      <div className="space-y-2">
+        <div className="flex items-center gap-2">
+          <span
+            className={cn("size-1.5 shrink-0 rounded-full", accentDotClass(project.accentColor))}
+            aria-hidden
+          />
+          <h3 className="text-base font-semibold tracking-tight">
+            <Link
+              href={`/projects/${project.slug}`}
+              className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
             >
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ExternalLink className="size-3.5" aria-hidden />
-                Live deployment
-              </a>
-            </Button>
-          ) : null}
+              {project.name}
+            </Link>
+          </h3>
         </div>
-      </CardHeader>
-      <CardContent className="space-y-3">
-        <p className="text-sm font-medium leading-relaxed text-muted-foreground">
-          {project.summary}
-        </p>
-        <div className="flex flex-wrap gap-1.5">
-          {project.stack.map((tech) => (
-            <Badge
+        <StatusBadge project={project} />
+      </div>
+      <p className="text-sm leading-relaxed text-muted-foreground">{project.tagline}</p>
+      <div className="mt-auto flex flex-wrap items-center justify-between gap-3 pt-1">
+        <ul className="flex flex-wrap gap-1.5" aria-label="Stack">
+          {project.stack.slice(0, MAX_TAGS).map((tech) => (
+            <li
               key={tech}
-              variant="outline"
-              className={cn("font-normal", accentChipClass(project.accentColor))}
+              className="rounded border border-border px-1.5 py-0.5 font-mono text-[10.5px] text-foreground/70"
             >
               {tech}
-            </Badge>
+            </li>
           ))}
-        </div>
-      </CardContent>
-    </Card>
+        </ul>
+        <span className="flex items-center gap-3 font-mono text-[11px] text-muted-foreground">
+          {live ? <span>live</span> : null}
+          {repo ? <span>source</span> : null}
+          <ArrowUpRight
+            className="size-4 text-muted-foreground transition-colors group-hover:text-foreground"
+            aria-hidden
+          />
+        </span>
+      </div>
+    </article>
   );
 }

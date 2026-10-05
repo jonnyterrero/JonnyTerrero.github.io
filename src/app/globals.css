@@ -15,7 +15,7 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
   --color-ring: var(--ring);
-  --color-cyber-eyebrow: var(--cyber-eyebrow);
+  --color-pending: var(--pending);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -23,33 +23,28 @@
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
+/*
+ * Terrero Labs shell: neutral graphite with one restrained cold-steel accent.
+ * Product colours appear only as small identifiers (dots, rails), never as fills.
+ */
 :root {
-  /* ~rounded-2xl scale for cards, dialogs, hero, tiles */
-  --radius: 1rem;
-  /* Dark slate base with slight blue hue */
-  --background: oklch(0.11 0.022 265);
-  --foreground: oklch(0.93 0.012 265);
-  /* Layered surface: lifted, faint chroma */
-  --card: oklch(0.155 0.028 265);
-  --card-foreground: oklch(0.93 0.012 265);
-  /* Pastel cyan-teal primary (hue 195): documented border tints for surfaces */
-  --cyber-border: oklch(0.55 0.1 195 / 0.18);
-  --cyber-border-hover: oklch(0.55 0.1 195 / 0.3);
-  --primary: oklch(0.72 0.11 195);
-  --primary-foreground: oklch(0.14 0.04 265);
-  --secondary: oklch(0.22 0.035 275);
-  --secondary-foreground: oklch(0.9 0.02 265);
-  --muted: oklch(0.2 0.03 265);
-  --muted-foreground: oklch(0.72 0.03 265);
-  --accent: oklch(0.24 0.04 280);
-  --accent-foreground: oklch(0.93 0.012 265);
-  --border: oklch(0.32 0.04 265);
-  --ring: oklch(0.65 0.12 195);
-  --cyber-eyebrow: oklch(0.7 0.1 300);
-  /* Decorative glows (used sparingly in components) */
-  --glow-cyan: oklch(0.65 0.14 195 / 0.35);
-  --glow-violet: oklch(0.62 0.12 295 / 0.3);
-  --glow-pink: oklch(0.7 0.1 330 / 0.25);
+  --radius: 0.625rem;
+  --background: #0b0d10; /* graphite */
+  --foreground: #f4f2ed; /* warm white */
+  --card: #13161a;
+  --card-foreground: #f4f2ed;
+  --primary: #8cc4d4; /* cold steel / cyan */
+  --primary-foreground: #0b0d10;
+  --secondary: #1b1f25;
+  --secondary-foreground: #e6e3dc;
+  --muted: #161a1f; /* charcoal */
+  --muted-foreground: #a8afb8; /* silver */
+  --accent: #1d232a;
+  --accent-foreground: #f4f2ed;
+  --border: #2a3038; /* soft border */
+  --ring: #8cc4d4;
+  --pending: #d9b56c;
+  color-scheme: dark;
 }
 
 @layer base {
@@ -59,88 +54,48 @@
   body {
     @apply bg-background text-foreground antialiased;
   }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 }
 
 @layer components {
-  /* // labels: mono + eyebrow color */
-  .eyebrow-mono {
-    @apply font-mono text-xs font-medium uppercase tracking-[0.22em] text-cyber-eyebrow;
+  /* Metadata labels: mono, small caps-style */
+  .eyebrow {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground;
   }
-  /* Section body: medium weight + readable contrast on dark surfaces */
-  .body-prose-muted {
-    @apply text-[0.9375rem] font-medium leading-[1.65] text-foreground/88;
+  .prose-body {
+    @apply text-[0.9375rem] leading-[1.7] text-foreground/85;
   }
-  /* Key phrase: same gradient as .accent-text + semibold */
-  .accent-phrase {
-    font-weight: 600;
-    background: linear-gradient(
-      105deg,
-      oklch(0.78 0.1 195) 0%,
-      oklch(0.75 0.12 280) 55%,
-      oklch(0.78 0.09 330) 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+  .surface {
+    @apply rounded-lg border border-border bg-card;
+  }
+  .diagram {
+    @apply overflow-x-auto rounded-md border border-border bg-[#0e1114] p-4 font-mono text-[11.5px] leading-[1.45] text-foreground/80;
+    white-space: pre;
+    tab-size: 2;
   }
 }
 
-/* Hero: single soft radial, no animation */
-.hero-panel {
-  position: relative;
-  isolation: isolate;
-  border-radius: var(--radius-lg);
-  border: 1px solid color-mix(in oklch, oklch(0.38 0.05 265 / 0.45) 78%, oklch(0.55 0.1 195 / 0.28) 22%);
-  background: oklch(0.14 0.025 265 / 0.85);
-  box-shadow:
-    0 0 0 1px oklch(0.55 0.1 195 / 0.08),
-    0 12px 40px oklch(0.05 0.02 265 / 0.5);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
 
-.hero-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse 85% 70% at 15% 0%,
-    oklch(0.45 0.12 195 / 0.1) 0%,
-    transparent 55%
-  ),
-    radial-gradient(
-      ellipse 60% 50% at 95% 80%,
-      oklch(0.42 0.1 300 / 0.075) 0%,
-      transparent 50%
-    );
-}
-
-/* Hero-aligned gradient emphasis; use sparingly (alias: accent-text) */
-.text-cyber-accent,
-.accent-text {
-  background: linear-gradient(
-    105deg,
-    oklch(0.78 0.1 195) 0%,
-    oklch(0.75 0.12 280) 55%,
-    oklch(0.78 0.09 330) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Faint gradient rule (homepage sections); use with Separator: className="separator-cyber" */
-.separator-cyber {
-  flex-shrink: 0;
-  height: 1px;
-  width: 100%;
-  border: 0;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    oklch(0.5 0.08 195 / 0.35) 35%,
-    oklch(0.5 0.1 300 / 0.3) 65%,
-    transparent 100%
-  ) !important;
+@media print {
+  :root {
+    --background: #ffffff;
+    --foreground: #111111;
+    --card: #ffffff;
+    --muted-foreground: #444444;
+    --border: #cccccc;
+  }
 }

@@ -18,7 +18,7 @@ export const TECH_STACK: TechStackCategory[] = [
       "FastAPI",
       "Django",
       "Flutter",
-      "PyTorch",
+      "scikit-learn",
       "Pandas",
       "NumPy",
       "Matplotlib",
@@ -38,7 +38,7 @@ export const TECH_STACK: TechStackCategory[] = [
   },
   {
     label: "AI & Agents",
-    items: ["Claude Agent SDK", "Claude Code Skills", "OpenAI API", "MCP"],
+    items: ["Claude Code Skills", "Claude API", "OpenAI API"],
   },
   {
     label: "Hardware & Engineering",
@@ -49,6 +49,7 @@ export const TECH_STACK: TechStackCategory[] = [
       "breadboarding",
       "microcontroller programming",
       "SolidWorks",
+      "Fusion 360",
       "3D printing",
     ],
   },

@@ -1,20 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ExternalLink } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
+import { CaseStudy, CaseStudyToc, CoverageStrip } from "@/components/case-study";
+import { ProjectDetailImage } from "@/components/project-detail-image";
+import { StatusBadge } from "@/components/status-badge";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { accentDotClass, statusBadgeClass } from "@/lib/accent";
+import { accentDotClass } from "@/lib/accent";
+import { BRAND } from "@/lib/brand";
 import {
+  DIVISIONS,
   getAllSlugs,
   getProjectBySlug,
   hasLiveUrl,
   hasValidRepoUrl,
 } from "@/lib/projects";
-import { ProjectDetailImage } from "@/components/project-detail-image";
 import { cn } from "@/lib/utils";
-import { ExternalLink } from "lucide-react";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -26,9 +28,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) return { title: "Project" };
+  const title = project.division === "product" ? `${project.name} | ${BRAND.company}` : project.name;
   return {
-    title: project.name,
+    title: { absolute: title },
     description: project.tagline,
+    alternates: { canonical: `/projects/${slug}/` },
+    openGraph: { title, description: project.tagline, url: `/projects/${slug}/` },
   };
 }
 
@@ -37,222 +42,96 @@ export default async function ProjectPage({ params }: Props) {
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
-  const showLive = hasLiveUrl(project.liveUrl);
-  const showRepo = hasValidRepoUrl(project.repoUrl);
-  const detail = project.detail;
-  const classicDetail =
-    Boolean(detail?.problem?.trim()) ||
-    Boolean(detail?.design?.trim()) ||
-    Boolean(detail?.engineering?.length);
-  const sectionDetail = Boolean(detail?.sections?.length);
+  const division = DIVISIONS[project.division];
+  const live = hasLiveUrl(project.liveUrl);
+  const repo = hasValidRepoUrl(project.repoUrl);
+
+  const meta: { label: string; value: string }[] = [
+    { label: "Division", value: division.label },
+    ...(project.role ? [{ label: "Role", value: project.role }] : []),
+    ...(project.timeline ? [{ label: "Timeline", value: project.timeline }] : []),
+  ];
 
   return (
-    <article className="space-y-10">
-      <div className="flex items-start gap-3">
-        <span
-          className={cn(
-            "mt-2 h-2 w-2 shrink-0 rounded-full",
-            accentDotClass(project.accentColor)
-          )}
-          aria-hidden
-        />
-        <header className="min-w-0 space-y-3">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-            Project
-          </p>
-          <h1 className="text-3xl font-semibold tracking-tight">
+    <article className="space-y-12">
+      <header className="space-y-6">
+        <nav aria-label="Breadcrumb" className="eyebrow">
+          <Link href={division.href} className="hover:text-foreground">
+            {division.label}
+          </Link>
+          <span aria-hidden> / </span>
+          <span className="text-foreground/70">{project.name}</span>
+        </nav>
+        <div className="max-w-3xl space-y-4">
+          <h1 className="flex items-center gap-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+            <span className={cn("size-2.5 shrink-0 rounded-full", accentDotClass(project.accentColor))} aria-hidden />
             {project.name}
           </h1>
-          <p className="text-base font-semibold text-foreground/90">
-            {project.tagline}
-          </p>
-          <Badge variant="outline" className={statusBadgeClass(project.status)}>
-            {project.status}
-          </Badge>
-        </header>
+          <p className="text-lg leading-relaxed text-foreground/85">{project.tagline}</p>
+          <StatusBadge project={project} />
+        </div>
+        <dl className="grid max-w-3xl gap-x-8 gap-y-3 sm:grid-cols-3">
+          {meta.map((m) => (
+            <div key={m.label} className="space-y-1">
+              <dt className="eyebrow">{m.label}</dt>
+              <dd className="text-sm">{m.value}</dd>
+            </div>
+          ))}
+        </dl>
+        {live || repo ? (
+          <div className="flex flex-wrap gap-2">
+            {live ? (
+              <Button asChild>
+                <a href={project.liveUrl!} target="_blank" rel="noopener noreferrer">
+                  Open live app <ExternalLink aria-hidden />
+                </a>
+              </Button>
+            ) : null}
+            {repo ? (
+              <Button variant="outline" asChild>
+                <a href={project.repoUrl!} target="_blank" rel="noopener noreferrer">
+                  Source <ExternalLink aria-hidden />
+                </a>
+              </Button>
+            ) : null}
+          </div>
+        ) : null}
+      </header>
+
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-14">
+        <div className="min-w-0 max-w-3xl space-y-12">
+          <section className="space-y-4">
+            <p className="prose-body text-base">{project.summary}</p>
+            <ul className="flex flex-wrap gap-1.5" aria-label="Stack">
+              {project.stack.map((tech) => (
+                <li key={tech} className="rounded border border-border px-2 py-0.5 font-mono text-[11px] text-foreground/75">
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          </section>
+          {project.imageSrc ? (
+            <div className="max-w-md">
+              <ProjectDetailImage src={project.imageSrc} alt={project.imageAlt ?? `Image of ${project.name}`} />
+            </div>
+          ) : null}
+          <CaseStudy project={project} />
+        </div>
+        <aside className="order-first space-y-8 lg:order-none">
+          <div className="space-y-8 lg:sticky lg:top-24">
+            <CoverageStrip project={project} />
+            <div className="hidden lg:block">
+              <CaseStudyToc />
+            </div>
+          </div>
+        </aside>
       </div>
 
-      {showLive || showRepo ? (
-        <div className="flex flex-wrap gap-2">
-          {showLive ? (
-            <Button asChild size="sm">
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open live app
-                <ExternalLink className="ml-1" aria-hidden />
-              </a>
-            </Button>
-          ) : null}
-          {showRepo ? (
-            <Button variant="outline" size="sm" asChild>
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Repository
-                <ExternalLink className="ml-1" aria-hidden />
-              </a>
-            </Button>
-          ) : null}
-        </div>
-      ) : null}
-
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground">Summary</h2>
-        <p className="text-sm font-medium leading-relaxed text-muted-foreground">
-          {project.summary}
-        </p>
-      </section>
-
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground">Use case</h2>
-        <p className="text-sm font-medium leading-relaxed text-muted-foreground">
-          {project.useCase}
-        </p>
-      </section>
-
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground">Who it&apos;s for</h2>
-        <ul className="flex flex-wrap gap-2">
-          {project.targetUsers.map((u) => (
-            <li key={u}>
-              <Badge variant="outline">{u}</Badge>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-foreground">Stack</h2>
-        <ul className="flex flex-wrap gap-2">
-          {project.stack.map((tech) => (
-            <li key={tech}>
-              <Badge variant="secondary" className="font-mono text-xs">
-                {tech}
-              </Badge>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {classicDetail || sectionDetail ? (
-        <>
-          <Separator />
-          <section className="space-y-6">
-            {classicDetail ? (
-              <h2 className="text-base font-semibold tracking-tight">
-                Design deep dive
-              </h2>
-            ) : (
-              <h2 className="text-base font-semibold tracking-tight">
-                Case study
-              </h2>
-            )}
-            <div
-              className={cn(
-                "gap-8",
-                project.imageSrc
-                  ? "lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(240px,320px)] lg:items-start lg:gap-10"
-                  : null
-              )}
-            >
-              <div className="min-w-0 space-y-8 text-sm leading-relaxed text-muted-foreground">
-                {classicDetail ? (
-                  <>
-                    {detail?.problem?.trim() ? (
-                      <div className="space-y-2">
-                        <h3 className="text-sm font-medium text-foreground">
-                          Problem
-                        </h3>
-                        <p>{detail.problem}</p>
-                      </div>
-                    ) : null}
-                    {detail?.design?.trim() ? (
-                      <div className="space-y-2">
-                        <h3 className="text-sm font-medium text-foreground">
-                          Design
-                        </h3>
-                        <p>{detail.design}</p>
-                      </div>
-                    ) : null}
-                    {detail?.engineering?.length ? (
-                      <div className="space-y-2">
-                        <h3 className="text-sm font-medium text-foreground">
-                          Engineering considerations
-                        </h3>
-                        <ul className="list-disc space-y-2 pl-5">
-                          {detail.engineering.map((item) => (
-                            <li key={item}>{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    ) : null}
-                  </>
-                ) : null}
-
-                {sectionDetail ? (
-                  <div className="space-y-8">
-                    {detail?.sections?.map((section) => (
-                      <section key={section.title} className="space-y-3">
-                        <h3 className="text-sm font-medium text-foreground">
-                          {section.title}
-                        </h3>
-                        <div className="space-y-3">
-                          {section.paragraphs.map((paragraph) => (
-                            <p key={paragraph}>{paragraph}</p>
-                          ))}
-                        </div>
-                      </section>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
-
-              {project.imageSrc ? (
-                <div className="mx-auto w-full max-w-md shrink-0 pt-2 lg:mx-0 lg:pt-0 lg:sticky lg:top-24">
-                  <p className="mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                    Model
-                  </p>
-                  <ProjectDetailImage
-                    src={project.imageSrc}
-                    alt={
-                      project.imageAlt ??
-                      `Illustration for ${project.name}`
-                    }
-                  />
-                </div>
-              ) : null}
-            </div>
-          </section>
-        </>
-      ) : null}
-
-      {project.imageSrc && !project.detail ? (
-        <>
-          <Separator />
-          <section className="space-y-3">
-            <h2 className="text-sm font-semibold text-foreground">Visual</h2>
-            <div className="mx-auto max-w-md">
-              <ProjectDetailImage
-                src={project.imageSrc}
-                alt={
-                  project.imageAlt ?? `Illustration for ${project.name}`
-                }
-              />
-            </div>
-          </section>
-        </>
-      ) : null}
-
-      <Separator />
-
-      <Button variant="ghost" size="sm" className="px-0" asChild>
-        <Link href="/ecosystem">← Back to ecosystem</Link>
-      </Button>
+      <div className="border-t border-border pt-6">
+        <Link href={division.href} className="text-sm text-muted-foreground hover:text-foreground">
+          ← All {division.label.toLowerCase()}
+        </Link>
+      </div>
     </article>
   );
 }
