@@ -125,7 +125,7 @@ PHASE 2 — CAD-first redesign (2026)
     scope: [
       {
         type: "p",
-        text: "Phase 1 was my individual course design project (Spring 2025): design, CAD, FEA, and report. Phase 2 is independent work.",
+        text: "Phase 1 was my individual design project for Design for Manufacturing (EGN 3433C, Spring 2025): design, CAD, FEA, and report. Phase 2 is independent work.",
       },
     ],
     implementation: [
