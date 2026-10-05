@@ -3,17 +3,23 @@
  * Change a name here and every page follows — no stray legacy names.
  *
  * Brand architecture (docs/BRAND_ARCHITECTURE.md):
- *   Terrero Labs — parent studio (independent, founder-led; never implied larger)
- *   HeartWire    — reserved for the cardiac product line; not used for anything else
+ *   Terrero Labs — umbrella for my work as an engineer: projects, research, skills
+ *   HeartWire    — my health-tech startup (company formation in progress); its
+ *                  products are MindMap, GastroGuard, SkinTrack+, HeartWire OS, GlucoLoop
+ *   JonnyJr      — personal tooling: agent bench + Obsidian second brain
  */
 export const BRAND = {
   company: "Terrero Labs",
-  companyDescriptor: "Biomedical systems + software",
+  companyDescriptor: "Biomedical engineering · software · hardware",
   companyLine:
-    "Terrero Labs is my independent biomedical engineering studio, focused on health software, biosignals, embedded sensing, and applied engineering research.",
+    "Terrero Labs is the umbrella for my work as an engineer: the projects, research, and skills behind them.",
+  startup: "HeartWire",
+  startupStatus: "Company formation in progress",
+  startupLine:
+    "HeartWire is my health-tech startup, now being formally set up. It’s where the products live: MindMap, GastroGuard, SkinTrack+, HeartWire OS, and later GlucoLoop.",
   founder: "Jonathan Terrero",
   founderShort: "Jonny Terrero",
-  founderRole: "Founder & Engineer, Terrero Labs",
+  founderRole: "Engineer · Founder of HeartWire",
   roleTitle: "Software Engineer · Biomedical Engineering",
   location: "Fort Myers, FL",
   /** One answer everywhere (finding C8). */
@@ -22,5 +28,5 @@ export const BRAND = {
   gradDate: "Expected May 2027",
   siteUrl: "https://jonnyterrero.github.io",
   description:
-    "Jonathan Terrero is a software engineer and biomedical engineering student building Terrero Labs: health software, embedded sensing, biomedical devices, and computational models — each documented with what is built, what is measured, and what it does not claim.",
+    "Terrero Labs is the engineering portfolio of Jonathan Terrero, a software engineer, biomedical engineering student, and founder of the health-tech startup HeartWire. Each project is documented with what is built, what is measured, and what it does not claim.",
 } as const;

@@ -53,21 +53,21 @@ const education = [
  */
 const projects = [
   {
-    name: "Terrero Labs — Health Software (MindMap, GastroGuard, SkinTrack+)",
+    name: "HeartWire — Health-Tech Startup (MindMap, GastroGuard, HeartWire OS, SkinTrack+)",
     stack: "Next.js, TypeScript, Supabase, Python",
     period: "Summer 2025 – Present",
     bullets: [
       "MindMap: behavioral health tracker with an atomic, idempotent daily check-in RPC, per-user row isolation enforced by database RLS policies (with a SQL cross-user isolation test suite), server-side AES-256-GCM envelope encryption for journal text, and an offline Python ML layer (calibrated logistic regression with abstention and an output-safety gate) evaluated on synthetic data.",
       "GastroGuard: GI symptom and meal logging PWA with a hybrid rule-based and correlation trigger engine; tested with 10 users over ~1 month. Designed a vendor-neutral ingestion interface for external health-platform data (HRV, sleep); not yet connected to a live source.",
-      "SkinTrack+: prototype dermatology record — in-app photo capture, medication and symptom logging, time-indexed records, and calendar heatmaps. Images are stored for reference and not analysed; server persistence is being verified.",
+      "HeartWire OS: study app built on Next.js, Prisma, and PostgreSQL, organising courses, typed resources, and levelled project ideas across engineering domains.",
     ],
   },
   {
-    name: "Colour-Sorting Robotic Arm (2-person team)",
+    name: "Robotic Pick-and-Place Arm (2-person team)",
     stack: "Arduino (C/C++), Servo Control, Colour Sensing, Ultrasonic Ranging, FSM",
     period: "Spring 2026",
     bullets: [
-      "Wrote all firmware for a 4-servo arm on an Arduino Uno; the brief specified behaviour only. Built a finite state machine controller with explicit states for scanning, picking, sensing, delivery, and reset.",
+      "Wrote all firmware for a 4-servo arm on an Arduino Uno; the brief specified behaviour only. Built a non-blocking FSM controller for human-to-robot handover with a median + EMA filtered ultrasonic sensor, a grip check with retries, and a STOP_HAND proximity override that halts motion when anything comes within 8 cm.",
       "Implemented runtime colour classification: photoresistor readings under R/G/B LED illumination matched to per-session calibrated references by nearest distance, accepted only after three stable reads.",
       "Wrote a closed-form inverse-kinematics solver (law of cosines with wrist-point approach, rejecting unreachable targets before any servo command); the final sort used calibrated joint-space poses stored in EEPROM. Joint actuation is open-loop position command.",
     ],
@@ -78,7 +78,8 @@ const projects = [
     period: "Spring 2025 – Present",
     bullets: [
       "Phase 1: instrumented brace prototype measuring brace–limb interface pressure distribution with an FSR array, used as a proxy for load transfer through the brace; built signal conditioning, a calibration routine, and Python gait-cycle visualisations.",
-      "Phase 2: rebuilt the SolidWorks design as a parametric 10-part Fusion 360 assembly (frames, lofted connectors, snap-fit hinge) with fit checked at every joint; ran linear static studies on the hinge and a connector.",
+      "Ran linear static FEA in SolidWorks Simulation: the critical connector reached a minimum factor of safety of 1.68 at 3 lbf against a 2–4 target, so I documented the design as not yet safe and identified connector and hinge geometry changes.",
+      "Phase 2: rebuilt the design as a parametric 10-part Fusion 360 assembly (frames, lofted connectors, snap-fit hinge) with fit checked at every joint.",
     ],
   },
   {

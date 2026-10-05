@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export const NAV_LINKS = [
-  { href: "/products", label: "Products" },
+  { href: "/heartwire", label: "HeartWire" },
   { href: "/engineering", label: "Engineering" },
   { href: "/research", label: "Research" },
   { href: "/about", label: "About" },

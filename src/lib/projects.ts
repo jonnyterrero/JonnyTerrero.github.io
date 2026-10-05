@@ -2,10 +2,10 @@ import { allProjects } from "@/content/projects";
 
 /**
  * Portfolio tiers (rebuild plan P1-01). A project has exactly one home.
- * - product:     Terrero Labs software products
+ * - product:     HeartWire, the startup, and its products
  * - engineering: hardware, devices, and computational models
  * - research:    case studies and reviews
- * - systems:     personal tooling and infrastructure — not products
+ * - systems:     personal tooling (JonnyJr) — not products
  */
 export type Division = "product" | "engineering" | "research" | "systems";
 
@@ -15,6 +15,7 @@ export type Priority = "flagship" | "featured" | "standard" | "archive";
 /** Fixed status vocabulary. Falsifiable detail goes in `statusNote` (finding C7). */
 export type Status =
   | "Active development"
+  | "In use"
   | "Prototype"
   | "Completed"
   | "Research"
@@ -149,6 +150,11 @@ export function getAllSlugs(): string[] {
   return visible.map((p) => p.slug);
 }
 
+/** Old project URLs that moved. Static export can't 301, so these pages refresh. */
+export const LEGACY_SLUGS: Record<string, string> = {
+  "heartwire-agent-suite": "jonnyjr",
+};
+
 const PRIORITY_RANK: Record<Priority, number> = {
   flagship: 0,
   featured: 1,
@@ -191,11 +197,11 @@ export const DIVISIONS: Record<
   { label: string; href: string; eyebrow: string; blurb: string }
 > = {
   product: {
-    label: "Products",
-    href: "/products",
-    eyebrow: "Terrero Labs",
+    label: "HeartWire",
+    href: "/heartwire",
+    eyebrow: "Startup · company formation in progress",
     blurb:
-      "Health software built under Terrero Labs, my independent studio. Each page states what is built, what is measured, and what the product does not claim.",
+      "HeartWire is my health-tech startup. Its products turn behavior, symptoms, and study into structured records. Each page states what is built, what is measured, and what the product does not claim.",
   },
   engineering: {
     label: "Engineering",
@@ -216,7 +222,7 @@ export const DIVISIONS: Record<
     href: "/systems",
     eyebrow: "Personal tooling",
     blurb:
-      "Infrastructure I built for my own work. Not products: no users, not distributed, judged on whether they change how I work.",
+      "JonnyJr, the infrastructure I built for my own work: an agent bench and an Obsidian second brain. Not a product — it’s judged on whether it changes how I work.",
   },
 };
 

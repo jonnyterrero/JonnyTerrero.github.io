@@ -44,6 +44,7 @@ export default function AboutPage() {
           <p>
             I’m {BRAND.founder}, a Software Engineer I at OmniFlex Fitness and a biomedical engineering student at Florida Gulf Coast University. {BRAND.companyLine}
           </p>
+          <p>{BRAND.startupLine}</p>
           <p>
             I treat the body and mind as systems: inputs, outputs, and patterns that can be measured, understood, and improved over time. Structured inputs and explicit hypotheses beat anecdotes when you’re trying to understand something that changes constantly — and the same rule applies to my own work, which is why every project here says what has and hasn’t been verified.
           </p>

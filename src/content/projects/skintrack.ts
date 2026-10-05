@@ -8,12 +8,12 @@ export const skintrack: Project = {
   division: "product",
   priority: "standard",
   status: "Prototype",
-  statusNote: "Persistence not yet verified · no retained usage data",
+  statusNote: "Under reconstruction · links withheld until rebuilt",
   timeline: "2025 – present",
   stack: ["Next.js", "TypeScript", "PWA"],
   // Live link withheld until persistence is verified end-to-end (rebuild plan P0-01).
   liveUrl: null,
-  // Repo link withheld until its README and image-analysis placeholder are corrected (see docs/evidence-log.md).
+  // Repo link withheld during reconstruction: its README and image-analysis placeholder predate the current scope (docs/evidence-log.md).
   repoUrl: null,
   summary:
     "A timeline for chronic skin conditions, so a consultation starts from a record instead of recall. Images are documentation for the user and their clinician — they are not analysed.",

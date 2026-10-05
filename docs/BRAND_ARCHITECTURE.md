@@ -1,28 +1,28 @@
 # Brand architecture
 
-Frozen 2026-10-05. Source of truth in code: `src/lib/brand.ts`.
+Confirmed by the owner on 2026-10-05. Source of truth in code: `src/lib/brand.ts`.
 
 ```
-Jonathan Terrero — Founder & Engineer
-└── Terrero Labs — independent biomedical systems + software studio
-    ├── Products      MindMap (flagship) · GastroGuard · SkinTrack+
-    ├── Engineering   Colour-Sorting Robotic Arm · Modular Knee Brace · BME Visualizations
-    ├── Research      Stryker RSA teardown · Healthcare supply chain · Co–Cr review
-    └── Systems       Agent Bench · HeartWire OS (working title — rename planned)
+Terrero Labs — Jonathan Terrero's engineering umbrella: projects, research, skills
+├── HeartWire (startup · company formation in progress)       /heartwire
+│   ├── MindMap        flagship
+│   ├── GastroGuard
+│   ├── HeartWire OS   study app
+│   ├── SkinTrack+     under reconstruction — links withheld
+│   └── GlucoLoop      concept, planned
+├── Engineering   Robotic Pick-and-Place Arm · Modular Knee Brace · BME Visualizations
+├── Research      Stryker RSA teardown · Healthcare supply chain · Co–Cr review
+└── Systems       JonnyJr — agent bench + Obsidian second brain (personal tooling)
 ```
 
 ## Rules
 
-- **Terrero Labs** is the parent. Describe it as "my independent studio" — never imply headcount.
-- **HeartWire** is reserved for a future cardiac sensing product line. No HeartWire product page exists, because no cardiac artifact exists yet (claim ratchet).
-- **HeartWire OS** keeps its name only until Q-06 is answered, and is labelled "working title" everywhere.
-- Product colour appears only as an identifier dot or rail: MindMap violet, GastroGuard amber, SkinTrack+ green.
+- **Terrero Labs** is the umbrella for the person and the portfolio — not a company.
+- **HeartWire** is the startup. Until formation is complete, describe it as "my health-tech startup, now being formally set up". Don't use Inc./LLC or imply incorporation, headcount, or revenue.
+- Health claims carry more weight under a company name (audit C20b): every HeartWire product page states that it is not a medical device.
+- **JonnyJr** is personal tooling, not a HeartWire product.
+- Minors: **Physics and Computer Science**, both declared (Q-05 resolved).
 
-## Resolved conflict
+## Moved URLs (static meta-refresh)
 
-`portfolio-audit.md` C20 made HeartWire the venture. `terrero-labs-restructuring-plan.md` replaces that with Terrero Labs as the umbrella and HeartWire as the cardiac line. This site follows the restructuring plan. Reverting is a one-file change in `brand.ts` plus the `DIVISIONS` copy in `src/lib/projects.ts`.
-
-## Open
-
-- Q-05: minors are shown as **Physics and Computer Science** (matches the existing résumé and your stated profile). Change `BRAND.minors` if that's wrong.
-- Domain and trademark checks before buying a Terrero Labs domain.
+`/products/` → `/heartwire/` · `/ecosystem/` → `/work/` · `/projects/heartwire-agent-suite/` → `/projects/jonnyjr/`

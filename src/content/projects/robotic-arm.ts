@@ -4,41 +4,43 @@ const REPO = "https://github.com/jonnyterrero/Intro-to-Mech-Design";
 
 export const roboticArm: Project = {
   slug: "robotic-pick-place-arm",
-  name: "Colour-Sorting Robotic Arm",
+  name: "Robotic Pick-and-Place Arm",
   tagline:
-    "Arduino firmware for a 4-servo arm: runtime colour classification, an FSM controller, and a closed-form inverse-kinematics solver.",
+    "Arduino firmware for a 4-servo arm: colour sorting, handing an object to the arm, a proximity safety stop, and a closed-form inverse-kinematics solver.",
   division: "engineering",
   priority: "featured",
   status: "Completed",
   statusNote: "Course project · functional demo",
   role: "2-person team — I wrote all firmware; partner built the mechanism",
   timeline: "Spring 2026",
-  stack: ["Arduino Uno (C/C++)", "Servo control", "Colour sensing (LDR + RGB LED)", "Ultrasonic ranging", "Finite state machine", "Inverse kinematics"],
+  stack: ["Arduino Uno (C/C++)", "Servo control", "Colour sensing (LDR + RGB LED)", "Ultrasonic ranging (median + EMA)", "Finite state machine", "Inverse kinematics"],
   liveUrl: null,
   repoUrl: REPO,
   extraLinks: [
-    { label: "Final ball-sort firmware", href: `${REPO}/tree/main/final_project_final_code` },
+    { label: "Handover FSM firmware", href: `${REPO}/tree/main/final-project/final_project_v1/robotic_arm_fsm` },
+    { label: "Colour-sort firmware", href: `${REPO}/tree/main/final_project_final_code` },
     { label: "IK pick-and-place firmware (v4)", href: `${REPO}/tree/main/robotic-arm/Robotic%20arm%20collection/v4_ik_pick_and_place` },
   ],
   summary:
-    "Reads a ball’s colour, decides where it goes at runtime, and places it — the destination isn’t scripted in advance, so a misclassification produces a confident wrong placement rather than a visible failure. That makes the classifier the part that has to be measured.",
+    "Two behaviours from one arm. In colour sorting, it reads a ball’s colour and decides at runtime where it goes, so a misclassification produces a confident wrong placement rather than a visible failure. In handover, a person presents an object, the arm takes it, and a proximity override stops all motion if anything comes too close.",
   accentColor: "blue",
   capabilityDetails: {
     "biomedical-embedded": "Servo control, photoresistor colour sensing, and ultrasonic ranging on an Arduino Uno.",
-    "core-engineering": "FSM sequencing with explicit error states; closed-form 2-link IK with workspace rejection.",
+    "core-engineering": "FSM sequencing with explicit error states, a proximity safety override, and closed-form 2-link IK.",
   },
   caseStudy: {
     problem: [
       {
         type: "p",
-        text: "The brief specified behaviour only: sense a ball’s colour, pick it, and place it in the matching location. Three separate engineering problems sit under that:",
+        text: "The brief specified behaviour only: sort balls by colour into matching locations, and take an object handed over by a person. Four separate engineering problems sit under that:",
       },
       {
         type: "list",
         items: [
           "Motion — reach a target with a multi-joint arm, either by replaying calibrated poses or by solving inverse kinematics.",
           "Perception-conditioned decisions — the destination is chosen at runtime from a sensed colour, so classification errors fail silently.",
-          "Failure handling — a missed or misaligned object has to become a defined state, not an undefined continuation.",
+          "Failure handling — a missed or slipped object has to become a defined state, not an undefined continuation.",
+          "Working near a person — a hand in the workspace must stop the arm, not be grabbed or struck.",
         ],
       },
     ],
@@ -52,6 +54,8 @@ export const roboticArm: Project = {
           ["R2", "End-to-end sort", "Success rate over consecutive cycles, with failures broken down by mode", "Not yet measured"],
           ["R3", "IK accuracy", "End-effector error against commanded targets across the workspace", "Not yet measured"],
           ["R4", "Repeatability", "Spread over repeated returns to one pose", "Not yet measured"],
+          ["R5", "Handover", "Success rate taking objects presented at varied positions", "Not yet measured"],
+          ["R6", "Proximity stop", "STOP_HAND triggers every time something enters < 8 cm in a non-holding state", "Not yet measured"],
         ],
       },
     ],
@@ -85,8 +89,18 @@ export const roboticArm: Project = {
                  └─────────────────┘   └───────────────┘`,
       },
       {
-        type: "p",
-        text: "Handoff-controller FSM states, from the firmware: SCAN → DETECT → PICKUP → COLOR_SENSE → GRAB → CARRY → DELIVER → DROP → RESET.",
+        type: "diagram",
+        caption: "Handover build, from the firmware. Holding states are excluded from STOP_HAND so the object being carried can’t trigger it.",
+        text: `           LED command
+  IDLE ───────────────▶ SCAN ──┐
+    ▲                          │ object held 8–15 cm away
+    │ cycle done               ▼
+  RETURN_HOME ◀─ RELEASE ◀─ MOVE_TO_DROP ◀─ LIFT ◀─ GRAB ◀─ APPROACH
+                                                     ▲
+                                  grip check failed ─┘ (retry ≤ 2)
+
+  any non-holding state ── distance < 8 cm ──▶ STOP_HAND
+  STOP_HAND ── path clear (> 15 cm) ──▶ IDLE`,
       },
     ],
     decisions: [
@@ -98,6 +112,15 @@ export const roboticArm: Project = {
         alternative: "Fixed thresholds on individual channels.",
         tradeoff:
           "Per-session calibration absorbs some lighting drift and the stability requirement rejects transients. Cost: the references are only valid under the lighting they were taken in, and a wrong match still drives a confident placement.",
+      },
+      {
+        type: "decision",
+        title: "A proximity safety override in the handover build",
+        chosen:
+          "From any state that isn’t holding an object, a filtered ultrasonic distance under 8 cm forces STOP_HAND. The arm resumes only once the path is clear beyond 15 cm.",
+        alternative: "Rely on the operator to keep clear.",
+        tradeoff:
+          "The gap between the stop and resume thresholds prevents chatter at the boundary, and excluding holding states stops the carried object from triggering it. Cost: it is one ultrasonic sensor with a wide beam — a software stop, not a safety-rated function.",
       },
       {
         type: "decision",
@@ -135,6 +158,7 @@ export const roboticArm: Project = {
         items: [
           "Hardware: Arduino Uno, 4 hobby servos, photoresistor with an RGB LED, ultrasonic ranger, 74HC595 shift register driving a display.",
           "Final ball-sort firmware: a user-entered target sequence (Y/G/R/B), a serial calibration menu for colours and arm poses, poses persisted to EEPROM, and colour strings in PROGMEM to save SRAM.",
+          "Handover build: triggered by a debounced LED command input; ultrasonic readings smoothed with a 5-sample median and an exponential moving average; non-blocking millis() scheduling for sensing, stepping, and display; incremental servo stepping; a grip check after LIFT with up to two retries; FSM state and distance shown on a 74HC595-driven 4-digit display; servos on a separate 5–6 V supply with shared ground.",
           "Object finding (handoff controller): the base sweeps in fixed steps; an object is accepted only when consecutive ultrasonic hits form a run within a set width window, and the arm turns to the closest return.",
           "IK (v4 firmware): wrist-point and law-of-cosines solutions with workspace limits, and a flag to fall back to the earlier pose-based behaviour.",
           "Iteration history in the repo: joystick and potentiometer teleoperation → taught-pose pick-and-place (v3) → IK (v4) → integrated colour sort.",
@@ -144,11 +168,11 @@ export const roboticArm: Project = {
     verification: [
       {
         type: "p",
-        text: "The integrated system met the course demo: it sorted balls to the correct locations.",
+        text: "Both behaviours worked in the course demo: balls were sorted to the correct locations, and handed-over objects were taken and placed.",
       },
       {
         type: "pending",
-        text: "Quantitative results aren’t measured yet. Planned, in order: a colour confusion matrix (20 trials per colour) under build lighting and again under altered lighting; 50-cycle end-to-end sort success with a failure breakdown by mode; IK positional error at 10 workspace targets; and repeatability over 20 returns to one pose.",
+        text: "Quantitative results aren’t measured yet. Planned, in order: a colour confusion matrix (20 trials per colour) under build lighting and again under altered lighting; 50-cycle end-to-end sort success with a failure breakdown by mode; IK positional error at 10 workspace targets; repeatability over 20 returns to one pose; 20 handover attempts at varied hand positions; and a STOP_HAND trigger test at the 8 cm threshold.",
       },
     ],
     failures: [
@@ -157,7 +181,7 @@ export const roboticArm: Project = {
         items: [
           "The IK solver’s link lengths are still placeholders in the committed v4 firmware. Uncalibrated link lengths bias every solution — one reason the final demo ran on calibrated poses.",
           "Servo jitter needed a dedicated revision (the “no jitters” sketch) and smoothed servo moves.",
-          "The firmware uses blocking delays between moves, so sensors aren’t polled mid-motion. A non-blocking millis() scheduler is the fix.",
+          "The colour-sort build still uses blocking delays between moves, so sensors aren’t polled mid-motion. The handover build moved to a non-blocking millis() loop for exactly that reason — it has to see a hand arrive during a move.",
         ],
       },
     ],
@@ -170,7 +194,7 @@ export const roboticArm: Project = {
           "Ultrasonic ranging has a wide beam with no lateral localisation, and a minimum range of a few centimetres.",
           "No grasp confirmation — no force, tactile, or current sensing.",
           "Structured environment only: fixed locations and known ball geometry.",
-          "Not safety-engineered for operating near people: no force limiting and no emergency stop. Demonstrated under supervision in a course setting.",
+          "Not safety-engineered for operating near people. STOP_HAND is a software stop on one ultrasonic sensor, and it is disabled while holding an object. There is no force limiting and no hardware emergency stop. Demonstrated under supervision in a course setting.",
         ],
       },
     ],

@@ -105,12 +105,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2 — flagship */}
+      {/* 2 — HeartWire, the startup, led by its flagship */}
+      <div className="space-y-6">
+      <div className="max-w-2xl space-y-2">
+        <p className="eyebrow">
+          {BRAND.startup} · {BRAND.startupStatus}
+        </p>
+        <h2 className="text-2xl font-semibold tracking-tight">
+          <Link href="/heartwire" className="hover:text-primary">{BRAND.startup}</Link>
+        </h2>
+        <p className="text-sm leading-relaxed text-muted-foreground">{BRAND.startupLine}</p>
+      </div>
       <section aria-labelledby="flagship" className="surface overflow-hidden">
         <div className="grid lg:grid-cols-12">
           <div className="space-y-6 p-6 sm:p-8 lg:col-span-7">
             <div className="space-y-3">
-              <p className="eyebrow">Flagship product</p>
+              <p className="eyebrow">{BRAND.startup} · flagship product</p>
               <h2 id="flagship" className="flex items-center gap-3 text-3xl font-semibold tracking-tight">
                 <span className="size-2.5 rounded-full bg-violet-400" aria-hidden />
                 {flagship.name}
@@ -155,18 +165,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3 — other products */}
-      <section className="space-y-6" aria-labelledby="products">
-        <div className="max-w-2xl space-y-2">
-          <p className="eyebrow">Terrero Labs</p>
-          <h2 id="products" className="text-2xl font-semibold tracking-tight">
-            <Link href="/products" className="hover:text-primary">Other products</Link>
-          </h2>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            Health trackers built on the same principle: structured inputs, per-person analysis, and output framed as associations rather than advice.
-          </p>
-        </div>
-        <ul className="grid list-none gap-4 p-0 sm:grid-cols-2">
+      {/* 3 — the rest of HeartWire */}
+      <section aria-label={`More from ${BRAND.startup}`}>
+        <ul className="grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4">
           {products.map((p) => (
             <li key={p.slug}>
               <ProjectCard project={p} />
@@ -174,6 +175,7 @@ export default function HomePage() {
           ))}
         </ul>
       </section>
+      </div>
 
       {/* 4, 5 — engineering and research proof */}
       <DivisionGrid division="engineering" />
@@ -238,7 +240,7 @@ export default function HomePage() {
         <div className="space-y-3">
           <p className="eyebrow">Personal tooling</p>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            I also build infrastructure for my own work — not products, and documented the same way:{" "}
+            I also build infrastructure for my own work — not a product, and documented the same way:{" "}
             {systems.map((s, i) => (
               <span key={s.slug}>
                 {i > 0 ? " and " : null}

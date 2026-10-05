@@ -5,12 +5,14 @@ import { ExternalLink } from "lucide-react";
 
 import { CaseStudy, CaseStudyToc, CoverageStrip } from "@/components/case-study";
 import { ProjectDetailImage } from "@/components/project-detail-image";
+import { RedirectPage } from "@/components/redirect-page";
 import { StatusBadge } from "@/components/status-badge";
 import { Button } from "@/components/ui/button";
 import { accentDotClass } from "@/lib/accent";
 import { BRAND } from "@/lib/brand";
 import {
   DIVISIONS,
+  LEGACY_SLUGS,
   getAllSlugs,
   getProjectBySlug,
   hasLiveUrl,
@@ -21,14 +23,15 @@ import { cn } from "@/lib/utils";
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+  return [...getAllSlugs(), ...Object.keys(LEGACY_SLUGS)].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  if (LEGACY_SLUGS[slug]) return { title: "Moved", robots: { index: false } };
   const project = getProjectBySlug(slug);
   if (!project) return { title: "Project" };
-  const title = project.division === "product" ? `${project.name} | ${BRAND.company}` : project.name;
+  const title = project.division === "product" ? `${project.name} | ${BRAND.startup}` : project.name;
   return {
     title: { absolute: title },
     description: project.tagline,
@@ -39,6 +42,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
+  const moved = LEGACY_SLUGS[slug];
+  if (moved) return <RedirectPage to={`/projects/${moved}/`} label="its new page" />;
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 

@@ -10,17 +10,19 @@ export const kneeBrace: Project = {
   division: "engineering",
   priority: "featured",
   status: "Prototype",
-  statusNote: "CAD complete · print and sensing layer not yet built",
+  statusNote: "FEA below safety target · parametric rebuild done · print pending",
   timeline: "Phase 1: Spring 2025 · Phase 2: 2026 – present",
-  stack: ["SolidWorks", "SolidWorks Simulation (static)", "Fusion 360 (parametric)", "Fusion API · Python", "FDM 3D printing", "Arduino + FSR (Phase 1)"],
+  stack: ["SolidWorks", "SolidWorks Simulation (static FEA)", "Fusion 360 (parametric)", "Fusion API · Python", "FDM 3D printing", "Arduino + FSR (Phase 1)"],
   liveUrl: null,
   repoUrl: REPO,
   extraLinks: [
     { label: "Fusion rebuild — engineering notes", href: `${REPO}/blob/main/docs/fusion-rebuild.md` },
     { label: "Part drawings", href: `${REPO}/tree/main/docs/drawings` },
+    { label: "FEA report — right lower connector", href: `${REPO}/blob/main/docs/simulation/right-lower-connector-simulationxpress-report.docx` },
+    { label: "Course design report (EGN 3433C)", href: `${REPO}/blob/main/docs/EGN-3433C-Design-Project-Final.docx` },
   ],
   summary:
-    "One project in two phases. Phase 1 was an instrumented prototype that measured brace–limb interface pressure. Phase 2 redesigned the device in CAD first: a 10-part assembly whose fit has been checked at every joint before anything is printed.",
+    "One project in two phases. Phase 1 (Spring 2025) produced the SolidWorks design, static FEA, and an instrumented prototype that measured brace–limb interface pressure. The FEA showed the design didn’t yet meet its safety-factor target. Phase 2 rebuilds it as a parametric CAD model, with fit checked at every joint before anything is printed.",
   accentColor: "blue",
   imageSrc: "/images/knee-brace-fusion-iso.png",
   imageAlt: "Fusion 360 assembly of the modular knee brace, isometric view: thigh and calf frames joined by connectors and a snap-fit hinge",
@@ -34,13 +36,18 @@ export const kneeBrace: Project = {
         type: "p",
         text: "Knee support tends to be either too generic (one-size sleeves with undifferentiated compression) or too rigid (post-operative braces that trade usable range of motion for immobilisation). The design gap is a brace whose parts can be swapped or resized per user and per recovery stage, without replacing the whole device — so modularity is the core premise, not a feature.",
       },
+      {
+        type: "p",
+        text: "It started from a specific user: the brace was sized for one person with long-term knee instability after ligament reconstruction, aimed at early-stage rehabilitation and gait support.",
+      },
     ],
     requirements: [
       {
         type: "table",
         columns: ["#", "Requirement", "Acceptance criterion", "Status"],
         rows: [
-          ["R1", "Fit", "Every joint in the assembly mates without interference", "Checked in CAD at every joint"],
+          ["R0", "Structural margin", "Factor of safety 2–4 under the applied loads (target taken from published brace FEA)", "Not met — minimum FoS 1.68 on the right lower connector at 3 lbf"],
+          ["R1", "Fit", "Every joint in the assembly mates without interference", "Checked in CAD at every joint (Phase 2)"],
           ["R2", "Dimensional accuracy", "Printed parts within tolerance of CAD nominal (calipers)", "Not yet measured — print pending"],
           ["R3", "Range of motion", "Braced flexion/extension relative to unbraced (goniometer)", "Not yet measured"],
           ["R4", "Modularity", "A connector or hinge swap is fast and needs no tools", "Not yet measured"],
@@ -118,8 +125,8 @@ PHASE 2 — CAD-first redesign (2026)
     ],
     scope: [
       {
-        type: "pending",
-        text: "Phase 1 began as a course design project (EGN 3433C, Spring 2025). Team composition and subsystem ownership aren’t documented here yet. Phase 2 is independent.",
+        type: "p",
+        text: "Phase 1 was my individual course design project for EGN 3433C (Spring 2025): design, CAD, FEA, and report. Phase 2 is independent work.",
       },
     ],
     implementation: [
@@ -127,7 +134,7 @@ PHASE 2 — CAD-first redesign (2026)
         type: "list",
         items: [
           "Phase 1: FSR array at the brace–limb interface, signal conditioning, Arduino, and a Python pipeline from raw ADC counts through a calibration transform to gait-cycle plots. The physical prototype no longer exists.",
-          "SolidWorks part set and assembly, with linear static studies on the hinge assembly and a connector (SolidWorks Simulation).",
+          "SolidWorks part set and assembly, intended for carbon-fibre-reinforced nylon. Linear static FEA in SolidWorks Simulation on three models: the hinge-and-connector assembly, the right upper connector, and the outer right hinge, plus a SimulationXpress study of the right lower connector. All were modelled as Nylon 101, because the software has no carbon-fibre-nylon material, under loads of 0.25–6 lb.",
           "Fusion 360 rebuild: parametric thigh and calf frames (thigh bore 5.75 in, calf bore 4.50 in, named parameters for fit, wrap angle, socket, and strap path), exact copies of the original connectors and hinges positioned on the knee axis, and Python Fusion-API scripts to build, measure, and export parts.",
           "Print-ready STL exports in millimetres.",
         ],
@@ -138,7 +145,8 @@ PHASE 2 — CAD-first redesign (2026)
         type: "list",
         items: [
           "Fit checked in CAD at every joint of the 10-part assembly; corrections to the original parts are documented in the repo.",
-          "Static simulation studies were run on the hinge assembly and a connector during Phase 1. Their results aren’t summarised here yet.",
+          "FEA, right lower connector (SimulationXpress): Nylon 101 (yield 60 MPa), 3 lbf applied, fixed on 15 faces, standard solid mesh. Max von Mises stress 35.7 MPa, max displacement 2.96 mm, minimum factor of safety 1.68 — below the 2–4 target. The report’s conclusion: not yet a safe design for a wearer.",
+          "FEA, hinge-and-connector assembly: the revised run peaked just under nylon’s ~11,500 psi yield at loads of a few pounds — effectively no margin.",
         ],
       },
       {
@@ -151,6 +159,9 @@ PHASE 2 — CAD-first redesign (2026)
         type: "list",
         items: [
           "The Phase 1 hardware and sensing layer no longer exist. A prototype whose only record is the physical object is a prototype you will lose. Phase 2’s response — parametric CAD, version-controlled scripts, documented design intent — is the structural fix.",
+          "The first assembly mesh failed. Clearances between the hinges and connectors were too tight, leaving interferences the mesher couldn’t resolve. I bonded the contacts to get a solution, which ran about 30 minutes — and bonding hides exactly the interfaces most likely to fail.",
+          "A second assembly run reported a factor of safety around 5,000 under the same conditions. A number that large points to a loading or boundary-condition error, not an overbuilt part, so I don’t treat that run as a result.",
+          "No study met the 2–4 safety-factor target. The design needs geometry changes at the connectors and hinges, and that is part of why Phase 2 rebuilds the model parametrically rather than patching it.",
           "The rebuild found inherited issues in the originals: about 0.003 in of press fit on one side of each hinge seat, and connectors and hinges that don’t follow the frame parameters because they are copied geometry.",
         ],
       },
@@ -161,7 +172,8 @@ PHASE 2 — CAD-first redesign (2026)
         items: [
           "Not a medical device, not intended for patient use, and not evaluated under any FDA pathway. No human-subject testing.",
           "Phase 1 measured brace–limb interface contact pressure — a proxy for load transfer through the brace, not tibiofemoral joint force, which can’t be measured non-invasively.",
-          "Static linear simulation only: no fatigue, no soft-tissue compliance, no strap slip, no out-of-plane loading.",
+          "Static linear FEA only, with isotropic Nylon 101 standing in for the intended carbon-fibre nylon (and for the PLA/PETG of FDM prints). No fatigue, soft-tissue compliance, strap slip, or out-of-plane loading. The applied loads (0.25–6 lb) haven’t yet been justified against gait loading, mesh convergence hasn’t been checked, and the Phase 2 Fusion geometry hasn’t been re-simulated.",
+          "Sized for one user’s leg (n = 1 geometry).",
           "Materials haven’t been evaluated for skin contact (ISO 10993), and durability is uncharacterised.",
         ],
       },

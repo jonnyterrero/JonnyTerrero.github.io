@@ -29,6 +29,8 @@ export function statusBadgeClass(status: Status): string {
   switch (status) {
     case "Active development":
       return "border-sky-400/30 text-sky-200";
+    case "In use":
+      return "border-emerald-400/30 text-emerald-200";
     case "Prototype":
       return "border-amber-400/30 text-amber-200";
     case "Completed":

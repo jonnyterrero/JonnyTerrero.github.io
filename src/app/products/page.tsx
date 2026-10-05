@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
 
-import { DivisionPage } from "@/components/division-index";
-import { DIVISIONS } from "@/lib/projects";
+import { RedirectPage } from "@/components/redirect-page";
 
-export const metadata: Metadata = {
-  title: "Products",
-  description: DIVISIONS.product.blurb,
-  alternates: { canonical: "/products/" },
-};
+export const metadata: Metadata = { title: "Moved", robots: { index: false } };
 
-export default function Page() {
-  return <DivisionPage division="product" />;
+export default function ProductsRedirect() {
+  return <RedirectPage to="/heartwire/" label="HeartWire" />;
 }

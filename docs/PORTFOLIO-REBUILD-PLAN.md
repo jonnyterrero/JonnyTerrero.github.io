@@ -164,7 +164,7 @@ Status values: `TODO` · `IN PROGRESS` · `BLOCKED` · `DONE` · `DROPPED`
 |---|---|---|---|---|---|
 | P1-01 | Implement the four-tier IA | `src/lib/projects.ts`, `projects.json`, routing | Tiers render: Ventures / Engineering Projects / Research / Tooling. See `portfolio-audit.md` C20 for the tree | — | DONE (2026-10-05) — /products /engineering /research /systems |
 | P1-02 | HeartWire → venture tier; MindMap nested as flagship | `projects.json` | HeartWire is not a peer of course projects; its products nest under it | P1-01 | DONE (2026-10-05) — umbrella is Terrero Labs per restructuring plan; see BRAND_ARCHITECTURE.md |
-| P1-03 | Rename "HeartWire OS" | all surfaces | Personal study system no longer reads as a company product | Q-06 | BLOCKED (Q-06) — labelled "working title — rename planned" |
+| P1-03 | Rename "HeartWire OS" | all surfaces | Personal study system no longer reads as a company product | Q-06 | DROPPED (2026-10-05) — owner confirmed HeartWire OS is a HeartWire product |
 | P1-04 | Agent suite → tooling tier, retitled away from "suite" | `projects.json` | Presented as personal tooling; no user or product implication | P1-01 | DONE (2026-10-05) — retitled "Agent Bench" |
 | P1-05 | Wire every `repoUrl` | `projects.json` | MindMap, GastroGuard, SkinTrack+, robotic arm, HeartWire OS, agent suite all resolve. `hasValidRepoUrl()` passes for each | Q-04, Q-07 | DONE (2026-10-05) — all wired except SkinTrack+ (withheld: README makes image-analysis claims) and JonnyJr (hidden) |
 | P1-06 | Correct every `stack[]` array | `projects.json` | SkinTrack+ (Firebase, no CV), robotic arm (add IK + colour sensing), HeartWire OS (add Prisma + DB), agent suite (only what's literally true) | Q-03, Q-08 | DONE (2026-10-05) |
@@ -265,8 +265,8 @@ Answer these to unblock the tasks listed. Record answers here with dates.
 | Q-02 | GastroGuard ingestion interface: coded-but-unconnected, or designed-but-unbuilt? | P0-06 | |
 | Q-03 | Robotic arm: any encoder or potentiometer joint feedback? (If yes, C16 is withdrawn.) | P0-09, P1-06 | |
 | Q-04 | Exact URL of the `intro to mechatronic design` repo; is it public? | P1-05, P1-11 | 2026-10-05: github.com/jonnyterrero/Intro-to-Mech-Design — public |
-| Q-05 | Which minors are correct — Chemistry + Mathematics, or Physics + CS? | P0-11 | |
-| Q-06 | New name for the personal study system currently called "HeartWire OS" | P1-03 | |
+| Q-05 | Which minors are correct — Chemistry + Mathematics, or Physics + CS? | P0-11 | 2026-10-05: Physics + CS, both declared |
+| Q-06 | New name for the personal study system currently called "HeartWire OS" | P1-03 | 2026-10-05: no rename — HeartWire OS is HeartWire's study app |
 | Q-07 | Are the agent specs in a repo? URL? | P1-05 | 2026-10-05: workflows-and-automations/agents/agent-team — public |
 | Q-08 | Agent suite: is any Claude Agent SDK code written, or any MCP server authored — or are all 18 `SKILL.md` files only? | P1-06 | 2026-10-05: SKILL.md specs + Python deploy/eval scripts against the Claude API (Managed Agents). No Agent SDK code; MCP is consumed (config), not authored |
 | Q-09 | Duplicate-looking agent pairs (`cpa-cfo-agent`/`cpa-cfo`, `investment-portfolio-agent`/`portfolio-manager`) — intentional variants or unpruned drafts? | P2-24 | |
@@ -290,6 +290,12 @@ Append one entry per working session. Newest last. Keep entries short and factua
              NOT done (other repos / need owner): P0-02, P0-03, P0-12, P1-12,
              P1-13, all of Phase 2. Fix SkinTrack- README + placeholder analysis
              before re-linking it. Next: P2-01 (GastroGuard adherence).
+2026-10-05 — Owner corrections: Terrero Labs = personal umbrella; HeartWire =
+             startup (formation in progress) holding MindMap, GastroGuard,
+             HeartWire OS, SkinTrack+ (under reconstruction), GlucoLoop
+             (concept); JonnyJr = agent bench + Obsidian second brain. Added
+             arm handover build (E6) and knee-brace FEA (E7: min FoS 1.68,
+             target 2–4 not met). Q-05, Q-06 answered.
 ```
 
 ---

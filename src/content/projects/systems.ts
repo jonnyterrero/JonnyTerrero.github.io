@@ -7,12 +7,12 @@ export const heartwireOs: Project = {
   slug: "heartwire-os",
   name: "HeartWire OS",
   tagline:
-    "Personal study and build system: a structured catalog of courses, resources, and levelled project ideas across engineering domains.",
-  division: "systems",
+    "HeartWire’s study app: a structured catalog of courses, resources, and levelled project ideas across engineering domains.",
+  division: "product",
   priority: "standard",
   status: "Active development",
-  statusNote: "Working title — rename planned · catalog integrity audit pending",
-  role: "Solo · personal infrastructure",
+  statusNote: "Catalog integrity audit pending",
+  role: "Founder · design and development",
   stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Vercel"],
   liveUrl: "https://heart-wire-os.vercel.app/",
   repoUrl: HW_REPO,
@@ -76,7 +76,7 @@ export const heartwireOs: Project = {
           "The catalog reached useful density immediately. Cost, realised: with no validation at the boundary, scraper errors went live silently.",
       },
     ],
-    scope: [{ type: "p", text: "Solo. Personal infrastructure, built for my own study. Not a product." }],
+    scope: [{ type: "p", text: "Built by me under HeartWire. It started as my own study system, and I’m still its main user." }],
     implementation: [
       {
         type: "list",
@@ -105,36 +105,36 @@ export const heartwireOs: Project = {
       {
         type: "list",
         items: [
-          "Single-user personal system, not a product.",
+          "Built first for my own study. No user count is claimed.",
           "The deployed catalog is known to be partially corrupted until it is re-ingested.",
           "It catalogues links, not content: it doesn’t control or version external material, and it doesn’t check for link rot.",
           "It tracks resources, not learning. It can’t tell whether anything was understood.",
-          "“HeartWire” is now reserved for a cardiac product line under Terrero Labs, so this system will be renamed.",
         ],
       },
     ],
   },
 };
 
-export const agentBench: Project = {
-  slug: "heartwire-agent-suite",
-  name: "Agent Bench",
+export const jonnyjr: Project = {
+  slug: "jonnyjr",
+  name: "JonnyJr",
   tagline:
-    "Personal Claude skill specs with explicit refusal conditions, scope limits for regulated domains, and eval fixtures.",
+    "My personal tooling: an agent bench of Claude skill specs with explicit refusal conditions, plus an Obsidian second brain.",
   division: "systems",
   priority: "featured",
-  status: "Active development",
-  statusNote: "Personal tooling · eval results not yet graded",
+  status: "In use",
+  statusNote: "Continuously updated · agent evals not yet graded",
   role: "Solo · personal tooling",
   stack: ["Claude Code Skills (SKILL.md)", "Claude API · Managed Agents", "Python", "YAML manifests"],
   liveUrl: null,
   repoUrl: AGENTS,
   extraLinks: [
+    { label: "Agent bench", href: AGENTS },
     { label: "Eval fixtures", href: `${AGENTS}/evals` },
     { label: "Routing matrix", href: `${AGENTS}/docs/ROUTING_MATRIX.md` },
   ],
   summary:
-    "Domain-specialised agent definitions for the work I actually do — software, hardware, coursework, finance, legal review. The interesting part isn’t the number of agents. It’s that each one declares when it must refuse.",
+    "Two halves. The agent bench holds domain-specialised definitions for the work I actually do — software, hardware, coursework, finance, legal review — and the interesting part is that each one declares when it must refuse. The second brain is the Obsidian vault where my notes, coursework, and project thinking live.",
   accentColor: "teal",
   capabilityDetails: {
     "ai-automation": "Versioned Claude skill specs with refusal conditions and adversarial eval fixtures.",
@@ -208,7 +208,7 @@ export const agentBench: Project = {
           "Conventions that would conflict if merged can coexist. Cost: trigger collisions and maintenance load, handled by a routing matrix with explicit precedence.",
       },
     ],
-    scope: [{ type: "p", text: "Solo. Personal tooling: no users, not distributed, not a product." }],
+    scope: [{ type: "p", text: "Solo. Personal tooling: no users, not distributed, not a product. The second brain is complete as a system and updated continuously; the agent bench is in active use." }],
     implementation: [
       {
         type: "list",
@@ -217,6 +217,7 @@ export const agentBench: Project = {
           "Python scripts to build, upload, and deploy the skills as Managed Agents, and to export them for a second editor.",
           "Eval fixtures per agent covering trigger, boundary, and freshness cases. The finance, legal, trading, and code-audit agents include adversarial cases.",
           "An eval runner that executes fixtures against the deployed agents and records full transcripts. It deliberately does not grade.",
+          "Second brain: an Obsidian vault, maintained continuously. It’s private, so it isn’t linked here.",
         ],
       },
     ],
@@ -236,7 +237,7 @@ export const agentBench: Project = {
       {
         type: "list",
         items: [
-          "Personal tooling, not a product.",
+          "Personal tooling, not a product. The second brain is private, so nothing about it can be verified from this page.",
           "Specs are intent, not enforcement, until the evals are graded.",
           "No measurement that any agent produces better output than the same model without the spec.",
           "Inherits the underlying model’s limitations, including hallucination.",
@@ -247,33 +248,36 @@ export const agentBench: Project = {
   },
 };
 
-/** Kept in the data for continuity but not rendered: nothing built, or claims not verifiable. */
 export const glucoloop: Project = {
   slug: "glucoloop",
   name: "GlucoLoop",
-  tagline: "CGM analytics concept",
+  tagline: "A planned HeartWire product: a faster feedback layer on top of continuous glucose monitor data.",
   division: "product",
-  priority: "archive",
+  priority: "standard",
   status: "Concept",
+  statusNote: "Planned — nothing built yet",
   stack: [],
   liveUrl: null,
   repoUrl: null,
-  summary: "Concept only. Nothing is built.",
+  summary:
+    "On the HeartWire roadmap after the current apps. Listed so the product line is complete — there is no code or data behind it yet.",
   accentColor: "green",
-  caseStudy: {},
-};
-
-export const jonnyjr: Project = {
-  slug: "jonnyjr",
-  name: "JonnyJr",
-  tagline: "Research automation experiments",
-  division: "systems",
-  priority: "archive",
-  status: "Archived",
-  stack: [],
-  liveUrl: null,
-  repoUrl: null,
-  summary: "Hidden until its README’s coverage badge and CI claims are verified.",
-  accentColor: "teal",
-  caseStudy: {},
+  caseStudy: {
+    problem: [
+      {
+        type: "p",
+        text: "CGM users get a stream of readings but slow, coarse feedback on what drove a change. The concept is a tighter loop between logged context and glucose response.",
+      },
+    ],
+    implementation: [{ type: "pending", text: "Nothing is built. Architecture and requirements will be written before any code." }],
+    limitations: [
+      {
+        type: "list",
+        items: [
+          "Concept only: no code, no data, no users.",
+          "Anything that suggested insulin dosing would be regulated medical-device territory, so it is out of scope by design. Output would be retrospective pattern summaries only.",
+        ],
+      },
+    ],
+  },
 };
