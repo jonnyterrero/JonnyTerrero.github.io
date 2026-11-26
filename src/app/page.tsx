@@ -80,12 +80,17 @@ export default function HomePage() {
         <p className="eyebrow">
           {BRAND.company} · {BRAND.companyDescriptor}
         </p>
-        <h1 className="text-[2rem] font-semibold leading-[1.15] tracking-tight sm:text-5xl">
-          I build software and hardware that turn physiology, behavior, and biosignals into measurable systems.
-        </h1>
+        <div className="space-y-3">
+          <p className="font-mono text-sm uppercase tracking-[0.18em] text-primary">
+            {BRAND.founder}
+          </p>
+          <h1 className="text-[2rem] font-semibold leading-[1.15] tracking-tight sm:text-5xl">
+            I build software and hardware that turn physiology, behavior, and biosignals into measurable systems.
+          </h1>
+        </div>
         <div className="prose-body max-w-2xl space-y-3 text-base">
           <p>
-            I’m {BRAND.founder}: a Software Engineer I at OmniFlex Fitness and a biomedical engineering student at Florida Gulf Coast University. {BRAND.companyLine}
+            Software Engineer I at OmniFlex Fitness. Biomedical engineering student at Florida Gulf Coast University. Founder of {BRAND.startup}. {BRAND.companyLine}
           </p>
           <p className="text-muted-foreground">
             Every project here states what is built, what has been measured, and what it doesn’t claim.

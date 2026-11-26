@@ -21,6 +21,12 @@ export const ecmGrapheneOxide: Project = {
   ],
   liveUrl: null,
   repoUrl: null,
+  extraLinks: [
+    {
+      label: "Poster (PDF)",
+      href: "/papers/terrero-grismer-ecm-graphene-oxide-poster.pdf",
+    },
+  ],
   summary:
     "Preliminary study with Gage Grismer and Dr. Marzhan Sypabekova at FGCU's U.A. Whitaker College of Engineering. We asked whether the extracellular matrix a fibroblast sits on changes its response to sublethal graphene oxide (GO) — the standard cytotoxicity substrate is tissue-culture plastic, but a wound-dressing or tissue scaffold presents ECM proteins instead. Across three runs, Collagen I consistently supported the strongest coverage and TCP the weakest; the 10 µg/mL GO dose had no consistent measurable effect, so the GO × surface interaction remains untested.",
   accentColor: "teal",
