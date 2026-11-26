@@ -1,6 +1,7 @@
 import type { Project } from "@/lib/projects";
 
 import { bmeVisualizations } from "./bme-visualizations";
+import { ecmGrapheneOxide } from "./ecm-graphene-oxide";
 import { gastroguard } from "./gastroguard";
 import { kneeBrace } from "./knee-brace";
 import { mindmap } from "./mindmap";
@@ -22,6 +23,7 @@ export const allProjects: Project[] = [
   physiologyModels,
   bmeVisualizations,
   strykerRsa,
+  ecmGrapheneOxide,
   healthcareSupplyChain,
   cocrReview,
   jonnyjr,
