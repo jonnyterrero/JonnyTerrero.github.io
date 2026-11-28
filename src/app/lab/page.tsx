@@ -70,6 +70,13 @@ const CATALOG: LabModel[] = [
     href: `${BME_VIS}/biomechanics/simulator.html`,
   },
   {
+    course: "Signals & Systems",
+    title: "Fourier transforms, convolution, EEG & sEMG explorer",
+    description:
+      "Six-tab zero-build workbench: CT Fourier impulse pairs, rectangular-pulse sinc spectra with Parseval, sliding-window convolution, three-tone FFT, EEG alpha/beta analysis on real recordings, and forearm grip-strength sEMG fatigue — all driven by live sliders over real datasets.",
+    href: `${BME_VIS}/Signals%20%26%20Systems/index.html`,
+  },
+  {
     course: "Human Physiology",
     title: "Visualized physiology examples",
     description:
