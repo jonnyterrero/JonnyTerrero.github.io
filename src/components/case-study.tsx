@@ -1,5 +1,6 @@
 import { CircleDashed } from "lucide-react";
 
+import { ProjectDetailImage } from "@/components/project-detail-image";
 import {
   SECTION_NUMBERS,
   SECTION_ORDER,
@@ -90,6 +91,20 @@ function BlockView({ block }: { block: Block }) {
             {block.text}
           </span>
         </p>
+      );
+    case "image":
+      return (
+        <figure className="space-y-2">
+          <ProjectDetailImage
+            src={block.src}
+            alt={block.alt}
+            naturalAspect
+            className={cn("max-w-md", block.maxWidthClass)}
+          />
+          {block.caption ? (
+            <figcaption className="text-xs text-muted-foreground">{block.caption}</figcaption>
+          ) : null}
+        </figure>
       );
   }
 }
