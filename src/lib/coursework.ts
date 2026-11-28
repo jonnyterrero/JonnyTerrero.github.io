@@ -68,7 +68,8 @@ export const COURSEWORK: Course[] = [
   {
     name: "Signals & Systems",
     area: "Electrical",
-    work: "LTI systems, transforms, and filtering — the basis for the filter-bank and signal models",
+    work: "CT Fourier transforms, convolution, FFT scaling, EEG alpha/beta analysis, and sEMG fatigue — 14 figures + an interactive browser explorer",
+    evidence: { label: "BME Visualizations", href: "/projects/bme-visualizations/" },
   },
   {
     name: "Intro to Programming with AI",
