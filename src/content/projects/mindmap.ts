@@ -46,7 +46,7 @@ export const mindmap: Project = {
         columns: ["#", "Requirement", "Target", "Actual"],
         rows: [
           ["R1", "Daily entry capture", "Median full check-in ≤ 60 s under real use", "Not yet measured"],
-          ["R2", "Data durability", "Zero partial days under fault injection; a re-submit overwrites, never duplicates", "Designed in (single upsert RPC); not yet load-tested"],
+          ["R2", "Data durability", "Zero partial days under fault injection; a re-submit overwrites, never duplicates", "Zero duplicate (user_id, entry_date) rows across 27 production entries · Supabase 2026-11-28"],
           ["R3", "Auth isolation", "Every cross-tenant read and write attempt is denied by RLS", "SQL test suite written; run result not yet published"],
           ["R4", "Cross-device sync", "An entry written on device A is visible on device B within 10 s on a typical connection", "Not yet measured"],
           ["R5", "Analytics latency", "p95 90-day dashboard render ≤ 500 ms on a mid-tier phone", "Not yet measured"],
@@ -207,8 +207,30 @@ export const mindmap: Project = {
         caption: "Visitor composition. Device and OS mix are the production design constraint — mobile is a third of the traffic, iOS is the second-largest OS, so the PWA has to render correctly on both.",
       },
       {
+        type: "p",
+        text: "Product usage — Supabase backend snapshot, 2026-11-28. Closed-beta numbers, not a cohort study:",
+      },
+      {
+        type: "table",
+        columns: ["Metric", "Value", "Notes"],
+        rows: [
+          ["Signed-up users", "22", "profiles table"],
+          ["Activated users (≥ 1 logged day)", "5", "22 signed up · 17 pre-activation"],
+          ["Total logged user-days", "27", "Non-deleted entries"],
+          ["Users with ≥ 7 logged days", "2", "Early longitudinal cohort"],
+          ["Users with ≥ 30 logged days", "0", "No month-long users yet"],
+          ["Median days per active user", "1", "Across the 5 loggers"],
+          ["Duplicate daily records", "0", "Validates the atomic upsert design under real load"],
+          ["ML-consented user-days", "11 (from 13 users)", "allow_ai_insights proxy on user_privacy_settings"],
+        ],
+      },
+      {
+        type: "p",
+        text: "Check-in completeness across 27 entries: sleep_minutes and anxiety 100%; mood_valence 96%; mindmap_score 85%; sleep_quality 70%; focus and productivity 63% each; notes 26%; depression 15%. Wearable fields (hrv, therapy_minutes, outside_minutes) sit at 0% — those integrations are not wired yet, so they skew the aggregate average and are reported as a feature gap, not a data-quality issue.",
+      },
+      {
         type: "pending",
-        text: "Not yet published: the cross-tenant isolation result (the SQL suite exists; the run output isn’t committed), the end-to-end auth run report, and any evaluation of the ML layer on real user data. Deployment-reach numbers above are traffic, not product-outcome evidence.",
+        text: "Still not published: the end-to-end RLS isolation pass count (SQL suite exists; run output not yet committed), the end-to-end auth run report, p95 dashboard latency (needs Supabase Reports or an APM pull), client-side check-in save-success rate (needs product telemetry), and any evaluation of the ML layer on real user data. Traffic and backend counts above are deployment and product-usage evidence, not product-outcome evidence.",
       },
     ],
     failures: [
