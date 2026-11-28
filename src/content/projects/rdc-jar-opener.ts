@@ -42,7 +42,7 @@ export const rdcJarOpener: Project = {
     requirements: [
       {
         type: "table",
-        columns: ["#", "Requirement", "Acceptance criterion", "Status"],
+        columns: ["#", "Requirement", "Target", "Actual"],
         rows: [
           ["R1", "Lid-diameter range", "Accommodates a wide range of jar lid diameters without swapping parts", "Design intent — not yet measured against a spec'd range"],
           ["R2", "Applied force", "Minimal force required for an elderly user to operate", "Design intent — no grip-strength bench test yet"],

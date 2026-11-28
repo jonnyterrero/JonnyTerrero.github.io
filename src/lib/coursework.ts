@@ -1,12 +1,11 @@
 /**
  * Relevant coursework. Only courses with public evidence of the work are listed,
  * and each links to that evidence. Add more from the LinkedIn course list as
- * their work is published: { name, code?, area, evidence?: { label, href } }.
+ * their work is published: { name, area, evidence?: { label, href } }.
  */
 export interface Course {
   name: string;
-  code?: string;
-  area: "Biomedical" | "Electrical" | "Embedded systems" | "Engineering design";
+  area: "Biomedical" | "Electrical" | "Embedded systems" | "Engineering design" | "AI/ML";
   /** What the course work produced, in one line. */
   work: string;
   evidence?: { label: string; href: string };
@@ -21,7 +20,6 @@ export const COURSEWORK: Course[] = [
   },
   {
     name: "Biofluid Mechanics",
-    code: "BME 3261C",
     area: "Biomedical",
     work: "Blood rheology, hydrostatics, stenosis flow, and a CPAP design-challenge simulation",
     evidence: { label: "BME Visualizations", href: "/projects/bme-visualizations/" },
@@ -58,7 +56,6 @@ export const COURSEWORK: Course[] = [
   },
   {
     name: "Design for Manufacturing",
-    code: "EGN 3433C",
     area: "Engineering design",
     work: "Where the modular knee brace started: SolidWorks design, manufacturing choices, and static FEA",
     evidence: { label: "Modular Knee Brace", href: "/projects/modular-knee-brace/" },
@@ -72,5 +69,20 @@ export const COURSEWORK: Course[] = [
     name: "Signals & Systems",
     area: "Electrical",
     work: "LTI systems, transforms, and filtering — the basis for the filter-bank and signal models",
+  },
+  {
+    name: "Intro to Programming with AI",
+    area: "AI/ML",
+    work: "Programming foundations with AI-assisted development workflows (Summer 2026)",
+  },
+  {
+    name: "Intro to Machine Learning with AI",
+    area: "AI/ML",
+    work: "Supervised learning, model evaluation, and practical ML with modern toolchains (Summer 2026)",
+  },
+  {
+    name: "Applied Neural Networks",
+    area: "AI/ML",
+    work: "Neural-network architectures, training, and applied projects (Summer 2026)",
   },
 ];

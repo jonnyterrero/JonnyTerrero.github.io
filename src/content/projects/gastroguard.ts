@@ -34,7 +34,7 @@ export const gastroguard: Project = {
     requirements: [
       {
         type: "table",
-        columns: ["#", "Requirement", "Acceptance criterion", "Status"],
+        columns: ["#", "Requirement", "Target", "Actual"],
         rows: [
           ["R1", "Logging friction", "Symptom + meal entry completes within a bounded median time", "Derivable from existing timestamps; not yet computed"],
           ["R2", "Adherence", "Share of users logging on most days of a 7-day window", "Computable from the existing cohort; not yet computed"],

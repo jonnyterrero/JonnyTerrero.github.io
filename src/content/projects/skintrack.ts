@@ -36,7 +36,7 @@ export const skintrack: Project = {
     requirements: [
       {
         type: "table",
-        columns: ["#", "Requirement", "Acceptance criterion", "Status"],
+        columns: ["#", "Requirement", "Target", "Actual"],
         rows: [
           ["R0", "Persistence", "Image + context survive upload, app close, and reload on a second device", "Failing at last test — blocking"],
           ["R1", "Capture consistency", "Repeat captures of one site align in scale and colour under normal conditions", "Not yet measured — the defining requirement"],

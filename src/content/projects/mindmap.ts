@@ -43,18 +43,18 @@ export const mindmap: Project = {
     requirements: [
       {
         type: "table",
-        columns: ["#", "Requirement", "Acceptance criterion", "Status"],
+        columns: ["#", "Requirement", "Target", "Actual"],
         rows: [
-          ["R1", "Daily entry capture", "Full check-in completes in a bounded time, median over real sessions", "Not yet measured"],
-          ["R2", "Data durability", "A day’s check-in is atomic: no half-written days; re-submit overwrites, never duplicates", "Designed in (single upsert RPC); not yet load-tested"],
-          ["R3", "Auth isolation", "User A cannot read or mutate user B’s rows through any query path", "SQL test suite written; run result not yet published"],
-          ["R4", "Cross-device sync", "Entry written on one device is visible on another", "Not yet measured"],
-          ["R5", "Analytics latency", "90-day dashboard renders within a p95 budget", "Not yet measured"],
+          ["R1", "Daily entry capture", "Median full check-in ≤ 60 s under real use", "Not yet measured"],
+          ["R2", "Data durability", "Zero partial days under fault injection; a re-submit overwrites, never duplicates", "Designed in (single upsert RPC); not yet load-tested"],
+          ["R3", "Auth isolation", "Every cross-tenant read and write attempt is denied by RLS", "SQL test suite written; run result not yet published"],
+          ["R4", "Cross-device sync", "An entry written on device A is visible on device B within 10 s on a typical connection", "Not yet measured"],
+          ["R5", "Analytics latency", "p95 90-day dashboard render ≤ 500 ms on a mid-tier phone", "Not yet measured"],
         ],
       },
       {
-        type: "pending",
-        text: "Thresholds are deliberately left blank until each criterion has a committed measurement. No numbers are published ahead of the test that produces them.",
+        type: "p",
+        text: "Targets are set here as engineering commitments, not as marketing claims. Actuals are left as “not yet measured” wherever the test has not run. No number appears in Actual that is not traceable to a committed measurement.",
       },
     ],
     architecture: [
