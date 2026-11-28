@@ -100,6 +100,12 @@ PHASE 2 — CAD-first redesign (2026)
           "Assembles without fasteners and limits rotation mechanically. Cost: snap features in FDM plastic are sensitive to layer orientation and fatigue.",
       },
       {
+        type: "image",
+        src: "/images/knee-brace/knee-brace-phase1-hinge-drawing.png",
+        alt: "Phase 1 SolidWorks drawing of the inner hinge piece: 190° profile with the 80° rotation stop, ø2.00 pivot, R2.00 arc, and the mushroom snap boss (0.50 × 0.25, R0.05) shown in orthographic and isometric views",
+        caption: "Phase 1 SolidWorks drawing of the inner snap-fit hinge. The 190° profile and 80° rotation stop limit extension mechanically; the 0.50 × 0.25 × R0.05 mushroom boss is the snap feature that seats into the outer hinge's recess.",
+      },
+      {
         type: "decision",
         title: "Lofted, handed connectors",
         chosen: "Each connector twists so its frame-end tab matches the frame socket angle (7.5° upper, 10° lower) while the hinge-end tab stays square.",
@@ -150,8 +156,40 @@ PHASE 2 — CAD-first redesign (2026)
         ],
       },
       {
+        type: "p",
+        text: "Hinge-and-connector assembly study (Phase 1, SolidWorks Simulation):",
+      },
+      {
+        type: "image",
+        src: "/images/knee-brace/knee-brace-hinge-connector-assembly-setup.png",
+        alt: "SolidWorks Simulation mesh view of the hinge-and-connector assembly with purple load arrows applied at the connector tabs and green fixed-boundary icons on the hinge pivot teeth",
+        caption: "Loads and boundary conditions: pink arrows on the connector tabs, fixed constraints on the hinge pivot teeth. Mesh is SolidWorks' default solid tetrahedral; convergence has not been verified.",
+      },
+      {
+        type: "image",
+        src: "/images/knee-brace/knee-brace-hinge-connector-assembly-stress.png",
+        alt: "SolidWorks Simulation stress-contour result for the hinge-and-connector assembly, with highest stress (red/yellow) concentrated around the connector arm and lower stress (green/blue) at the hinge pivot ring",
+        caption: "Stress contour. The peak sits on the connector arm and its transition into the hinge spigot — effectively no margin against Nylon 101's ~11,500 psi yield at the applied load.",
+      },
+      {
+        type: "p",
+        text: "Connector-only study (Phase 1, SolidWorks Simulation):",
+      },
+      {
+        type: "image",
+        src: "/images/knee-brace/knee-brace-connector-fea-setup.png",
+        alt: "SolidWorks Simulation mesh view of the connector in isolation, with purple load arrows along the top edge and green fixed-boundary icons at the opposite tab",
+        caption: "Connector-only loads and boundary conditions. Loads along the top edge, fixed constraint at the frame-end tab.",
+      },
+      {
+        type: "image",
+        src: "/images/knee-brace/knee-brace-connector-fea-stress.png",
+        alt: "SolidWorks Simulation stress-contour result for the connector in isolation, showing red (high stress) across most of the member and a scale on the right in PSI",
+        caption: "Stress contour on the connector in isolation. The pervasive red shows the member is near-uniformly loaded close to yield, which is what drove the geometry changes planned for Phase 2.",
+      },
+      {
         type: "pending",
-        text: "Physical verification waits on the print: caliper deviation against CAD nominal, goniometer range of motion, swap time, and mass. The Phase 1 FSR calibration data is being located; until it is, no load or calibration figure is claimed.",
+        text: "Physical verification waits on the print: caliper deviation against CAD nominal, goniometer range of motion, swap time, and mass. The Phase 1 FSR calibration data is being located; until it is, no load or calibration figure is claimed. The Phase 2 Fusion geometry has not been re-simulated.",
       },
     ],
     failures: [
