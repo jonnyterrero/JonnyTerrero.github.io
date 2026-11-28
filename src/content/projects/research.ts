@@ -14,6 +14,7 @@ export const strykerRsa: Project = {
   liveUrl: null,
   repoUrl: null,
   extraLinks: [
+    { label: "Complete benchmarking report (DOCX, 10 MB)", href: "/papers/stryker-reunion-rsa-complete-benchmarking-report.docx" },
     { label: "Benchmarking report (PDF)", href: "/papers/stryker-reunion-rsa-benchmarking.pdf" },
     { label: "Engineering analysis (PDF)", href: "/papers/stryker-reunion-rsa-engineering-analysis.pdf" },
     { label: "Reverse-engineering slide deck (PPTX)", href: "/papers/stryker-reunion-rsa-reverse-engineering-presentation.pptx" },
@@ -132,12 +133,15 @@ export const cocrReview: Project = {
   division: "research",
   priority: "standard",
   status: "Research",
-  statusNote: "Systematic review · 11 studies",
-  role: "Co-author · protocol registration, search, screening, data extraction, synthesis",
-  timeline: "2024",
+  statusNote: "Systematic review · 11 studies · Biomaterials coursework",
+  role: "Co-author with Joseph Pitt and Alyanna Harms · protocol registration, search, screening, data extraction, synthesis",
+  timeline: "2024 – 2025",
   stack: ["Systematic review", "PRISMA 2020", "PubMed / Scopus / Web of Science", "Biomaterials"],
   liveUrl: null,
   repoUrl: null,
+  extraLinks: [
+    { label: "Biomaterials term-project presentation (PPTM)", href: "/papers/cocr-dental-biomaterials-presentation.pptm" },
+  ],
   summary:
     "Synthesised 11 studies on corrosion, wear, and ion release in cobalt-chromium dental prostheses under PRISMA 2020.",
   accentColor: "amber",

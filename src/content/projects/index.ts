@@ -6,6 +6,7 @@ import { gastroguard } from "./gastroguard";
 import { kneeBrace } from "./knee-brace";
 import { mindmap } from "./mindmap";
 import { physiologyModels } from "./physiology-models";
+import { rdcJarOpener } from "./rdc-jar-opener";
 import { cocrReview, healthcareSupplyChain, strykerRsa } from "./research";
 import { roboticArm } from "./robotic-arm";
 import { skintrack } from "./skintrack";
@@ -20,6 +21,7 @@ export const allProjects: Project[] = [
   glucoloop,
   roboticArm,
   kneeBrace,
+  rdcJarOpener,
   physiologyModels,
   bmeVisualizations,
   strykerRsa,

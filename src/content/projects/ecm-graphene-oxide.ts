@@ -8,8 +8,8 @@ export const ecmGrapheneOxide: Project = {
   division: "research",
   priority: "featured",
   status: "Research",
-  statusNote: "BME 3101C · Fall 2026 · 3 runs, 6 conditions",
-  role: "Co-investigator · experimental design, cell culture, imaging analysis, write-up",
+  statusNote: "SURIS Nov 2026 · BME 3101C Fall 2026 · 3 runs, 6 conditions",
+  role: "Co-investigator with Gage Grismer and Rodman Smith, advised by Dr. Marzhan Sypabekova · experimental design, cell culture, imaging analysis, write-up",
   timeline: "Fall 2026",
   stack: [
     "Cell culture (NIH/3T3 fibroblasts)",
@@ -23,7 +23,11 @@ export const ecmGrapheneOxide: Project = {
   repoUrl: null,
   extraLinks: [
     {
-      label: "Poster (PDF)",
+      label: "Poster — SURIS 2026 source (PPTX, 30 MB)",
+      href: "/papers/terrero-grismer-smith-ecm-graphene-oxide-poster-suris2026.pptx",
+    },
+    {
+      label: "Poster — BME 3101C course version (PDF)",
       href: "/papers/terrero-grismer-ecm-graphene-oxide-poster.pdf",
     },
   ],
