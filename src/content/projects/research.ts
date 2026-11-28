@@ -7,12 +7,19 @@ export const strykerRsa: Project = {
   division: "research",
   priority: "featured",
   status: "Research",
-  statusNote: "Case study",
-  role: "Sole author · teardown framework, biomechanics, materials, regulatory, manufacturing synthesis",
+  statusNote: "Benchmarking report · 3-author team",
+  role: "Co-author with Joseph Pitt and Yug Patel · biomechanics, materials, regulatory, manufacturing synthesis",
   timeline: "2025",
   stack: ["Biomechanics", "Materials (Ti-6Al-4V, porous titanium, crosslinked UHMWPE)", "FDA 510(k)", "QFD", "DFx / DfE"],
   liveUrl: null,
   repoUrl: null,
+  extraLinks: [
+    { label: "Benchmarking report (PDF)", href: "/papers/stryker-reunion-rsa-benchmarking.pdf" },
+    { label: "Engineering analysis (PDF)", href: "/papers/stryker-reunion-rsa-engineering-analysis.pdf" },
+    { label: "Reverse-engineering slide deck (PPTX)", href: "/papers/stryker-reunion-rsa-reverse-engineering-presentation.pptx" },
+  ],
+  imageSrc: "/images/stryker-rsa/stryker-rsa-biomechanical-evolution.webp",
+  imageAlt: "Biomechanical Evolution infographic for the Stryker ReUnion RSA system: exploded view of the convertible stem, humeral cup, glenosphere and tritanium baseplate, with sections on clinical problem, anatomic vs reverse mechanics, materials, performance metrics, and regulatory pathway",
   summary:
     "A full-system teardown of a reverse shoulder implant — disease state → biomechanics → requirements → regulatory → manufacturing → outcomes — built as a reusable benchmarking framework.",
   accentColor: "violet",
@@ -31,6 +38,12 @@ export const strykerRsa: Project = {
         text: "The objective was not to document one implant but to build a repeatable benchmarking framework — disease state → biomechanics → requirements → regulatory → manufacturing → outcomes — that can be run in reverse when designing future devices.",
       },
     ],
+    scope: [
+      {
+        type: "p",
+        text: "Course project in biomedical engineering at FGCU, written as a three-person team with Joseph Pitt and Yug Patel. The teardown is a benchmarking exercise, not a regulatory submission: every claim traces to publicly available sources (Stryker literature, the FDA 510(k) summary, and peer-reviewed biomechanics work).",
+      },
+    ],
     implementation: [
       {
         type: "list",
@@ -42,11 +55,21 @@ export const strykerRsa: Project = {
           "Manufacturing and Design for Environment decisions that support them.",
         ],
       },
+      {
+        type: "image",
+        src: "/images/stryker-rsa/stryker-rsa-biomechanical-evolution.webp",
+        alt: "Biomechanical Evolution infographic for the Stryker ReUnion RSA: exploded view of the components (X3 polyethylene insert, concave humeral cup, convex glenosphere, tritanium glenoid baseplate, convertible stem), clinical problem panel, anatomic-vs-reverse mechanics comparison, materials and osseointegration notes, performance metrics (88% 10-year survivorship), and regulatory / manufacturing summary",
+        caption: "Benchmarking one-pager produced from the teardown. Each panel traces back to the benchmarking report attached below.",
+      },
     ],
     limitations: [
       {
-        type: "pending",
-        text: "Sources, scope boundaries, and what a teardown from public information can and cannot establish are not yet written up here.",
+        type: "list",
+        items: [
+          "Benchmarking from publicly available sources — the FDA 510(k) summary, Stryker's own literature, and peer-reviewed biomechanics work. No access to a Design History File, lab access to the physical device, or Stryker's internal verification data.",
+          "Performance figures cited in the deliverables (e.g., 10-year survivorship ranges and target wear rates) are literature summaries, not independent measurements.",
+          "Three-author team: individual contribution is as stated in the role field, not the whole document.",
+        ],
       },
     ],
   },
@@ -59,12 +82,15 @@ export const healthcareSupplyChain: Project = {
   division: "research",
   priority: "standard",
   status: "Research",
-  statusNote: "12 interviews · 8 physicians",
-  role: "Lead investigator · interview protocol, interviews, synthesis, write-up",
+  statusNote: "12 interviews · 8 physicians · 4-author team",
+  role: "Co-investigator with Austin Fearday, David McGuire, and Joseph Pitt · interview protocol, interviews, synthesis",
   timeline: "2024 – 2025",
   stack: ["Qualitative research", "Stakeholder interviews", "Systems engineering", "Clinical workflow"],
   liveUrl: null,
   repoUrl: null,
+  extraLinks: [
+    { label: "CS progress update, 2025-09-19 (DOCX)", href: "/papers/healthcare-supply-chain-progress-update.docx" },
+  ],
   summary:
     "Primary qualitative research with 12 healthcare professionals, 8 of them practising physicians, on clinical risk, supply fragility, and the gap between clinicians and engineers.",
   accentColor: "teal",
