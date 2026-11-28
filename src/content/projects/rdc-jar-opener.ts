@@ -15,6 +15,7 @@ export const rdcJarOpener: Project = {
   liveUrl: null,
   repoUrl: null,
   extraLinks: [
+    { label: "Final presentation, 25 slides (PPTX)", href: "/papers/rdc-jar-opener-presentation.pptx" },
     { label: "Design planning (DOCX)", href: "/papers/rdc-jar-opener-design-planning.docx" },
     { label: "Design History File (DOCX)", href: "/papers/rdc-jar-opener-design-history-file.docx" },
   ],
