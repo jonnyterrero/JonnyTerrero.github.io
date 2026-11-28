@@ -16,9 +16,11 @@ type Props = {
   src: string;
   alt: string;
   className?: string;
+  /** Preserve the image's natural aspect ratio instead of the 4:3 default. */
+  naturalAspect?: boolean;
 };
 
-export function ProjectDetailImage({ src, alt, className }: Props) {
+export function ProjectDetailImage({ src, alt, className, naturalAspect = false }: Props) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -29,14 +31,14 @@ export function ProjectDetailImage({ src, alt, className }: Props) {
             className
           )}
         >
-          <span className="block aspect-[4/3] w-full">
+          <span className={cn("block w-full", naturalAspect ? "" : "aspect-[4/3]")}>
             <Image
               src={src}
               alt={alt}
-              width={800}
-              height={600}
-              className="h-full w-full object-contain object-center p-2"
-              sizes="(min-width: 1024px) 320px, 100vw"
+              width={1200}
+              height={900}
+              className={cn("w-full object-contain object-center p-2", naturalAspect ? "h-auto" : "h-full")}
+              sizes="(min-width: 1024px) 560px, 100vw"
             />
           </span>
           <span className="absolute bottom-2 right-2 flex items-center gap-1 rounded-md border border-primary/20 bg-card/90 px-2 py-1 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur-sm">

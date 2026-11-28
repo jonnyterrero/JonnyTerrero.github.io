@@ -101,7 +101,16 @@ export type Block =
       tradeoff: string;
     }
   /** Honest placeholder: what is not yet measured and how it will be. Never a number. */
-  | { type: "pending"; text: string };
+  | { type: "pending"; text: string }
+  /** Screenshot, render, or photo embedded inline in a section. */
+  | {
+      type: "image";
+      src: string;
+      alt: string;
+      caption?: string;
+      /** Tailwind max-width class; defaults to a mid-size figure. */
+      maxWidthClass?: string;
+    };
 
 export type CaseStudy = Partial<Record<SectionKey, Block[]>>;
 

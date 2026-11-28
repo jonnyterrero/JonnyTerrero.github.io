@@ -14,7 +14,7 @@ export const mindmap: Project = {
   role: "Founder · design and development",
   timeline: "2025 – present",
   stack: ["Next.js 15", "TypeScript", "Supabase (Auth · Postgres · RLS)", "Recharts", "Python (offline ML)", "Vercel"],
-  liveUrl: "https://mind-map-bice-nine.vercel.app/",
+  liveUrl: "https://getmindmapplus.app",
   repoUrl: REPO,
   extraLinks: [
     { label: "ML model card", href: `${REPO}/blob/main/ml/MODEL_CARD.md` },
@@ -140,7 +140,7 @@ export const mindmap: Project = {
       {
         type: "list",
         items: [
-          "Software: Next.js 15 App Router, TypeScript, Supabase JS client, Recharts, deployed on Vercel.",
+          "Software: Next.js 15 App Router, TypeScript, Supabase JS client, Recharts, deployed on Vercel at getmindmapplus.app.",
           "Auth: sign-up, sign-in, sign-out, and an email-confirmation route handler.",
           "Database: versioned SQL migrations for the schema, RLS policies, and function grants.",
           "Encryption: server-only AES-256-GCM helpers wired into the journal write paths behind a configuration flag, with a backfill script for existing rows.",
@@ -148,6 +148,24 @@ export const mindmap: Project = {
           "CI on every push: TypeScript typecheck, engine unit tests, and the ML package’s pytest, ruff, and mypy.",
           "Hardware: none. MindMap has no device integration.",
         ],
+      },
+      {
+        type: "image",
+        src: "/images/mindmap/mindmap-home-dashboard.png",
+        alt: "MindMap home dashboard: Today's check-in card, Pattern Discovery day counter, MindMap Score tile, What MindMap noticed section, and bottom nav with Dashboard / Journal / Meds",
+        caption: "Home dashboard. Pattern Discovery day counter and MindMap Score sit above a surfaced-pattern card; dashboard / journal / meds are reachable from the bottom nav.",
+      },
+      {
+        type: "image",
+        src: "/images/mindmap/mindmap-check-in-complete.png",
+        alt: "MindMap check-in complete screen showing today's MindMap Score (70) and Pattern Discovery Day 14 of 20, with buttons to edit the check-in, go home, or view the Baseline Report",
+        caption: "Check-in complete state. Today's score and day-of-20 progress show after submit; copy stays within the self-tracking disclaimer.",
+      },
+      {
+        type: "image",
+        src: "/images/mindmap/mindmap-baseline-report.png",
+        alt: "MindMap Baseline Report: eight KPI tiles (avg sleep 7.4h, sleep quality 3.9/5, migraine days 5, intensity 2.4/10, anxiety 1.6/10, focus 5.5/10, routine completion 0%, medication consistency 0%) above an in-app medical disclaimer",
+        caption: "Baseline Report, emitted automatically after the first 14 check-ins. Each tile is averaged or counted straight off the structured check-in rows, not inferred.",
       },
     ],
     verification: [
@@ -160,8 +178,37 @@ export const mindmap: Project = {
         ],
       },
       {
+        type: "p",
+        text: "Deployment reach — Vercel Web Analytics on getmindmapplus.app, rolling 3 months ending 2026-11-26:",
+      },
+      {
+        type: "table",
+        columns: ["Metric", "Value", "Notes"],
+        rows: [
+          ["Unique visitors", "126", "Vercel Web Analytics, last 3 months"],
+          ["Page views", "420", "Same window"],
+          ["Bounce rate", "67%", "Marketing/landing traffic; not product engagement"],
+          ["Top pages", "/ · /login · /today", "Landing, auth, daily check-in"],
+          ["Top referrers", "vercel.com · bing.com · github.com", "Organic, not paid"],
+          ["Device split", "Desktop 66% · Mobile 34%", "PWA is used on both"],
+          ["Top regions", "United States 76% · Poland 6% · Germany 4% · France 3%", "Unprompted international reach"],
+        ],
+      },
+      {
+        type: "image",
+        src: "/images/mindmap/mindmap-vercel-analytics-overview.png",
+        alt: "Vercel Web Analytics screenshot for getmindmapplus.app showing 126 visitors, 420 page views, and 67% bounce rate over the last 3 months, with a timeline chart from Aug 30 to Nov 22 and a top-pages / top-referrers breakdown",
+        caption: "Vercel Web Analytics, last 3 months. Traffic is deployment reach, not product validation — a visitor landing on / is not a logged check-in.",
+      },
+      {
+        type: "image",
+        src: "/images/mindmap/mindmap-vercel-analytics-visitors.png",
+        alt: "Vercel Web Analytics visitor breakdown: Countries (United States 76%, Poland 6%, Germany 4%, France 3%, Canada 2%), Devices (Desktop 66%, Mobile 34%), Operating Systems (Windows 38%, iOS 28%, GNU/Linux 20%, Mac 8%, Android 6%)",
+        caption: "Visitor composition. Device and OS mix are the production design constraint — mobile is a third of the traffic, iOS is the second-largest OS, so the PWA has to render correctly on both.",
+      },
+      {
         type: "pending",
-        text: "Not yet published: the cross-tenant isolation result (the SQL suite exists; the run output isn’t committed), the end-to-end auth run report, and any evaluation on real user data.",
+        text: "Not yet published: the cross-tenant isolation result (the SQL suite exists; the run output isn’t committed), the end-to-end auth run report, and any evaluation of the ML layer on real user data. Deployment-reach numbers above are traffic, not product-outcome evidence.",
       },
     ],
     failures: [

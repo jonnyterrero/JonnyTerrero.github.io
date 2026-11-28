@@ -16,8 +16,9 @@ export const kneeBrace: Project = {
   liveUrl: null,
   repoUrl: REPO,
   extraLinks: [
+    { label: "Part drawings (PDF, 9 sheets)", href: "/papers/modular-knee-brace-v3-drawings.pdf" },
     { label: "Fusion rebuild — engineering notes", href: `${REPO}/blob/main/docs/fusion-rebuild.md` },
-    { label: "Part drawings", href: `${REPO}/tree/main/docs/drawings` },
+    { label: "Part drawings (repo)", href: `${REPO}/tree/main/docs/drawings` },
     { label: "FEA report — right lower connector", href: `${REPO}/blob/main/docs/simulation/right-lower-connector-simulationxpress-report.docx` },
   ],
   summary:
