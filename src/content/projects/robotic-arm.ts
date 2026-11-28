@@ -47,7 +47,7 @@ export const roboticArm: Project = {
     requirements: [
       {
         type: "table",
-        columns: ["#", "Requirement", "Acceptance criterion", "Status"],
+        columns: ["#", "Requirement", "Target", "Actual"],
         rows: [
           ["R0", "Functional", "Sorts balls to the correct location in the course demo", "Met"],
           ["R1", "Colour classification", "Confusion matrix per colour, under build lighting and altered lighting", "Not yet measured"],

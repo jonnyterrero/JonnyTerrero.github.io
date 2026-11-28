@@ -224,7 +224,7 @@ export default function ResumePage() {
           Relevant Coursework
         </h3>
         <p className="text-sm leading-relaxed text-muted-foreground">
-          {COURSEWORK.map((c) => (c.code ? `${c.name} (${c.code})` : c.name)).join(" · ")}
+          {COURSEWORK.map((c) => c.name).join(" · ")}
         </p>
       </section>
 

@@ -44,7 +44,7 @@ export const kneeBrace: Project = {
     requirements: [
       {
         type: "table",
-        columns: ["#", "Requirement", "Acceptance criterion", "Status"],
+        columns: ["#", "Requirement", "Target", "Actual"],
         rows: [
           ["R0", "Structural margin", "Factor of safety 2–4 under the applied loads (target taken from published brace FEA)", "Not met — minimum FoS 1.68 on the right lower connector at 3 lbf"],
           ["R1", "Fit", "Every joint in the assembly mates without interference", "Checked in CAD at every joint (Phase 2)"],

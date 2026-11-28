@@ -60,7 +60,7 @@ export const ecmGrapheneOxide: Project = {
     requirements: [
       {
         type: "table",
-        columns: ["#", "Requirement", "Acceptance criterion", "Status"],
+        columns: ["#", "Requirement", "Target", "Actual"],
         rows: [
           [
             "R1",

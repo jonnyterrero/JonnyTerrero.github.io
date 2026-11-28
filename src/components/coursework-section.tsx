@@ -15,10 +15,7 @@ export function CourseworkSection() {
       <ul className="grid list-none gap-3 p-0 sm:grid-cols-2">
         {COURSEWORK.map((c) => (
           <li key={c.name} className="surface space-y-1.5 p-4">
-            <p className="flex flex-wrap items-baseline gap-x-2 text-sm font-medium">
-              {c.name}
-              {c.code ? <span className="font-mono text-[11px] text-muted-foreground">{c.code}</span> : null}
-            </p>
+            <p className="text-sm font-medium">{c.name}</p>
             <p className="text-[13px] leading-relaxed text-muted-foreground">{c.work}</p>
             {c.evidence ? (
               <Link href={c.evidence.href} className="inline-block text-[12px] text-primary underline-offset-4 hover:underline">

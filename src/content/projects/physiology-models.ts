@@ -41,7 +41,7 @@ export const physiologyModels: Project = {
     requirements: [
       {
         type: "table",
-        columns: ["#", "Requirement", "Acceptance criterion", "Status"],
+        columns: ["#", "Requirement", "Target", "Actual"],
         rows: [
           ["R1", "Model fidelity", "Each page uses the source model’s equations, parameters, and numerical scheme", "Documented per model in the repo’s fidelity notes"],
           ["R2", "Reference reproduction", "Glucose–insulin model reproduces the course fasting steady state (0.81 mg/ml glucose, 0.057 IU/ml insulin)", "Stated in the fidelity notes"],

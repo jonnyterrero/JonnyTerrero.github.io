@@ -36,7 +36,7 @@ export const heartwireOs: Project = {
     requirements: [
       {
         type: "table",
-        columns: ["#", "Requirement", "Acceptance criterion", "Status"],
+        columns: ["#", "Requirement", "Target", "Actual"],
         rows: [
           ["R1", "Catalog integrity", "Every resource has a human title, a valid track, a resolvable or explicitly null course, and a well-formed URL", "Failing — known defects in the deployed export"],
           ["R2", "Link validity", "Dead links are detected and flagged, not silently served", "Not implemented"],
@@ -154,7 +154,7 @@ export const jonnyjr: Project = {
     requirements: [
       {
         type: "table",
-        columns: ["#", "Requirement", "Acceptance criterion", "Status"],
+        columns: ["#", "Requirement", "Target", "Actual"],
         rows: [
           ["R1", "Guardrail enforcement", "Agents refuse when their declared condition is unmet, and only then", "Adversarial fixtures written; runs not yet graded"],
           ["R2", "Non-overlap", "Overlapping triggers resolve by a declared precedence", "Routing matrix written"],

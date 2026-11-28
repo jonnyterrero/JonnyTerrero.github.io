@@ -11,6 +11,7 @@ export const NAV_LINKS = [
   { href: "/heartwire", label: "HeartWire" },
   { href: "/engineering", label: "Engineering" },
   { href: "/research", label: "Research" },
+  { href: "/lab", label: "Lab" },
   { href: "/about", label: "About" },
   { href: "/writing", label: "Writing" },
   { href: "/resume", label: "Resume" },

@@ -32,7 +32,7 @@ export const bmeVisualizations: Project = {
     requirements: [
       {
         type: "table",
-        columns: ["#", "Requirement", "Acceptance criterion", "Status"],
+        columns: ["#", "Requirement", "Target", "Actual"],
         rows: [
           ["R1", "Numerical correctness", "Each model matches its closed-form solution across the slider range", "Not yet tested"],
           ["R2", "Physical plausibility", "Each model reproduces a published reference value or limiting behaviour", "Not yet tested"],
