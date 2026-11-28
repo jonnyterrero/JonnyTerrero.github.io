@@ -5,6 +5,7 @@ import { ecmGrapheneOxide } from "./ecm-graphene-oxide";
 import { gastroguard } from "./gastroguard";
 import { kneeBrace } from "./knee-brace";
 import { mindmap } from "./mindmap";
+import { pclScaffolds } from "./pcl-scaffolds";
 import { physiologyModels } from "./physiology-models";
 import { rdcJarOpener } from "./rdc-jar-opener";
 import { cocrReview, healthcareSupplyChain, strykerRsa } from "./research";
@@ -26,6 +27,7 @@ export const allProjects: Project[] = [
   bmeVisualizations,
   strykerRsa,
   ecmGrapheneOxide,
+  pclScaffolds,
   healthcareSupplyChain,
   cocrReview,
   jonnyjr,

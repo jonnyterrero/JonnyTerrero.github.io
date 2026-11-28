@@ -15,6 +15,7 @@ export const strykerRsa: Project = {
   repoUrl: null,
   extraLinks: [
     { label: "Complete benchmarking report (DOCX, 10 MB)", href: "/papers/stryker-reunion-rsa-complete-benchmarking-report.docx" },
+    { label: "Poster (PPTX)", href: "/papers/stryker-reunion-rsa-poster.pptx" },
     { label: "Benchmarking report (PDF)", href: "/papers/stryker-reunion-rsa-benchmarking.pdf" },
     { label: "Engineering analysis (PDF)", href: "/papers/stryker-reunion-rsa-engineering-analysis.pdf" },
     { label: "Reverse-engineering slide deck (PPTX)", href: "/papers/stryker-reunion-rsa-reverse-engineering-presentation.pptx" },
